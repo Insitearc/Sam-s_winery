@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Contact | SamWine Estate</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+/* ============================
+   SCOPED CONTACT PAGE ONLY
+   ============================ */
+
+.sam-contact-page {
+  --gold:#d4af37;
+  --gold-soft:#e6c76b;
+  --gold-dark:#9c7c2b;
+  --black:#070707;
+  --black-deep:#040404;
+  --black-soft:#111;
+  --text-soft:rgba(255,255,255,.75);
+  --border:rgba(212,175,55,.25);
+  --error:#e05555;
+  --success:#4caf7d;
+
+  background: linear-gradient(to bottom,var(--black),var(--black-deep));
+  color:#fff;
+  font-family:"Outfit", sans-serif;
+}
+
+/* HERO */
+
+.sam-contact-page .hero{
+  height:65vh;
+  background:
+  linear-gradient(to bottom,rgba(0,0,0,.4),rgba(0,0,0,.85)),
+  url("./images/rectanglesize6.png") center/cover no-repeat;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+}
+
+.sam-contact-page .hero h1{
+  font-size:4rem;
+  font-weight:500;
+  letter-spacing:4px;
+}
+
+.sam-contact-page .hero span{
+  display:block;
+  margin-top:18px;
+  font-size:12px;
+  letter-spacing:6px;
+  color:var(--gold-soft);
+}
+
+/* CONTACT SECTION */
+
+.sam-contact-page .contact-section{
+  max-width:1300px;
+  margin:auto;
+  padding: 12px 40px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:120px;
+}
+
+/* INFO */
+
+.sam-contact-page .contact-info h2{
+  font-size:3rem;
+  font-weight:500;
+  margin-bottom:25px;
+}
+
+.sam-contact-page .contact-info p{
+  color:var(--text-soft);
+  line-height:1.9;
+  margin-bottom:60px;
+  max-width:480px;
+}
+
+.sam-contact-page .info-block{
+  margin-bottom:35px;
+}
+
+.sam-contact-page .info-block span{
+  display:block;
+  color:var(--gold-soft);
+  font-size:11px;
+  letter-spacing:3px;
+  margin-bottom:8px;
+}
+
+.sam-contact-page .info-block div{
+  font-size:16px;
+  opacity:.9;
+}
+
+.sam-contact-page .info-block a{
+  color:#fff;
+  text-decoration:none;
+}
+
+.sam-contact-page .info-block a:visited,
+.sam-contact-page .info-block a:hover,
+.sam-contact-page .info-block a:active{
+  color:#fff;
+}
+
+/* FORM */
+
+.sam-contact-page .contact-form{
+  background:var(--black-soft);
+  padding:60px;
+  border:1px solid var(--border);
+  box-shadow:0 40px 120px rgba(0,0,0,.6);
+}
+
+.sam-contact-page .form-group{
+  margin-bottom:40px;
+  position: relative;
+}
+
+.sam-contact-page .contact-form label{
+  display:block;
+  font-size:11px;
+  letter-spacing:3px;
+  color:var(--gold-soft);
+  margin-bottom:12px;
+}
+
+.sam-contact-page .contact-form input,
+.sam-contact-page .contact-form textarea{
+  width:100%;
+  background:transparent;
+  border:none;
+  border-bottom:1px solid rgba(255,255,255,.2);
+  padding:14px 0;
+  color:#fff;
+  font-size:14px;
+  outline:none;
+  transition:.4s;
+  box-sizing: border-box;
+}
+
+.sam-contact-page .contact-form input:focus,
+.sam-contact-page .contact-form textarea:focus{
+  border-color:var(--gold);
+}
+
+.sam-contact-page .contact-form input.is-error,
+.sam-contact-page .contact-form textarea.is-error{
+  border-color: var(--error);
+}
+
+.sam-contact-page .contact-form input.is-valid,
+.sam-contact-page .contact-form textarea.is-valid{
+  border-color: var(--success);
+}
+
+.sam-contact-page .contact-form textarea{
+  resize:none;
+  height: 45px;
+}
+
+/* VALIDATION MESSAGES */
+
+.sam-contact-page .field-error {
+  display: none;
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: var(--error);
+  margin-top: 7px;
+  transition: all .3s ease;
+}
+
+.sam-contact-page .field-error.visible {
+  display: block;
+  animation: fadeInDown .25s ease;
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* BUTTON */
+
+.sam-contact-page .contact-form button{
+  margin-top:30px;
+  padding:16px 50px;
+  background:transparent;
+  border:1px solid var(--gold);
+  color:var(--gold-soft);
+  font-size:12px;
+  letter-spacing:4px;
+  cursor:pointer;
+  transition:.4s ease;
+}
+
+.sam-contact-page .contact-form button:hover{
+  background:var(--gold);
+  color:#000;
+}
+
+/* SUCCESS TOAST */
+
+.sam-contact-page .toast {
+  display: none;
+  position: fixed;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--success);
+  color: #fff;
+  padding: 14px 36px;
+  font-size: 12px;
+  letter-spacing: 2px;
+  border-radius: 4px;
+  text-align: center;
+  max-width: 90vw;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+  z-index: 9999;
+  animation: fadeInUp .4s ease;
+}
+
+.sam-contact-page .toast.show { display: block; }
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateX(-50%) translateY(16px); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+/* MAP */
+
+.sam-contact-page .map{
+  margin-top:100px;
+  height:450px;
+  filter:grayscale(100%) contrast(1.1);
+  border-top:1px solid var(--border);
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+  .sam-contact-page .contact-section{
+    grid-template-columns:1fr;
+    gap:80px;
+    padding:100px 30px;
+  }
+
+  .sam-contact-page .hero h1{
+    font-size:2.6rem;
+  }
+}
+html, body {
+  height: auto !important;
+  overflow-x: hidden;
+  overflow-y: auto !important;
+}
+</style>
+</head>
+
+<body>
+
+<div id="header-container"></div>
+
+<!-- WRAPPER START -->
+<div class="sam-contact-page">
+
+<section class="hero">
+  <div>
+    <h1>Contact Us</h1>
+    <span>SAM'S WINE ESTATE</span>
+  </div>
+</section>
+
+<section class="contact-section">
+
+  <div class="contact-info">
+    <h2>Let's Plan Something<br>Extraordinary</h2>
+    <p>
+      Whether you're planning a private tasting, destination wedding,
+      or executive retreat, our estate team will curate a refined experience
+      tailored exclusively to you.
+    </p>
+
+    <div class="info-block">
+      <span>PHONE / WHATSAPP</span>
+      <div style="display: flex; flex-direction: column; gap: 4px;">
+        <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+          <a href="tel:+919767177577" style="color: #fff; text-decoration: none; font-weight: 700; font-size: 1.15rem; letter-spacing: 0.5px;">+91 97671 77577</a>
+          <a href="https://wa.me/919767177577" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 5px; background: rgba(37, 211, 102, 0.15); border: 1px solid rgba(37, 211, 102, 0.4); color: #25D366; padding: 2px 10px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; text-decoration: none;">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824zm-3.423-14.416c-6.627 0-12 5.373-12 12 0 2.125.556 4.12 1.529 5.86l-1.529 5.584 5.728-1.502c1.701.936 3.651 1.458 5.726 1.458 6.627 0 12-5.373 12-12 0-6.627-5.373-12-12-12z"/></svg> WhatsApp
+          </a>
+        </div>
+        <div style="font-size: 0.9rem; opacity: 0.8; margin-top: 2px;">
+          Alt: <a href="tel:+919503283577" style="color: rgba(255,255,255,0.75); text-decoration: none;">+91 95032 83577</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-block">
+      <span>EMAIL</span>
+      <div><a href="mailto:safl.winery@samagri.com">safl.winery@samagri.com</a></div>
+    </div>
+
+    <div class="info-block">
+      <span>LOCATION</span>
+      <div>Gate No. 85, Korhate Village,
+Taluka Dindori, Nashik – 422202</div>
+    </div>
+
+    <div class="info-block">
+      <span>HOURS</span>
+      <div>Daily · 10 AM — 6 PM</div>
+    </div>
+  </div>
+
+  <form class="contact-form" id="contactForm" action="contact_mail.php" method="POST" novalidate>
+
+    <div class="form-group">
+      <label>FULL NAME</label>
+      <input type="text" id="fullName" name="fullName" placeholder="Your Name" autocomplete="off" required>
+      <div class="field-error" id="fullNameError">Only alphabets and spaces are allowed.</div>
+    </div>
+
+    <div class="form-group">
+      <label>MOBILE NUMBER</label>
+      <input type="tel" id="mobile" name="mobile" placeholder="e.g. 9876543210" autocomplete="off" maxlength="10" required>
+      <div class="field-error" id="mobileError">Enter a valid 10-digit <b>INDIAN</b> mobile number (starts with 6, 7, 8, or 9).</div>
+    </div>
+
+    <div class="form-group">
+      <label>EMAIL</label>
+      <input type="email" id="email" name="email" placeholder="Your Email" autocomplete="off" required>
+      <div class="field-error" id="emailError">Please enter a valid email address.</div>
+    </div>
+
+    <div class="form-group">
+      <label>EVENT TYPE</label>
+      <input type="text" id="eventType" name="eventType" placeholder="Wedding, Corporate, Private">
+      <div class="field-error" id="eventTypeError">Only alphabets, spaces, and commas are allowed.</div>
+    </div>
+
+    <div class="form-group">
+      <label>MESSAGE</label>
+      <textarea id="message" name="message" placeholder="Tell us about your event..." required></textarea>
+      <div class="field-error" id="messageError">Please enter your message.</div>
+    </div>
+
+    <button type="submit" id="submitBtn">SEND INQUIRY</button>
+  </form>
+
+</section>
+
+<section class="map">
+  <iframe src="https://www.google.com/maps?q=california%20winery&output=embed"
+  width="100%" height="100%" style="border:0;"></iframe>
+</section>
+
+<div class="toast" id="successToast">INQUIRY SENT SUCCESSFULLY</div>
+
+</div>
+<!-- WRAPPER END -->
+
+<div id="footer-container"></div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+/* ============================================================
+   FORM VALIDATION
+   ============================================================ */
+
+const rules = {
+  fullName: {
+    validate: v => /^[A-Za-z\s]{2,}$/.test(v.trim()),
+    errorId: 'fullNameError',
+    msg: 'Only alphabets and spaces are allowed (min 2 chars).'
+  },
+  mobile: {
+    validate: v => /^[6-9]\d{9}$/.test(v.trim()),
+    errorId: 'mobileError',
+    msg: 'Enter a valid 10-digit Indian mobile number (starts with 6, 7, 8, or 9).'
+  },
+  email: {
+    validate: v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()),
+    errorId: 'emailError',
+    msg: 'Please enter a valid email address.'
+  },
+  eventType: {
+    validate: v => v.trim() === '' || /^[A-Za-z\s,]+$/.test(v.trim()),
+    errorId: 'eventTypeError',
+    msg: 'Only alphabets, spaces, and commas are allowed.'
+  },
+ message: {
+    validate: v => v.trim().length >= 1,
+    errorId: 'messageError',
+    msg: 'Please enter a message.'
+}
+};
+
+/* Block non-numeric keypress on mobile field */
+document.getElementById('mobile').addEventListener('keypress', function(e) {
+  if (!/[0-9]/.test(e.key)) {
+    e.preventDefault();
+  }
+});
+
+/* Block non-alpha keypress on fullName field */
+document.getElementById('fullName').addEventListener('keypress', function(e) {
+  if (!/[A-Za-z\s]/.test(e.key)) {
+    e.preventDefault();
+  }
+});
+
+/* Block non-alpha keypress on eventType field */
+document.getElementById('eventType').addEventListener('keypress', function(e) {
+  if (!/[A-Za-z\s,]/.test(e.key)) {
+    e.preventDefault();
+  }
+});
+
+/* Inline validation on blur */
+Object.keys(rules).forEach(fieldId => {
+  const input = document.getElementById(fieldId);
+  if (!input) return;
+
+  input.addEventListener('blur', () => validateField(fieldId));
+  input.addEventListener('input', () => {
+    if (input.classList.contains('is-error')) validateField(fieldId);
+  });
+});
+
+function validateField(fieldId) {
+  const rule   = rules[fieldId];
+  const input  = document.getElementById(fieldId);
+  const errEl  = document.getElementById(rule.errorId);
+  const val    = input.value;
+
+  const isRequired = ['fullName', 'mobile', 'email', 'message'].includes(fieldId);
+  const isEmpty    = val.trim() === '';
+
+  if (isRequired && isEmpty) {
+    setError(input, errEl, 'This field is required.');
+    return false;
+  }
+
+  if (!isEmpty && !rule.validate(val)) {
+    setError(input, errEl, rule.msg);
+    return false;
+  }
+
+  clearError(input, errEl);
+  return true;
+}
+
+function setError(input, errEl, msg) {
+  input.classList.add('is-error');
+  input.classList.remove('is-valid');
+  errEl.textContent = msg;
+  errEl.classList.add('visible');
+}
+
+function clearError(input, errEl) {
+  input.classList.remove('is-error');
+  input.classList.add('is-valid');
+  errEl.classList.remove('visible');
+}
+</script>
+
+<script>
+/* Check URL params for non-AJAX fallback submission */
+(function() {
+  const urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.get('status') === 'success') {
+    window.addEventListener('DOMContentLoaded', () => {
+      const toast = document.getElementById('successToast');
+      if (toast) {
+        toast.textContent = 'INQUIRY SENT SUCCESSFULLY';
+        toast.style.background = 'var(--success)';
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 4000);
+      }
+      if (window.history.replaceState) {
+        window.history.replaceState({}, document.title, window.location.pathname);
+      }
+    });
+  }
+})();
+
+/* Submit Handler */
+document.getElementById('contactForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+
+  const requiredFields = ['fullName', 'mobile', 'email', 'message'];
+  const optionalFields = ['eventType'];
+  let allValid = true;
+
+  [...requiredFields, ...optionalFields].forEach(id => {
+    if (!validateField(id)) allValid = false;
+  });
+
+  if (!allValid) return;
+
+  const submitBtn = document.getElementById('submitBtn');
+  const originalText = submitBtn.textContent;
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'SENDING...';
+
+  const toast = document.getElementById('successToast');
+
+  const payload = {
+    fullName: document.getElementById('fullName').value.trim(),
+    mobile: document.getElementById('mobile').value.trim(),
+    email: document.getElementById('email').value.trim(),
+    eventType: document.getElementById('eventType').value.trim(),
+    message: document.getElementById('message').value.trim()
+  };
+
+  try {
+    const response = await fetch('contact_mail.php', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify(payload)
+    });
+
+    const data = await response.json();
+
+    if (data.status === 'success') {
+      toast.textContent = data.message || 'INQUIRY SENT SUCCESSFULLY';
+      toast.style.background = 'var(--success)';
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 4500);
+
+      this.reset();
+      document.querySelectorAll('.contact-form input, .contact-form textarea')
+        .forEach(el => el.classList.remove('is-valid', 'is-error'));
+    } else {
+      toast.textContent = data.message || 'Unable to send inquiry. Please try again.';
+      toast.style.background = 'var(--error)';
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 4500);
+    }
+  } catch (err) {
+    console.error('Mail delivery request error:', err);
+    if (window.location.protocol === 'file:') {
+      toast.textContent = 'NOTE: PHP mailer requires a web server (Hostinger or localhost), not file://';
+      toast.style.background = '#e67e22';
+    } else {
+      toast.textContent = 'Failed to deliver inquiry. Please check server settings.';
+      toast.style.background = 'var(--error)';
+    }
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 6000);
+  } finally {
+    submitBtn.disabled = false;
+    submitBtn.textContent = originalText;
+  }
+});
+</script>
+
+<script>
+// Inject HTML and re-execute any <script> tags inside it
+// (innerHTML does NOT run scripts automatically)
+function injectHTML(containerId, html) {
+  const container = document.getElementById(containerId);
+  container.innerHTML = html;
+  container.querySelectorAll('script').forEach(oldScript => {
+    const newScript = document.createElement('script');
+    newScript.textContent = oldScript.textContent;
+    document.body.appendChild(newScript);
+    oldScript.remove();
+  });
+}
+
+fetch('header.html')
+  .then(r => r.text())
+  .then(html => injectHTML('header-container', html))
+  .catch(err => console.error('Header load failed:', err));
+
+fetch('footer.html')
+  .then(r => r.text())
+  .then(html => injectHTML('footer-container', html))
+  .catch(err => console.error('Footer load failed:', err));
+</script>
+
+</body>
+</html>

@@ -1,0 +1,864 @@
+
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #000;
+      color: #fff;
+      font-family: "Outfit", sans-serif;
+      overflow-x: hidden;
+      width: 100%;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .hero {
+      height: 70vh;
+      background: url("images/7.jpeg") center/cover;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      width: 100%;
+    }
+
+    .hero h1 {
+      font-size: 4rem;
+      color: white;
+      font-weight: 400;
+      text-align: center;
+      padding: 0 20px;
+    }
+
+    .scroll-dot {
+      width: 10px;
+      height: 10px;
+      background: #fff;
+      border-radius: 50%;
+      margin-top: 20px;
+    }
+
+    /* ============================= */
+    /* STORIES SECTION */
+    /* ============================= */
+
+    .stories-section {
+      background: #0a0a0a;
+      color: #fff;
+      padding: 80px 5%;
+      width: 100%;
+      overflow-x: hidden;
+    }
+
+    .stories-section .tabs {
+      display: flex;
+      gap: 40px;
+      margin-bottom: 50px;
+      flex-wrap: wrap;
+    }
+
+    .stories-section .tab {
+      background: none;
+      border: none;
+      font-size: 1rem;
+      cursor: pointer;
+      padding-bottom: 5px;
+      color: #888;
+      transition: color 0.3s ease;
+      font-family: "Outfit", sans-serif;
+    }
+
+    .stories-section .tab.active {
+      border-bottom: 2px solid #d4af37;
+      color: #d4af37;
+    }
+
+    .stories-section .tab:hover {
+      color: #fff;
+    }
+
+    .stories-section .tab-content {
+      display: none;
+      width: 100%;
+    }
+
+    .stories-section .tab-content.active {
+      display: block;
+    }
+
+    /* ============================= */
+    /* GRID STYLES */
+    /* ============================= */
+
+    .stories-section .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 30px;
+      align-items: stretch;
+      width: 100%;
+    }
+
+    /* ============================= */
+    /* CARD STYLES */
+    /* ============================= */
+
+    .stories-section .card {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+      cursor: pointer;
+      background: #141414;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .stories-section .card img {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      border-radius: 12px 12px 0 0;
+      display: block;
+    }
+
+    .stories-section .card h3 {
+      padding: 1.5rem;
+      font-size: 1.15rem;
+      font-weight: 400;
+      margin-top: 0px;
+      line-height: 1.5;
+      color: #fff;
+    }
+
+    .stories-section .card:hover {
+      transform: translateY(-10px);
+      border-color: #d4af37;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    /* ============================= */
+    /* EVENTS SECTION */
+    /* ============================= */
+
+    .stories-section #events .grid {
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: 40px;
+    }
+
+    .stories-section .card1 {
+      background-color: #000;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      transition: transform 0.4s ease, border-color 0.4s ease;
+      height: 100%;
+    }
+
+    .stories-section .card1:hover {
+      transform: translateY(-10px);
+      border-color: #d4af37;
+    }
+
+    .card-image-wrapper {
+      position: relative;
+      height: 300px;
+      overflow: hidden;
+    }
+
+    .card-image-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .stories-section .card1:hover .card-image-wrapper img {
+      transform: scale(1.1);
+    }
+
+    .event-tag {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: #d4af37;
+      color: #000;
+      padding: 5px 15px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      z-index: 2;
+    }
+
+    .card-body {
+      padding: 30px;
+    }
+
+    .event-date {
+      color: #d4af37;
+      font-size: 0.8rem;
+      display: block;
+      margin-bottom: 10px;
+      letter-spacing: 1px;
+    }
+
+    .card-body h3 {
+      font-size: 1.8rem;
+      color: #fff;
+      margin-bottom: 15px;
+      font-weight: 400;
+      line-height: 1.3;
+    }
+
+    .card-body p {
+      color: #aaa;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 25px;
+      font-weight: 300;
+    }
+
+    .read-more {
+      color: #fff;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border-bottom: 1px solid #d4af37;
+      padding-bottom: 3px;
+      transition: 0.3s;
+      display: inline-block;
+    }
+
+    .read-more:hover {
+      color: #d4af37;
+      padding-left: 5px;
+    }
+
+    /* ============================= */
+    /* WINE SELECTION */
+    /* ============================= */
+
+    .stories-section .wine-selection-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      width: 100%;
+    }
+
+    .product-item {
+      border: 1px solid rgba(198, 167, 94, 0.1);
+      border-radius: 20px;
+      overflow: hidden;
+      transition: 0.4s ease;
+      text-align: center;
+      cursor: pointer;
+      background: #000;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .product-link {
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .product-item:hover {
+      transform: translateY(-12px);
+      border-color: #c6a75e;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .product-visual {
+      padding: 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.8), #000);
+    }
+
+    .product-visual img {
+      max-width: 100%;
+      height: auto;
+      max-height: 250px;
+      width: auto;
+      transition: transform 0.5s ease;
+      object-fit: contain;
+    }
+
+    .product-item:hover .product-visual img {
+      transform: scale(1.05);
+    }
+
+    .product-details {
+      padding: 2rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .wine-label {
+      display: block;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: #c6a75e;
+      margin-bottom: 0.8rem;
+    }
+
+    .product-details h3 {
+      font-family: "Outfit", sans-serif;
+      font-size: 1.6rem;
+      color: #ffffff;
+      margin-bottom: 1rem;
+      line-height: 1.3;
+    }
+
+    .product-details p {
+      font-size: 0.65rem;
+      color: #aaa;
+      line-height: 1.6;
+      font-weight: 300;
+      flex: 1;
+    }
+
+    /* ============================= */
+    /* RESPONSIVE STYLES */
+    /* ============================= */
+
+    /* Large Tablets */
+    @media screen and (max-width: 1024px) {
+      .stories-section .grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+      }
+
+      .stories-section #events .grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .card-body h3 {
+        font-size: 1.6rem;
+      }
+    }
+
+    /* Medium Tablets */
+    @media screen and (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.8rem;
+      }
+
+      .stories-section {
+        padding: 60px 4%;
+      }
+
+      .stories-section .tabs {
+        gap: 25px;
+        margin-bottom: 40px;
+        justify-content: center;
+      }
+
+      .stories-section .tab {
+        font-size: 0.95rem;
+      }
+
+      .stories-section .grid,
+      .stories-section #events .grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .stories-section .wine-selection-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+
+      .product-visual {
+        padding: 1.5rem;
+      }
+
+      .product-details {
+        padding: 1.5rem;
+      }
+
+      .product-details h3 {
+        font-size: 1.4rem;
+      }
+
+      .card-body {
+        padding: 25px;
+      }
+
+      .card-body h3 {
+        font-size: 1.5rem;
+      }
+    }
+
+    /* Mobile Landscape */
+    @media screen and (max-width: 640px) {
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+
+      .stories-section .wine-selection-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+      }
+
+      .product-visual img {
+        max-height: 200px;
+      }
+    }
+
+    /* Mobile Portrait */
+    @media screen and (max-width: 480px) {
+      .hero {
+        height: 60vh;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+        padding: 0 15px;
+      }
+
+      .stories-section {
+        padding: 40px 4%;
+      }
+
+      .stories-section .tabs {
+        gap: 15px;
+        margin-bottom: 30px;
+      }
+
+      .stories-section .tab {
+        font-size: 0.85rem;
+        padding-bottom: 3px;
+      }
+
+      .stories-section .grid,
+      .stories-section #events .grid {
+        gap: 25px;
+      }
+
+      .stories-section .card h3 {
+        font-size: 1rem;
+        padding: 1rem 0.5rem 1rem 0;
+      }
+
+      .card-image-wrapper {
+        height: 250px;
+      }
+
+      .card-body {
+        padding: 20px;
+      }
+
+      .card-body h3 {
+        font-size: 1.3rem;
+        margin-bottom: 10px;
+      }
+
+      .card-body p {
+        font-size: 0.9rem;
+        margin-bottom: 20px;
+      }
+
+      .event-date {
+        font-size: 0.75rem;
+      }
+
+      .event-tag {
+        top: 15px;
+        left: 15px;
+        padding: 4px 12px;
+        font-size: 0.65rem;
+      }
+
+      .product-visual {
+        padding: 1.2rem;
+      }
+
+      .product-details {
+        padding: 1.2rem;
+      }
+
+      .product-details h3 {
+        font-size: 1.3rem;
+      }
+
+      .product-details p {
+        font-size: 0.9rem;
+      }
+
+      .wine-label {
+        font-size: 0.65rem;
+        letter-spacing: 2px;
+      }
+
+      .read-more {
+        font-size: 0.8rem;
+      }
+    }
+
+    /* Small Mobile */
+    @media screen and (max-width: 360px) {
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+
+      .stories-section .tabs {
+        gap: 10px;
+      }
+
+      .stories-section .tab {
+        font-size: 0.8rem;
+      }
+
+      .card-body h3 {
+        font-size: 1.2rem;
+      }
+
+      .product-details h3 {
+        font-size: 1.2rem;
+      }
+    }
+
+    /* Fix for grid on very small devices */
+    @media screen and (max-width: 320px) {
+      .stories-section .grid,
+      .stories-section #events .grid,
+      .stories-section .wine-selection-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Ensure images don't overflow */
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* Fix for header container */
+    #header-container {
+      width: 100%;
+      overflow-x: hidden;
+    }
+
+    #footer-container {
+      width: 100%;
+      overflow-x: hidden;
+    }
+
+/* ============================= */
+/* RECIPES SPECIFIC STYLES */
+/* ============================= */
+
+.recipe-tabs-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+  width: 100%;
+}
+
+.recipe-tabs {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.02);
+  padding: 8px;
+  border-radius: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.recipe-tab {
+  background: none;
+  border: none;
+  font-size: 0.9rem;
+  font-weight: 400;
+  cursor: pointer;
+  padding: 10px 24px;
+  color: #bfae9c;
+  border-radius: 30px;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  font-family: "Outfit", sans-serif;
+  letter-spacing: 1px;
+}
+
+.recipe-tab:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.recipe-tab.active {
+  background: #c6a15b;
+  color: #121212;
+  font-weight: 600;
+}
+
+/* RECIPES GRID */
+.recipes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 360px), 1fr));
+  gap: 40px;
+  max-width: 1300px;
+  margin: 0 auto;
+  align-items: start; /* Fix vertical stretching layout bug! */
+}
+
+/* RECIPE CARD */
+.recipe-card {
+  background: #141414;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  opacity: 0;
+  transform: translateY(25px);
+  animation: cardFadeIn 0.6s forwards ease;
+}
+
+.recipe-card.filtered-out {
+  display: none;
+}
+
+@keyframes cardFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.recipe-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(198, 161, 91, 0.5);
+  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.6), 0 0 25px rgba(198, 161, 91, 0.05);
+}
+
+.recipe-img-wrapper {
+  position: relative;
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+}
+
+.recipe-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s ease;
+}
+
+.recipe-card:hover .recipe-img {
+  transform: scale(1.06);
+}
+
+/* Pairing tag styling */
+.pairing-tag {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  padding: 6px 16px;
+  border-radius: 30px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #fff;
+  z-index: 2;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.tag-pome { background: #8a1f2d; }
+.tag-jamun { background: #4a2153; }
+.tag-mahua { background: #c6a15b; color: #121212; }
+.tag-strawberry { background: #ab1721; }
+
+.recipe-details-badges {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 8px;
+  z-index: 2;
+}
+
+.badge {
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  letter-spacing: 0.5px;
+  color: #e6d5c3;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.recipe-content {
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.recipe-title {
+  font-family: "Outfit", sans-serif;
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: #fff;
+  margin-bottom: 12px;
+  letter-spacing: 0.5px;
+}
+
+.recipe-desc {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #bfae9c;
+  margin-bottom: 20px;
+  font-weight: 300;
+}
+
+/* Recipe Details Drawer */
+.recipe-expandable {
+  margin-top: auto;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 20px;
+}
+
+.toggle-btn {
+  background: none;
+  border: none;
+  color: #c6a15b;
+  font-family: "Outfit", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 0;
+  transition: color 0.3s;
+  width: 100%;
+  text-align: left;
+}
+
+.toggle-btn:hover {
+  color: #e6d5c3;
+}
+
+.toggle-btn svg {
+  width: 12px;
+  height: 12px;
+  fill: currentColor;
+  transition: transform 0.3s ease;
+}
+
+.toggle-btn.active svg {
+  transform: rotate(180deg);
+}
+
+.expanded-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.expanded-content.active {
+  max-height: 1000px;
+  margin-top: 20px;
+}
+
+.section-subtitle {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #c6a15b;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.ingredients-list {
+  list-style: none;
+  margin-bottom: 20px;
+}
+
+.ingredients-list li {
+  font-size: 0.88rem;
+  color: #d8c4b3;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  line-height: 1.4;
+}
+
+.ingredients-list li::before {
+  content: "•";
+  color: #c6a15b;
+  font-size: 1.1rem;
+}
+
+.steps-list {
+  list-style: decimal;
+  padding-left: 20px;
+}
+
+.steps-list li {
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: #d8c4b3;
+  margin-bottom: 12px;
+  padding-left: 5px;
+}
+
+.steps-list li::marker {
+  color: #c6a15b;
+  font-weight: 600;
+}
+
+/* RESPONSIVE DESIGN FOR RECIPES */
+@media (max-width: 768px) {
+  .recipe-tabs {
+    gap: 8px;
+    padding: 6px;
+  }
+  .recipe-tab {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+  }
+  .recipes-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .recipe-img-wrapper {
+    height: 200px;
+  }
+  .recipe-content {
+    padding: 20px;
+  }
+  .recipe-title {
+    font-size: 1.3rem;
+  }
+}
+  

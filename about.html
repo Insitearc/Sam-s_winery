@@ -1,0 +1,512 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>About Us | Sam's Wine Winery</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Discover the story of Sam's Wine, our heritage in Nashik, Maharashtra, our winemaking philosophy, and our leadership team." />
+  <link rel="canonical" href="https://samsfruitwines.com/about.html" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="about.css" />
+</head>
+
+<body>
+  <!-- HEADER IMPORT -->
+  <div id="header-container"></div>
+
+  <script>
+    // Import header.html
+    fetch("header.html")
+      .then((response) => response.text())
+      .then((data) => {
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(data, "text/html");
+        const nav = doc.querySelector("nav");
+        const menuOverlay = doc.querySelector(".menu-overlay");
+        const styles = doc.querySelector("style");
+        const scripts = doc.querySelector("script");
+
+        if (styles) {
+          document.head.appendChild(styles);
+          setTimeout(() => {
+            document.body.style.overflow = "";
+            document.documentElement.style.overflow = "";
+          }, 100);
+        }
+
+        if (nav) {
+          nav.style.background = "transparent";
+          nav.style.backdropFilter = "none";
+
+          const menuToggleSpans = nav.querySelectorAll(".menu-toggle span");
+          menuToggleSpans.forEach((span) => {
+            span.style.background = "white";
+            span.style.display = "block";
+          });
+        }
+
+        document.getElementById("header-container").appendChild(nav);
+        document.getElementById("header-container").appendChild(menuOverlay);
+
+        if (scripts) {
+          eval(scripts.textContent);
+        }
+      })
+      .catch((error) => console.error("Error loading header:", error));
+  </script>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-image">
+      <img src="images/sams wine6.png" alt="Our Orchards heritage" />
+    </div>
+    <div class="hero-content">
+      <div class="hero-card">
+        <h2>ABOUT SAM’S WINERY</h2>
+        <h3>- Our Story -</h3>
+        <p>
+          Founded in 2022, Sam's Wine is a privately held winery based in
+          Nashik, Maharashtra — <b>INDIA'S</b> renowned wine region. We craft
+          residue-free fruit and flower wines, blending sustainable farming
+          practices with artisanal winemaking techniques. Every bottle
+          reflects our commitment to quality, authenticity, and innovation,
+          offering a taste experience unlike any grape-based wine in the
+          region.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- HERITAGE / DREAMING BIG SECTION -->
+  <section class="dreaming-section">
+    <div class="dreaming-header-container">
+      <h2 class="dreaming-heading">Dreaming bigger is what we do</h2>
+      <div class="dreaming-subtext">
+        <p>
+          What began with a love for India’s finest fruits has grown into a vision for wine that travels beyond borders.
+        </p>
+        <p>
+          From carefully sourced produce to thoughtfully crafted wines, Sam’s Wine brings together Indian fruit, modern
+          winemaking and a global outlook.
+        </p>
+        <p class="dreaming-highlight">
+          And this is only the beginning.
+        </p>
+      </div>
+    </div>
+
+    <div class="dreaming-carousel-wrapper">
+      <div class="dreaming-carousel-track" id="dreamingCarouselTrack">
+        <!-- Populated by JavaScript for seamless infinite looping -->
+      </div>
+
+      <div class="dreaming-carousel-footer">
+        <button class="dreaming-nav-btn prev" id="dreamingPrevBtn" aria-label="Previous slide">
+          <svg width="18" height="28" viewBox="0 0 18 28" fill="none" stroke="currentColor" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 4L4 14L14 24" />
+          </svg>
+        </button>
+        <div class="dreaming-caption-wrapper">
+          <p class="dreaming-active-caption" id="dreamingActiveCaption">
+            Signature handcrafted Indian fruit wines, celebrating authentic regional produce.
+          </p>
+        </div>
+        <button class="dreaming-nav-btn next" id="dreamingNextBtn" aria-label="Next slide">
+          <svg width="18" height="28" viewBox="0 0 18 28" fill="none" stroke="currentColor" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4L14 14L4 24" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT WE ACTUALLY BELIEVE -->
+  <section class="believe-section">
+    <div class="believe-container">
+      <div class="believe-header">
+        <h2 class="believe-title">What We Actually Believe</h2>
+        <div class="believe-description">
+          <p>
+            <b>INDIA</b> does not need to keep borrowing Europe's wine story. We have our own. It lives in the
+            pomegranate orchards. It lives in the fresh strawberries ripening under the sun. It lives in the Mahua trees
+            that bloom for just a few weeks a year. It lives in the Jamun that stained every one of our childhoods
+            purple.
+          </p>
+        </div>
+      </div>
+
+      <div class="believe-media-wrap">
+        <img src="images/garti2.JPG" alt="What We Actually Believe" class="believe-image" />
+      </div>
+    </div>
+  </section>
+
+  <!-- FOUNDERS SECTION -->
+  <section class="founders">
+    <div class="founders-header-wrap">
+      <h2 class="founders-section-heading">OUR PEOPLE</h2>
+    </div>
+
+    <div class="founders-container">
+      <!-- FOUNDER 1: MR. G.V.K. NAIDU -->
+      <div class="founder-row">
+        <div class="founder-image-section">
+          <div class="founder-overlay">
+            <h3 class="founder-overlay-name">Mr. G.V.K. Naidu</h3>
+            <p class="founder-overlay-role">Founder, Sam Agri Group</p>
+          </div>
+
+          <div class="founder-image-card">
+            <img src="images/Color Graded Images - Sam Wine/Artboard 1.png" alt="Mr. G.V.K. Naidu - Founder"
+              class="founder-image" />
+          </div>
+        </div>
+
+        <div class="founder-story-panel">
+          <div class="founder-micro-heading">Rich in History</div>
+          <h2 class="founder-main-heading">Where This Really Comes From</h2>
+          <div class="founder-description">
+            <p>
+              Our founder, Mr. G.V.K. Naidu, has been in the ground since 1996, literally. We built Sam Agri from a
+              single
+              idea: that <b>INDIA</b> grows some of the most extraordinary fruit in the world, and all it needs is
+              someone
+              willing to treat it with the respect it deserves.
+            </p>
+            <p>
+              We became pioneers in exporting fresh pomegranate arils when nobody else thought it was possible. We built
+              processing facilities in Nashik, Bengaluru, and across South <b>INDIA</b>. We earned the kind of
+              certifications, ISO, BRC, US FDA, Global GAP, Fairtrade, that mean someone in Switzerland trusts our fruit
+              enough to put it in their child's lunchbox.
+              That trust took 25 years to build. It is the foundation Sam's Wine stands on.
+            </p>
+            <a href="https://samagri.com" target="_blank" class="sam-agri-link">More about SAM Agri Group →</a>
+            <div class="founder-socials">
+              <a href="https://www.instagram.com/sams_wine_nashik?igsh=enFtN2wxbWM4dXA0" target="_blank"
+                aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+              <a href="https://www.facebook.com/p/Sams-Wine-61554876429726/" target="_blank" aria-label="Facebook"><i
+                  class="fa-brands fa-facebook-f"></i></a>
+              <a href="https://www.linkedin.com/company/sam-s-wine/" target="_blank" aria-label="LinkedIn"><i
+                  class="fa-brands fa-linkedin-in"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FOUNDER 2: MR. K. N. RAO -->
+      <div class="founder-row">
+        <div class="founder-image-section">
+          <div class="founder-overlay">
+            <h3 class="founder-overlay-name">Mr. K. N. Rao</h3>
+            <p class="founder-overlay-role">Technical Director</p>
+          </div>
+
+          <div class="founder-image-card">
+            <img src="images/Color Graded Images - Sam Wine/Artboard 9.png" alt="Mr. K. N. Rao - Technical Director"
+              class="founder-image" />
+          </div>
+        </div>
+
+        <div class="founder-story-panel">
+          <div class="founder-bottom-header">
+            <div>
+              <div class="founder-micro-heading">Technical Leadership</div>
+              <h2 class="founder-main-heading">Mr. K. N. Rao</h2>
+              <p class="founder-bottom-role">Technical Director</p>
+            </div>
+            <a href="https://www.linkedin.com/in/kakarla-n-rao-49191059/?isSelfProfile=false" target="_blank"
+              class="founder-linkedin-link" aria-label="Mr. K. N. Rao LinkedIn"
+              title="Connect with Mr. K. N. Rao on LinkedIn">
+              <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+          </div>
+          <div class="founder-description">
+            <p>
+              K.N. Rao is the visionary who inspired Sam's journey into winemaking by recognizing the potential of
+              transforming premium pomegranate harvests into world-class value-added products. With over 35 years of
+              expertise in agriculture, food processing, research, and product innovation, he laid the technical and
+              strategic foundation for Sam's Wine. His passion for quality, innovation, and sustainable value creation
+              continues to shape our commitment to crafting distinctive fruit wines from the finest produce.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- FOUNDER 3: VIRAJ DEORE -->
+      <div class="founder-row">
+        <div class="founder-image-section">
+          <div class="founder-overlay">
+            <h3 class="founder-overlay-name">Viraj Deore</h3>
+            <p class="founder-overlay-role">Business Head, Sam's Wine</p>
+          </div>
+
+          <div class="founder-image-card">
+            <img src="images/Color Graded Images - Sam Wine/virajsirimg.jpg" alt="Viraj Deore - Business Head"
+              class="founder-image" />
+          </div>
+        </div>
+
+        <div class="founder-story-panel">
+          <div class="founder-bottom-header">
+            <div>
+              <div class="founder-micro-heading">Winery Operations & Growth</div>
+              <h2 class="founder-main-heading">Viraj Deore</h2>
+              <p class="founder-bottom-role">Business Head, Sam's Wine</p>
+            </div>
+            <a href="https://www.linkedin.com/in/deoreviraj25/" target="_blank" class="founder-linkedin-link"
+              aria-label="Viraj Deore LinkedIn" title="Connect with Viraj Deore on LinkedIn">
+              <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+          </div>
+          <div class="founder-description">
+            <p>
+              With 10+ years of hands-on experience in winemaking across <b>INDIA</b>, California, and New Zealand,
+              Viraj
+              has been instrumental in building Sam’s Wine from the ground up. From winemaking, R&D and winery
+              operations
+              to branding, sales and market development, he brings together technical expertise and entrepreneurial
+              vision. His vision is to take <b>INDIAN</b> fruit wines from a niche category to a globally recognised
+              expression of <b>INDIA'S</b> unique fruits, flavours and agricultural heritage.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO WE ARE -->
+  <section class="who-we-are-section">
+    <div class="values-container">
+      <div class="values-media-wrap">
+        <img src="images/sam's winery/Matte Black Pomegranate Wine in a Grand Dining Hall (1).png"
+          alt="Sam's Wine Fine Dining Experience" class="values-media-img" />
+      </div>
+
+      <div class="values-info-wrap">
+        <div class="values-header">
+          <h2 class="values-title">Why 2022?</h2>
+        </div>
+
+        <div class="values-columns">
+          <div class="values-col">
+            <p>
+              Because by then, we had everything we needed and no good reason to wait any longer.
+            </p>
+            <p>
+              We had the farms. We had the knowledge. We had the fruit. What we did not have was someone making wine
+              from
+              it in a way that honoured where it came from. So we became that someone.
+            </p>
+          </div>
+          <div class="values-col">
+            <p>
+              Sam's Wine is a dedicated commitment to excellence and a celebration of our land. It is the natural next
+              chapter of everything Sam Agri has built, focused on sharing our agricultural heritage directly with the
+              people right here at home.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CRAFTSMANSHIP -->
+  <section class="craftsmanship-section">
+    <div class="craft-header-wrap">
+      <h2 class="craft-main-heading">Craftsmanship</h2>
+    </div>
+
+    <div class="craft-container">
+      <div class="craft-col-primary">
+        <div class="craft-image-wrap">
+          <img src="images/sam's winery/Golden Hour Strawberry Wine Picnic (1).png"
+            alt="Winemaking cellar craftsmanship" class="craft-primary-img" />
+        </div>
+        <div class="craft-content">
+          <h3 class="craft-col-subtitle">Small Batch Production</h3>
+          <p class="craft-col-body">
+            At Sam's Wine, we believe that exceptional wines are born from
+            focus and care. Our small batch approach allows each wine to
+            receive individual attention at every stage of the winemaking
+            process, from fermentation to bottling.
+          </p>
+          <a href="wineclub.html" class="craft-btn-link">Explore Our Wines</a>
+        </div>
+      </div>
+
+      <div class="craft-col-secondary">
+        <div class="craft-image-wrap">
+          <img src="images/sam's winery/Pomegranate Orchard Wine Showcase.png" alt="Small batch production"
+            class="craft-secondary-img" />
+        </div>
+        <div class="craft-content">
+          <blockquote class="craft-quote">
+            <p>
+              “This method enables us to work closely with locally sourced
+              fruits, carefully monitoring temperature, fermentation pace, and
+              flavor development to bring out the true essence of Pomegranate,
+              Jamun, Strawberry, and Mahua. Each batch is evaluated independently to ensure
+              balance, purity, and consistency in every bottle. By limiting
+              production volumes, Sam’s Wine preserves craftsmanship over mass
+              production. The result is a range of residue-free fruit & flower wines that
+              reflect authenticity, precision, and the distinctive character of
+              <b>INDIAN</b> terroir.”
+            </p>
+            <cite>— <strong>Sam’s Wine</strong> Winemaking Philosophy</cite>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- FAMILY & PEOPLE -->
+  <!-- <section class="wine-family">
+    <div class="container">
+      <div class="section-header">
+        <h4 class="sub-heading">Our Craft</h4>
+        <h2>Meet The Collection</h2>
+        <div class="header-line"></div>
+      </div>
+
+      <div class="wine-grid">
+        <a href="Strawberry.html" class="wine-card">
+          <div class="wine-image">
+            <img src="images/strawberry vertical (1).png" alt="Strawberry Wine" />
+            <div class="wine-gold-frame"></div>
+          </div>
+          <div class="wine-content">
+            <h3>Strawberry Wine</h3>
+            <p class="wine-role">The Sweetheart</p>
+            <p class="wine-desc">
+              "A lush, vibrant berry wine with a sweet finish, perfect for
+              summer afternoons."
+            </p>
+          </div>
+        </a>
+        <a href="mahua.html" class="wine-card">
+          <div class="wine-image">
+            <img src="images/vertical  (3).png" alt="Mahua Wine" />
+            <div class="wine-gold-frame"></div>
+          </div>
+          <div class="wine-content">
+            <h3>Mahua Wine</h3>
+            <p class="wine-role">The Ancient Legend</p>
+            <p class="wine-desc">
+              "Floral and aromatic, crafted from the sacred Mahua flower of
+              the tribal forests."
+            </p>
+          </div>
+        </a>
+
+        <a href="pome.html" class="wine-card">
+          <div class="wine-image">
+            <img src="images/vertical  (1).png" alt="Pomegranate Wine" />
+            <div class="wine-gold-frame"></div>
+          </div>
+          <div class="wine-content">
+            <h3>Pomegranate Wine</h3>
+            <p class="wine-role">The Sophisticate</p>
+            <p class="wine-desc">
+              "A perfect balance of sweet and tart, rich in antioxidants and
+              deep ruby color."
+            </p>
+          </div>
+        </a>
+        <a href="jamun.html" class="wine-card">
+          <div class="wine-card">
+            <div class="wine-image">
+              <img src="images/vertical  (2).png" alt="Jamun Wine" />
+              <div class="wine-gold-frame"></div>
+            </div>
+            <div class="wine-content">
+              <h3>Jamun Wine</h3>
+              <p class="wine-role">The Bold Classic</p>
+              <p class="wine-desc">
+                "Distinctively dry and crisp, made from the finest <b>INDIAN</b>
+                Blackberries."
+              </p>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section> -->
+
+  <!-- PHILOSOPHY -->
+  <section class="philosophy">
+    <div class="container">
+      <h2>Our Philosophy</h2>
+      <div class="philosophy-content">
+        <div class="philosophy-item">
+          <h3>Patience</h3>
+          <p>
+            Great wines are never rushed. We allow time and nature to shape
+            each vintage, trusting the process from fruit to bottle.
+          </p>
+        </div>
+        <div class="philosophy-item">
+          <h3>Authenticity</h3>
+          <p>
+            Every Sam's Wine is a true expression of our Orchards and our
+            Group’s vision, capturing character, balance, and a sense of
+            place.
+          </p>
+        </div>
+        <div class="philosophy-item">
+          <h3>Respect</h3>
+          <p>
+            We honor the land, the fruits, and the traditions passed through
+            generations, preserving their integrity in everything we create.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CALL TO ACTION -->
+  <section class="cta">
+    <div class="container">
+      <h2>Experience Our Story</h2>
+      <div class="cta-buttons">
+        <a href="wineclub.html" class="cta-btn">Explore Our Wines</a>
+        <a href="visit.html" class="cta-btn secondary">Plan Your Visit</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER IMPORT -->
+  <div id="footer-container"></div>
+
+  <script>
+    // Import footer.html
+    fetch("footer.html")
+      .then((response) => response.text())
+      .then((data) => {
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(data, "text/html");
+        const footer = doc.querySelector("footer");
+        const styles = doc.querySelector("style");
+
+        if (styles) {
+          document.head.appendChild(styles);
+        }
+
+        document.getElementById("footer-container").appendChild(footer);
+      })
+      .catch((error) => console.error("Error loading footer:", error));
+  </script>
+
+  <script src="about.js"></script>
+</body>
+
+</html>

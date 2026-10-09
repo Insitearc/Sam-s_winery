@@ -1,0 +1,1435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Retailers — Outlets & Store Locations | Sam's Wine</title>
+    <meta name="description" content="Find Sam's Wine near you across Maharashtra. Explore our 24 authorized retail partner locations including Nature's Basket and Dorabjee & Company outlets in Nashik, Mumbai, and Pune.">
+    <link rel="canonical" href="https://samsfruitwines.com/ourreatailers.html" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <!-- HEADER IMPORT -->
+    <div id="header-container"></div>
+    <script>
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(data, 'text/html');
+                const nav = doc.querySelector('nav');
+                const menuOverlay = doc.querySelector('.menu-overlay');
+                const styles = doc.querySelector('style');
+                const scripts = doc.querySelector('script');
+                if (styles) {
+                    document.head.appendChild(styles);
+                    setTimeout(() => {
+                        document.body.style.overflow = 'auto';
+                        document.documentElement.style.overflow = 'auto';
+                    }, 100);
+                }
+
+                document.getElementById('header-container').appendChild(nav);
+                document.getElementById('header-container').appendChild(menuOverlay);
+                if (scripts) { eval(scripts.textContent); }
+            })
+            .catch(error => console.error('Error loading header:', error));
+    </script>
+
+    <style>
+        :root {
+            --white: #141414;
+            --surface: #141414;
+            --surface2: #1c1c1b;
+            --bg: #0A0A0A;
+            --bg2: #161616;
+            --bg-card: #141414;
+            --ink: #FFFFFF;
+            --ink2: rgba(255, 255, 255, 0.75);
+            --ink3: rgba(255, 255, 255, 0.45);
+            --gold: #c6a15b;
+            --gold-light: #d4af37;
+            --gold-dark: #b89327;
+            --wine: #8B1E2D;
+            --wine-dark: #580c1a;
+            --border: rgba(255, 255, 255, 0.1);
+            --border-gold: rgba(198, 161, 91, 0.35);
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.45);
+            --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.7);
+            --r: 20px;
+            --r-pill: 100px;
+            --serif: 'Cormorant Garamond', Georgia, serif;
+            --sans: 'Outfit', system-ui, sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--sans);
+            background-color: var(--bg);
+            color: var(--ink);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* --- HERO SECTION --- */
+        .page-hero {
+            padding: 140px 3rem 4.5rem;
+            background: radial-gradient(circle at 85% 30%, rgba(198, 161, 91, 0.08) 0%, transparent 60%),
+                        linear-gradient(180deg, #111111 0%, #0A0A0A 100%);
+            border-bottom: 1px solid var(--border);
+            text-align: left;
+            position: relative;
+        }
+
+        .hero-wrap {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(139, 30, 45, 0.22);
+            color: #EFA6B2;
+            border: 1px solid rgba(139, 30, 45, 0.45);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 0.4rem 1rem;
+            border-radius: var(--r-pill);
+            margin-bottom: 1.2rem;
+        }
+
+        .tag-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #EFA6B2;
+            box-shadow: 0 0 8px rgba(239, 166, 178, 0.6);
+        }
+
+        .ph-h1 {
+            font-family: var(--serif);
+            font-size: clamp(2.6rem, 5.5vw, 4.4rem);
+            line-height: 1.08;
+            color: #FFFFFF;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+
+        .ph-h1 em {
+            font-style: italic;
+            font-weight: 400;
+            color: var(--gold);
+        }
+
+        .ph-sub {
+            font-size: 1.05rem;
+            color: var(--ink2);
+            line-height: 1.8;
+            max-width: 640px;
+            margin-top: 1.2rem;
+            font-weight: 400;
+        }
+
+        /* --- STICKY FILTER BAR --- */
+        .filter-bar {
+            background: rgba(12, 12, 12, 0.94);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            position: sticky;
+            top: 75px;
+            z-index: 100;
+            padding: 1.1rem 3rem;
+            border-bottom: 1px solid var(--border);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+        }
+
+        .filter-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.2rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-tabs {
+            display: flex;
+            align-items: center;
+            gap: 0.55rem;
+            flex-wrap: wrap;
+        }
+
+        .f-tab {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            color: rgba(255, 255, 255, 0.72);
+            padding: 0.52rem 1.25rem;
+            border-radius: var(--r-pill);
+            font-family: var(--sans);
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            white-space: nowrap;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .f-tab:hover {
+            border-color: var(--gold);
+            color: #FFFFFF;
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .f-tab.active {
+            background: var(--gold);
+            border-color: var(--gold);
+            color: #0E0E0D;
+            font-weight: 600;
+            box-shadow: 0 4px 16px rgba(198, 161, 91, 0.3);
+        }
+
+        .f-count {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            font-size: 0.68rem;
+            margin-left: 0.45rem;
+            background: rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.85);
+            padding: 0 5px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .f-tab.active .f-count {
+            background: rgba(0, 0, 0, 0.25);
+            color: #0E0E0D;
+        }
+
+        .f-search {
+            position: relative;
+            min-width: 280px;
+            max-width: 360px;
+            flex: 1;
+        }
+
+        .f-search input {
+            width: 100%;
+            padding: 0.65rem 1.1rem 0.65rem 2.7rem;
+            border-radius: var(--r-pill);
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            font-size: 0.85rem;
+            font-family: var(--sans);
+            background: #161616;
+            color: #FFFFFF;
+            outline: none;
+            transition: border-color 0.25s, box-shadow 0.25s, background-color 0.25s;
+        }
+
+        .f-search input::placeholder {
+            color: rgba(255, 255, 255, 0.42);
+        }
+
+        .f-search input:focus {
+            border-color: var(--gold);
+            background: #1a1a1a;
+            box-shadow: 0 0 0 3px rgba(198, 161, 91, 0.25);
+        }
+
+        .f-search-icon {
+            position: absolute;
+            left: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 16px;
+            height: 16px;
+            fill: var(--gold);
+            pointer-events: none;
+        }
+
+        /* --- RETAILERS LISTING --- */
+        .listing {
+            padding: 4rem 3rem 5rem;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .city-block {
+            margin-bottom: 4.5rem;
+        }
+
+        .city-label {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .city-name {
+            font-family: var(--serif);
+            font-size: 2.1rem;
+            font-style: italic;
+            font-weight: 600;
+            color: #FFFFFF;
+        }
+
+        .city-badge {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--gold);
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 0.25rem 0.75rem;
+            border-radius: var(--r-pill);
+        }
+
+        .city-line {
+            flex: 1;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        /* --- RESTAURANT / RETAILER CARD --- */
+        .rc {
+            background: #141414;
+            border-radius: var(--r);
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45);
+            transition: box-shadow 0.35s ease, transform 0.35s ease, border-color 0.35s ease;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            position: relative;
+        }
+
+        .rc:hover {
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7);
+            transform: translateY(-5px);
+            border-color: var(--border-gold);
+        }
+
+        .rc.highlighted {
+            border-color: var(--gold);
+            box-shadow: 0 0 0 2px var(--gold), 0 16px 40px rgba(0, 0, 0, 0.7);
+        }
+
+        .rc-img {
+            position: relative;
+            height: 225px;
+            overflow: hidden;
+            background-color: #0d0d0d;
+        }
+
+        .rc-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .rc:hover .rc-img img {
+            transform: scale(1.06);
+        }
+
+        /* Contain mode for full-image visibility */
+        .rc-img.contain-mode .rc-img-bg {
+            position: absolute;
+            inset: -15px;
+            background-size: cover;
+            background-position: center;
+            filter: blur(14px) brightness(0.38);
+            transform: scale(1.1);
+            pointer-events: none;
+        }
+
+        .rc-img.contain-mode img {
+            position: relative;
+            z-index: 1;
+            object-fit: contain;
+            filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.6));
+        }
+
+        .rc:hover .rc-img.contain-mode img {
+            transform: scale(1.04);
+        }
+
+        .rc-number {
+            position: absolute;
+            bottom: 1rem;
+            right: 1rem;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(6px);
+            color: var(--gold);
+            font-size: 0.78rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .rc-badge {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            padding: 0.34rem 0.85rem;
+            border-radius: var(--r-pill);
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+        }
+
+        .badge-winery {
+            background: var(--gold);
+            color: #0E0E0D;
+        }
+
+        .badge-nature {
+            background: rgba(22, 22, 22, 0.92);
+            color: #FFFFFF;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(8px);
+        }
+
+        .badge-dorabjee {
+            background: var(--wine);
+            color: #FFFFFF;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .rc-body {
+            padding: 1.7rem;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            background: #141414;
+        }
+
+        .rc-city-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            background: rgba(255, 255, 255, 0.06);
+            color: var(--gold);
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            padding: 0.26rem 0.75rem;
+            border-radius: var(--r-pill);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            margin-bottom: 0.85rem;
+            width: fit-content;
+        }
+
+        .rc-name {
+            font-family: var(--serif);
+            font-size: 1.4rem;
+            color: #FFFFFF;
+            margin-bottom: 0.95rem;
+            line-height: 1.25;
+            font-weight: 600;
+        }
+
+        .rc-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.65rem;
+            font-size: 0.83rem;
+            color: rgba(255, 255, 255, 0.72);
+            margin-bottom: 1.6rem;
+            flex: 1;
+        }
+
+        .rc-info-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.65rem;
+            line-height: 1.5;
+        }
+
+        .rc-icon {
+            font-size: 0.88rem;
+            flex-shrink: 0;
+            margin-top: 0.08rem;
+            opacity: 0.9;
+        }
+
+        .rc-actions {
+            display: flex;
+            gap: 0.75rem;
+            margin-top: auto;
+        }
+
+        /* Buttons */
+        .btn-sm-dark {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.45rem;
+            background: var(--gold);
+            color: #0E0E0D;
+            text-decoration: none;
+            padding: 0.72rem 0.95rem;
+            border-radius: var(--r-pill);
+            font-size: 0.82rem;
+            font-weight: 600;
+            transition: all 0.25s ease;
+            border: none;
+            cursor: pointer;
+            font-family: var(--sans);
+        }
+
+        .btn-sm-dark:hover {
+            background: #FFFFFF;
+            color: #000000;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 14px rgba(255, 255, 255, 0.25);
+        }
+
+        .btn-sm-soft {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.45rem;
+            background: rgba(255, 255, 255, 0.08);
+            color: #FFFFFF;
+            text-decoration: none;
+            padding: 0.72rem 0.95rem;
+            border-radius: var(--r-pill);
+            font-size: 0.82rem;
+            font-weight: 500;
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            transition: all 0.25s ease;
+            font-family: var(--sans);
+        }
+
+        .btn-sm-soft:hover {
+            background: rgba(255, 255, 255, 0.16);
+            border-color: rgba(255, 255, 255, 0.3);
+            color: #FFFFFF;
+        }
+
+        /* --- MAP SECTION --- */
+        .map-section {
+            background: #0E0E0D;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 5rem 3rem 6rem;
+        }
+
+        .map-container-wrap {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .map-header {
+            text-align: center;
+            margin-bottom: 2.8rem;
+        }
+
+        .map-header .tag {
+            margin-bottom: 0.9rem;
+        }
+
+        .map-header h2 {
+            font-family: var(--serif);
+            font-size: clamp(2.2rem, 4vw, 3.2rem);
+            color: #FFFFFF;
+            font-weight: 600;
+            line-height: 1.15;
+        }
+
+        .map-header p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1rem;
+            max-width: 580px;
+            margin: 0.8rem auto 0;
+        }
+
+        .map-frame {
+            width: 100%;
+            height: 600px;
+            border-radius: var(--r);
+            overflow: hidden;
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            position: relative;
+        }
+
+        #map {
+            width: 100%;
+            height: 100%;
+            z-index: 10;
+        }
+
+        /* Subtle dark map styling for Leaflet */
+        .leaflet-tile {
+            filter: brightness(0.72) invert(1) contrast(1.15) hue-rotate(185deg) saturate(0.35);
+        }
+
+        /* Custom Leaflet Marker Styling */
+        .custom-div-icon {
+            background: transparent;
+            border: none;
+        }
+
+        .custom-marker {
+            background-color: #1a1a1a;
+            border: 2px solid var(--gold);
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #FFFFFF;
+            font-weight: 700;
+            font-size: 13px;
+            font-family: var(--sans);
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.6);
+            transition: all 0.25s ease;
+        }
+
+        .custom-marker.winery {
+            background-color: var(--gold);
+            color: #0E0E0D;
+            border-color: #FFFFFF;
+            width: 42px;
+            height: 42px;
+            font-size: 14px;
+            box-shadow: 0 0 16px rgba(198, 161, 91, 0.5);
+        }
+
+        .custom-marker.active {
+            background-color: var(--wine) !important;
+            color: #FFFFFF !important;
+            border-color: var(--gold) !important;
+            transform: scale(1.25);
+            box-shadow: 0 0 22px rgba(212, 175, 55, 0.6), 0 6px 18px rgba(114, 18, 36, 0.6);
+            z-index: 1000 !important;
+        }
+
+        /* Popup styling */
+        .leaflet-popup-content-wrapper {
+            background: #141414 !important;
+            color: #FFFFFF !important;
+            border-radius: 14px !important;
+            border: 1px solid rgba(198, 161, 91, 0.35) !important;
+            box-shadow: 0 12px 36px rgba(0, 0, 0, 0.75) !important;
+            padding: 6px !important;
+        }
+
+        .leaflet-popup-tip {
+            background: #141414 !important;
+        }
+
+        .leaflet-popup-close-button {
+            color: rgba(255, 255, 255, 0.7) !important;
+            padding: 8px 8px 0 0 !important;
+        }
+
+        .leaflet-popup-close-button:hover {
+            color: #FFFFFF !important;
+        }
+
+        .popup-card {
+            font-family: var(--sans);
+            padding: 8px 12px;
+        }
+
+        .popup-card h4 {
+            font-family: var(--serif);
+            font-size: 1.15rem;
+            color: #FFFFFF;
+            margin-bottom: 6px;
+            font-weight: 600;
+        }
+
+        .popup-card p {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.72);
+            line-height: 1.45;
+            margin-bottom: 8px;
+        }
+
+        .popup-card a {
+            display: inline-block;
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--gold);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .popup-card a:hover {
+            color: #FFFFFF;
+            text-decoration: underline;
+        }
+
+        /* --- CTA SECTION --- */
+        .cta-section {
+            text-align: center;
+            padding: 75px 20px;
+            background-color: #0A0A0A;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .cta-section p {
+            font-size: 1.35rem;
+            color: #FFFFFF;
+            margin-bottom: 26px;
+            font-weight: 300;
+            font-family: var(--sans);
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 16px 45px;
+            background-color: var(--gold);
+            color: #0E0E0D;
+            text-decoration: none;
+            font-size: 0.88rem;
+            font-weight: 600;
+            border-radius: var(--r-pill);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: all 0.25s ease;
+            font-family: var(--sans);
+        }
+
+        .cta-button:hover {
+            background-color: #FFFFFF;
+            color: #000000;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 22px rgba(255, 255, 255, 0.25);
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1.1rem;
+        }
+
+        .no-results h3 {
+            font-family: var(--serif);
+            font-size: 1.8rem;
+            color: #FFFFFF;
+            margin-bottom: 0.5rem;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 1024px) {
+            .page-hero { padding: 120px 2rem 3rem; }
+            .filter-bar { padding: 0.85rem 2rem; top: 70px; }
+            .listing { padding: 3rem 2rem 4rem; }
+            .map-section { padding: 4rem 2rem 5rem; }
+            .cards-grid { grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
+        }
+
+        @media (max-width: 768px) {
+            .page-hero { padding: 100px 1.5rem 2.5rem; }
+            .filter-bar { padding: 0.75rem 1.2rem; top: 60px; }
+            .filter-inner { flex-direction: column; align-items: stretch; gap: 0.75rem; }
+            .filter-tabs {
+                overflow-x: auto;
+                flex-wrap: nowrap;
+                padding-bottom: 4px;
+                -webkit-overflow-scrolling: touch;
+            }
+            .filter-tabs::-webkit-scrollbar { display: none; }
+            .f-tab { flex: 0 0 auto; }
+            .f-search { min-width: 100%; max-width: 100%; }
+            .listing { padding: 2.5rem 1.2rem 3rem; }
+            .cards-grid { grid-template-columns: 1fr; }
+            .map-section { padding: 3rem 1.2rem 4rem; }
+            .map-frame { height: 420px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HERO SECTION -->
+    <div class="page-hero">
+        <div class="hero-wrap">
+            <div class="tag"><span class="tag-dot"></span>Our Locations Across Maharashtra</div>
+            <h1 class="ph-h1">Find Sam's Wine<br/><em>near you</em></h1>
+            <p class="ph-sub">24 premier retail outlets across Nashik, Mumbai & Pune — discover our handcrafted fruit wines at leading gourmet retailers and our Dindori estate tasting room.</p>
+        </div>
+    </div>
+
+    <!-- FILTER BAR (Sticky Toscano Style) -->
+    <div class="filter-bar">
+        <div class="filter-inner">
+            <div class="filter-tabs" id="filterTabs">
+                <button class="f-tab active" data-filter="all" onclick="filterByCity('all')">
+                    All <span class="f-count" id="count-all">24</span>
+                </button>
+                <button class="f-tab" data-filter="Nashik" onclick="filterByCity('Nashik')">
+                    Nashik <span class="f-count" id="count-nashik">1</span>
+                </button>
+                <button class="f-tab" data-filter="Mumbai" onclick="filterByCity('Mumbai')">
+                    Mumbai <span class="f-count" id="count-mumbai">15</span>
+                </button>
+                <button class="f-tab" data-filter="Pune" onclick="filterByCity('Pune')">
+                    Pune <span class="f-count" id="count-pune">8</span>
+                </button>
+            </div>
+
+            <div class="f-search">
+                <svg class="f-search-icon" viewBox="0 0 24 24">
+                    <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                </svg>
+                <input type="text" id="searchInput" placeholder="Search by store, mall, or area..." oninput="handleSearch(this.value)">
+            </div>
+        </div>
+    </div>
+
+    <!-- RETAILER CARDS LISTING -->
+    <div class="listing" id="retailersListing">
+        <!-- Injected via JavaScript -->
+    </div>
+
+    <!-- MAP SECTION (At the end of the page before footer) -->
+    <section class="map-section" id="retailers-map-section">
+        <div class="map-container-wrap">
+            <div class="map-header">
+                <div class="tag"><span class="tag-dot"></span>Interactive Store Locator</div>
+                <h2>Explore Locations on the Map</h2>
+                <p>Click any numbered pin to view full address details and get instant turn-by-turn driving directions.</p>
+            </div>
+
+            <div class="map-frame">
+                <div id="map"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <div class="cta-section">
+        <p>Want to carry Sam's Wine? Or know a store where Sam's Wine should be?</p>
+        <a href="contact.html" class="cta-button">Let Us Know</a>
+    </div>
+
+    <!-- FOOTER IMPORT -->
+    <div id="footer-container"></div>
+    <script>
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(data, 'text/html');
+                const footer = doc.querySelector('footer');
+                const styles = doc.querySelector('style');
+                if (styles) { document.head.appendChild(styles); }
+                document.getElementById('footer-container').appendChild(footer);
+            })
+            .catch(error => console.error('Error loading footer:', error));
+    </script>
+
+    <!-- DATA & UX SCRIPT -->
+    <script>
+        const locations = [
+            // #1 Nashik Winery
+            { 
+                id: 1, 
+                name: "Sam Agri Fresh Pvt. Ltd. (Sam's Wine)", 
+                address: "Gate No. 85, Korhate Village, Taluka Dindori", 
+                city: "Dindori, Nashik, Maharashtra 422207", 
+                region: "Nashik",
+                chain: "Winery Tasting Room", 
+                badgeClass: "badge-winery", 
+                phone: "+91 97671 77577 / +91 95032 83577", 
+                hours: "Tasting Room: 11:00 AM - 05:30 PM", 
+                image: "images/Color Graded Images - Sam Wine/Artboard 10.png", 
+                imageFit: "contain",
+                lat: 20.2015, 
+                lng: 73.8340 
+            },
+
+            // Mumbai Outlets (2 to 16)
+            { 
+                id: 2, 
+                name: "Nature's Basket - Worli", 
+                address: "Barodawala Mansion, Annie Besant Road, Worli", 
+                city: "Mumbai, Maharashtra 400018", 
+                region: "Mumbai",
+                chain: "Nature's Basket", 
+                badgeClass: "badge-nature", 
+                phone: "1800 266 0777", 
+                hours: "08:00 AM - 10:00 PM", 
+                image: "images/IMGS1.JPG", 
+                lat: 19.0176, 
+                lng: 72.8162 
+            },
+            { 
+                id: 3, 
+                name: "Nature's Basket - Juhu Tara Road", 
+                address: "B Wing, Ground Floor, Spenta Boulevard, Juhu Tara Road", 
+                city: "Mumbai, Maharashtra 400049", 
+                region: "Mumbai",
+                chain: "Nature's Basket", 
+                badgeClass: "badge-nature", 
+                phone: "1800 266 0777", 
+                hours: "08:00 AM - 10:00 PM", 
+                image: "images/IMGS2.JPG", 
+                lat: 19.1075, 
+                lng: 72.8263 
+            },
+            { 
+                id: 4, 
+                name: "Nature's Basket - Hiranandani Estate, Thane", 
+                address: "Shop No. 2 & 3, Ground Floor, Zenia Bldg, Ghodbunder Road, Hiranandani Estate", 
+                city: "Mumbai (Thane), Maharashtra 400607", 
+                region: "Mumbai",
+                chain: "Nature's Basket", 
+                badgeClass: "badge-nature", 
+                phone: "1800 266 0777", 
+                hours: "08:00 AM - 10:00 PM", 
+                image: "images/IMGS3.JPG", 
+                lat: 19.2405, 
+                lng: 72.9784 
+            },
+            { 
+                id: 5, 
+                name: "Nature's Basket - Hiranandani Meadows", 
+                address: "GF-Block-4, Emerald Plaza, Glady Alwares Marg, Hiranandani Meadows", 
+                city: "Mumbai (Thane), Maharashtra 400610", 
+                region: "Mumbai",
+                chain: "Nature's Basket", 
+                badgeClass: "badge-nature", 
+                phone: "1800 266 0777", 
+                hours: "08:00 AM - 10:00 PM", 
+                image: "images/IMGS4.JPG", 
+                lat: 19.2110, 
+                lng: 72.9781 
+            },
+            { 
+                id: 6, 
+                name: "Nature's Basket - Churchgate", 
+                address: "GF-Apeejay House, 3 Dinshaw Vachha Road, Churchgate", 
+                city: "Mumbai, Maharashtra 400020", 
+                region: "Mumbai",
+                chain: "Nature's Basket", 
+                badgeClass: "badge-nature", 
+                phone: "1800 266 0777", 
+                hours: "08:00 AM - 10:00 PM", 
+                image: "images/IMGS5.JPG", 
+                lat: 18.9322, 
+                lng: 72.8264 
+            },
+            { 
+                id: 7, 
+                name: "Nature's Basket - Gandhi Nagar, Bandra", 
+                address: "Kalpataru Sparkle Complex, MIG Colony, Gandhi Nagar", 
+                city: "Mumbai, Maharashtra 400051", 
+                region: "Mumbai",
+                chain: "Nature's Basket", 
+                badgeClass: "badge-nature", 
+                phone: "1800 266 0777", 
+                hours: "08:00 AM - 10:00 PM", 
+                image: "images/IMGS6.JPG", 
+                lat: 19.0596, 
+                lng: 72.8397 
+            },
+            { 
+                id: 8, 
+                name: "Nature's Basket - Warden Road", 
+                address: "8 Tirupati Apt, Warden Road, Opp. Mahalaxmi Mandir", 
+                city: "Mumbai, Maharashtra 400026", 
+                region: "Mumbai",
+                chain: "Nature's Basket", 
+                badgeClass: "badge-nature", 
+                phone: "1800 266 0777", 
+                hours: "08:00 AM - 10:00 PM", 
+                image: "images/IMGS7.JPG", 
+                lat: 18.9647, 
+                lng: 72.8067 
+            },
+            { 
+                id: 9, 
+                name: "Nature's Basket - Oberoi Mall, Goregaon", 
+                address: "Shop No. S-23 A, Second Floor, Oberoi Mall, Off Western Express Highway", 
+                city: "Mumbai, Maharashtra 400063", 
+                region: "Mumbai",
+                chain: "Nature's Basket", 
+                badgeClass: "badge-nature", 
+                phone: "1800 266 0777", 
+                hours: "10:00 AM - 10:00 PM", 
+                image: "images/IMGS8.JPG", 
+                lat: 19.1663, 
+                lng: 72.8526 
+            },
+            { 
+                id: 10, 
+                name: "Nature's Basket - Oshiwara, Andheri West", 
+                address: "Ground Floor, Samartha Aishwarya CHS, Off K.L. Walawalkar Marg, Oshiwara", 
+                city: "Mumbai, Maharashtra 400063", 
+                region: "Mumbai",
+                chain: "Nature's Basket", 
+                badgeClass: "badge-nature", 
+                phone: "1800 266 0777", 
+                hours: "08:00 AM - 10:00 PM", 
+                image: "images/IMGS9.JPG", 
+                lat: 19.1401, 
+                lng: 72.8360 
+            },
+            { 
+                id: 11, 
+                name: "Nature's Basket - Powai", 
+                address: "Shop No. G4 & G5, BG House, Hiranandani Business Park", 
+                city: "Mumbai, Maharashtra 400076", 
+                region: "Mumbai",
+                chain: "Nature's Basket", 
+                badgeClass: "badge-nature", 
+                phone: "1800 266 0777", 
+                hours: "08:00 AM - 10:00 PM", 
+                image: "images/IMGS10.JPG", 
+                lat: 19.1176, 
+                lng: 72.9060 
+            },
+            { 
+                id: 12, 
+                name: "Nature's Basket - Cuffe Parade", 
+                address: "30 A, Shopping Arcade, World Trade Centre, Cuffe Parade", 
+                city: "Mumbai, Maharashtra 400005", 
+                region: "Mumbai",
+                chain: "Nature's Basket", 
+                badgeClass: "badge-nature", 
+                phone: "1800 266 0777", 
+                hours: "08:00 AM - 10:00 PM", 
+                image: "images/IMGS11.JPG", 
+                lat: 18.9143, 
+                lng: 72.8203 
+            },
+            { 
+                id: 13, 
+                name: "Nature's Basket - Phoenix Palladium, Lower Parel", 
+                address: "Block No. 34/14B, Unit 13, 14 & 15, 3rd Floor, Phoenix Palladium, Senapati Bapat Road", 
+                city: "Mumbai, Maharashtra 400013", 
+                region: "Mumbai",
+                chain: "Nature's Basket", 
+                badgeClass: "badge-nature", 
+                phone: "1800 266 0777", 
+                hours: "10:00 AM - 10:00 PM", 
+                image: "images/IMGS13.JPG", 
+                lat: 18.9944, 
+                lng: 72.8300 
+            },
+            { 
+                id: 14, 
+                name: "Nature's Basket - Inorbit Mall, Malad", 
+                address: "Departmental Store Unit B, First Floor, Inorbit Mall, Link Road, Malad West", 
+                city: "Mumbai, Maharashtra 400064", 
+                region: "Mumbai",
+                chain: "Nature's Basket", 
+                badgeClass: "badge-nature", 
+                phone: "1800 266 0777", 
+                hours: "10:00 AM - 10:00 PM", 
+                image: "images/IMG1.JPG", 
+                lat: 19.1759, 
+                lng: 72.8341 
+            },
+            { 
+                id: 15, 
+                name: "Nature's Basket - Hill Road, Bandra West", 
+                address: "Plot No. 29, 56 Hill Road, Next to Bank of India", 
+                city: "Mumbai, Maharashtra 400051", 
+                region: "Mumbai",
+                chain: "Nature's Basket", 
+                badgeClass: "badge-nature", 
+                phone: "1800 266 0777", 
+                hours: "08:00 AM - 10:00 PM", 
+                image: "images/IMG3.JPG", 
+                lat: 19.0596, 
+                lng: 72.8295 
+            },
+            { 
+                id: 16, 
+                name: "Nature's Basket - Cubic Mall, Chembur", 
+                address: "Cubic Mall, Ground floor, CG Rd, Chembur Colony, Chembur", 
+                city: "Mumbai, Maharashtra 400074", 
+                region: "Mumbai",
+                chain: "Nature's Basket", 
+                badgeClass: "badge-nature", 
+                phone: "1800 266 0777", 
+                hours: "08:00 AM - 10:00 PM", 
+                image: "images/IMG6.JPG", 
+                lat: 19.0620, 
+                lng: 72.8875 
+            },
+
+            // Pune Outlets (17 to 24)
+            { 
+                id: 17, 
+                name: "Nature's Basket - Aundh, Pune", 
+                address: "Westend Mall, Mahadji Shinde Road, Near Parihar Chowk, Harmony Society, Wireless Colony, Aundh", 
+                city: "Pune, Maharashtra 411007", 
+                region: "Pune",
+                chain: "Nature's Basket", 
+                badgeClass: "badge-nature", 
+                phone: "1800 266 0777", 
+                hours: "08:00 AM - 10:00 PM", 
+                image: "images/IMG7.JPG", 
+                lat: 18.5601, 
+                lng: 73.8080 
+            },
+            { 
+                id: 18, 
+                name: "Nature's Basket - Ghorpadi, Pune", 
+                address: "Business Square, Plot No. 352/3 Sangamwadi, Showroom No. 1 & 2, T.P Scheme, Ghorpadi", 
+                city: "Pune, Maharashtra 411001", 
+                region: "Pune",
+                chain: "Nature's Basket", 
+                badgeClass: "badge-nature", 
+                phone: "1800 266 0777", 
+                hours: "08:00 AM - 10:00 PM", 
+                image: "images/IMGS1.JPG", 
+                lat: 18.5362, 
+                lng: 73.8817 
+            },
+            { 
+                id: 19, 
+                name: "Dorabjee & Company - Balewadi, Pune", 
+                address: "Building-Unit No 10-18 Panchs, Sr No 21 Balewadi", 
+                city: "Pune, Maharashtra 411045", 
+                region: "Pune",
+                chain: "Dorabjee & Co", 
+                badgeClass: "badge-dorabjee", 
+                phone: "+91 20 2729 0101", 
+                hours: "09:00 AM - 10:00 PM", 
+                image: "images/setting.jpg", 
+                lat: 18.5793, 
+                lng: 73.7725 
+            },
+            { 
+                id: 20, 
+                name: "Dorabjee & Company - Pavillion Mall, S.B. Road", 
+                address: "Ground Floor, Unit N, The Pavillion Mall, Plot No 403 A, S.B. Road", 
+                city: "Pune, Maharashtra 411016", 
+                region: "Pune",
+                chain: "Dorabjee & Co", 
+                badgeClass: "badge-dorabjee", 
+                phone: "+91 20 6642 1200", 
+                hours: "10:00 AM - 10:00 PM", 
+                image: "images/reception.jpg", 
+                lat: 18.5326, 
+                lng: 73.8298 
+            },
+            { 
+                id: 21, 
+                name: "Dorabjee Beer Shopee - Viman Nagar", 
+                address: "SN 230/1 Hissa No 3/1, Viman Nagar Town Square, Lohgaon", 
+                city: "Pune, Maharashtra 411014", 
+                region: "Pune",
+                chain: "Dorabjee & Co", 
+                badgeClass: "badge-dorabjee", 
+                phone: "+91 20 6608 8100", 
+                hours: "10:00 AM - 10:30 PM", 
+                image: "images/indoor.jpg", 
+                lat: 18.5679, 
+                lng: 73.9143 
+            },
+            { 
+                id: 22, 
+                name: "Dorabjee & Company - Koregaon Park", 
+                address: "Building-Vivencia, Lane No 7, Koregaon Park", 
+                city: "Pune, Maharashtra 411001", 
+                region: "Pune",
+                chain: "Dorabjee & Co", 
+                badgeClass: "badge-dorabjee", 
+                phone: "+91 20 2615 2200", 
+                hours: "09:00 AM - 10:00 PM", 
+                image: "images/outdoor.jpg", 
+                lat: 18.5365, 
+                lng: 73.8965 
+            },
+            { 
+                id: 23, 
+                name: "Dorabjee & Company - Moledina Road, Camp", 
+                address: "1-B, Moledina Road, Camp", 
+                city: "Pune, Maharashtra 411001", 
+                region: "Pune",
+                chain: "Dorabjee & Co", 
+                badgeClass: "badge-dorabjee", 
+                phone: "+91 20 2613 0100", 
+                hours: "09:00 AM - 10:00 PM", 
+                image: "images/header2.png", 
+                lat: 18.5186, 
+                lng: 73.8785 
+            },
+            { 
+                id: 24, 
+                name: "Dorabjee Beer Shopee - NIBM Road, Kondhwa", 
+                address: "SN 25, Clover Metropole, NIBM Road, Dorabjee Mall, Kondhwa Khurd", 
+                city: "Pune, Maharashtra 411048", 
+                region: "Pune",
+                chain: "Dorabjee & Co", 
+                badgeClass: "badge-dorabjee", 
+                phone: "+91 20 2683 4500", 
+                hours: "10:00 AM - 10:30 PM", 
+                image: "images/IMGS2.JPG", 
+                lat: 18.4764, 
+                lng: 73.8942 
+            }
+        ];
+
+        let map;
+        let markers = [];
+        let currentFilter = 'all';
+        let searchQuery = '';
+
+        // Initialize Map
+        function initMap() {
+            map = L.map('map', {
+                scrollWheelZoom: false
+            }).setView([19.15, 73.20], 8);
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; OpenStreetMap contributors',
+                maxZoom: 19
+            }).addTo(map);
+
+            locations.forEach((loc, index) => {
+                const isWinery = loc.region === 'Nashik';
+                const customIcon = L.divIcon({
+                    className: 'custom-div-icon',
+                    html: `<div class="custom-marker ${isWinery ? 'winery' : ''}" id="map-marker-${index}">${index + 1}</div>`,
+                    iconSize: isWinery ? [42, 42] : [36, 36],
+                    iconAnchor: isWinery ? [21, 21] : [18, 18]
+                });
+
+                const marker = L.marker([loc.lat, loc.lng], { icon: customIcon }).addTo(map);
+
+                const googleDirectionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(loc.name + ', ' + loc.address + ', ' + loc.city)}`;
+
+                marker.bindPopup(`
+                    <div class="popup-card">
+                        <h4>${loc.name}</h4>
+                        <p>${loc.address}<br><strong>${loc.city}</strong></p>
+                        <p style="color:#d4af37;margin-bottom:6px;"><i class="fa-solid fa-wine-glass" style="margin-right:4px;"></i> Sam's Fruit Wines Partner</p>
+                        <a href="${googleDirectionsUrl}" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-location-arrow" style="margin-right:4px;"></i> Get Directions in Google Maps →</a>
+                    </div>
+                `);
+
+                marker.on('click', () => {
+                    highlightCard(index);
+                });
+
+                markers.push(marker);
+            });
+        }
+
+        // Render Retailer Cards grouped by City
+        function renderCards() {
+            const container = document.getElementById('retailersListing');
+            container.innerHTML = '';
+
+            // Filter locations based on tab & search query
+            const filtered = locations.filter((loc, originalIndex) => {
+                const matchesCity = currentFilter === 'all' || loc.region.toLowerCase() === currentFilter.toLowerCase();
+                const q = searchQuery.toLowerCase().trim();
+                const matchesSearch = !q || 
+                    loc.name.toLowerCase().includes(q) || 
+                    loc.address.toLowerCase().includes(q) || 
+                    loc.city.toLowerCase().includes(q) || 
+                    loc.chain.toLowerCase().includes(q);
+
+                return matchesCity && matchesSearch;
+            });
+
+            if (filtered.length === 0) {
+                container.innerHTML = `
+                    <div class="no-results">
+                        <h3>No retail outlets found</h3>
+                        <p style="margin-top:8px;">Try searching for a different locality or resetting the city filter.</p>
+                        <button class="btn-sm-dark" style="margin:20px auto 0;max-width:200px;" onclick="resetFilters()">Show All Locations</button>
+                    </div>
+                `;
+                return;
+            }
+
+            // Group by Region
+            const regionsOrder = ['Nashik', 'Mumbai', 'Pune'];
+            const groups = {};
+
+            regionsOrder.forEach(r => { groups[r] = []; });
+
+            filtered.forEach(loc => {
+                if (!groups[loc.region]) groups[loc.region] = [];
+                groups[loc.region].push(loc);
+            });
+
+            regionsOrder.forEach(regionName => {
+                const items = groups[regionName];
+                if (!items || items.length === 0) return;
+
+                const block = document.createElement('div');
+                block.className = 'city-block';
+
+                block.innerHTML = `
+                    <div class="city-label">
+                        <div class="city-name">${regionName}</div>
+                        <span class="city-badge">${items.length} ${items.length === 1 ? 'Location' : 'Locations'}</span>
+                        <div class="city-line"></div>
+                    </div>
+                    <div class="cards-grid">
+                        ${items.map(loc => {
+                            const originalIndex = locations.findIndex(l => l.id === loc.id);
+                            const mapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(loc.name + ', ' + loc.address + ', ' + loc.city)}`;
+                            return `
+                                <div class="rc" id="rc-card-${originalIndex}">
+                                    <div class="rc-img ${loc.imageFit === 'contain' ? 'contain-mode' : ''}">
+                                        ${loc.imageFit === 'contain' ? `<div class="rc-img-bg" style="background-image: url('${loc.image}')"></div>` : ''}
+                                        <img src="${loc.image}" alt="${loc.name}" loading="lazy">
+                                        <div class="rc-badge ${loc.badgeClass}">${loc.chain}</div>
+                                        <div class="rc-number">#${originalIndex + 1}</div>
+                                    </div>
+                                    <div class="rc-body">
+                                        <div class="rc-city-chip"><i class="fa-solid fa-location-dot" style="margin-right:4px;"></i> ${loc.region}</div>
+                                        <h3 class="rc-name">${loc.name}</h3>
+                                        <div class="rc-info">
+                                            <div class="rc-info-row">
+                                                <span class="rc-icon"><i class="fa-solid fa-location-dot"></i></span>
+                                                <span>${loc.address}, ${loc.city}</span>
+                                            </div>
+                                            <div class="rc-info-row">
+                                                <span class="rc-icon"><i class="fa-solid fa-wine-glass"></i></span>
+                                                <span>Authentic Fruit Wine Collection Available</span>
+                                            </div>
+                                            <div class="rc-info-row">
+                                                <span class="rc-icon"><i class="fa-regular fa-clock"></i></span>
+                                                <span>${loc.hours}</span>
+                                            </div>
+                                        </div>
+                                        <div class="rc-actions">
+                                            <button type="button" class="btn-sm-dark" onclick="focusOnMap(${originalIndex})">
+                                                <span><i class="fa-solid fa-map-location-dot" style="margin-right:4px;"></i> View on Map</span>
+                                            </button>
+                                            <a href="${mapsUrl}" target="_blank" rel="noopener noreferrer" class="btn-sm-soft">
+                                                <span><i class="fa-solid fa-diamond-turn-right" style="margin-right:4px;"></i> Directions</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            `;
+                        }).join('')}
+                    </div>
+                `;
+
+                container.appendChild(block);
+            });
+        }
+
+        // Focus Map on a specific retailer card
+        function focusOnMap(index) {
+            const mapSection = document.getElementById('retailers-map-section');
+            if (mapSection) {
+                mapSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+
+            setTimeout(() => {
+                const loc = locations[index];
+                map.setView([loc.lat, loc.lng], 14, { animate: true });
+                if (markers[index]) {
+                    markers[index].openPopup();
+                }
+
+                markers.forEach((m, i) => {
+                    const el = document.getElementById(`map-marker-${i}`);
+                    if (el) {
+                        el.classList.toggle('active', i === index);
+                    }
+                });
+            }, 500);
+        }
+
+        // Highlight card when marker is clicked on map
+        function highlightCard(index) {
+            markers.forEach((m, i) => {
+                const el = document.getElementById(`map-marker-${i}`);
+                if (el) {
+                    el.classList.toggle('active', i === index);
+                }
+            });
+
+            const card = document.getElementById(`rc-card-${index}`);
+            if (card) {
+                card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                card.classList.add('highlighted');
+                setTimeout(() => {
+                    card.classList.remove('highlighted');
+                }, 2000);
+            }
+        }
+
+        // City filter tab click
+        function filterByCity(cityName) {
+            currentFilter = cityName;
+
+            const tabs = document.querySelectorAll('.f-tab');
+            tabs.forEach(tab => {
+                const target = tab.getAttribute('data-filter');
+                if (target.toLowerCase() === cityName.toLowerCase()) {
+                    tab.classList.add('active');
+                } else {
+                    tab.classList.remove('active');
+                }
+            });
+
+            renderCards();
+
+            // Zoom map to fit filtered stores
+            const matched = locations.filter(l => cityName === 'all' || l.region.toLowerCase() === cityName.toLowerCase());
+            if (matched.length > 0 && map) {
+                const bounds = matched.map(l => [l.lat, l.lng]);
+                map.fitBounds(bounds, { padding: [50, 50] });
+            }
+        }
+
+        // Search handler
+        function handleSearch(val) {
+            searchQuery = val;
+            renderCards();
+        }
+
+        function resetFilters() {
+            searchQuery = '';
+            document.getElementById('searchInput').value = '';
+            filterByCity('all');
+        }
+
+        window.addEventListener('load', () => {
+            initMap();
+            renderCards();
+        });
+    </script>
+</body>
+</html>

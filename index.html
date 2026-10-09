@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Sam's Wine </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Playfair+Display:ital,wght@0,400..700;1,400&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./age-verification.css">
+</head>
+
+<body>
+
+  <!-- AGE VERIFICATION MODAL -->
+  <!-- AGE VERIFICATION MODAL -->
+  <!-- AGE VERIFICATION MODAL -->
+  <!-- Replace your existing age modal div with this -->
+
+  <div id="age-verification-modal" class="age-modal">
+    <div class="age-modal-background"></div>
+    <div class="age-modal-content">
+      <div class="age-card">
+
+        <div class="age-ornament">
+          <span class="age-ornament-line"></span>
+          <svg class="age-ornament-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 2H16L18 8C18 11.3137 15.3137 14 12 14C8.68629 14 6 11.3137 6 8L8 2Z" stroke="currentColor"
+              stroke-width="1.2" stroke-linejoin="round" />
+            <path d="M12 14V20" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" />
+            <path d="M8 20H16" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" />
+            <path d="M6 8H18" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-dasharray="1 2" />
+          </svg>
+          <span class="age-ornament-line"></span>
+        </div>
+
+        <div class="age-modal-text">
+          <span class="age-eyebrow">Sam's Wine — Est. 2022</span>
+          <h2>Are you of legal<br>drinking age?</h2>
+          <div class="age-divider"></div>
+          <p class="age-subtext">
+            This website contains content about Wine.<br>
+            Please confirm you are of legal drinking age<br>to enter.
+          </p>
+          <div class="age-modal-buttons">
+            <button id="age-yes" class="age-btn age-btn-yes">Yes, Enter</button>
+            <button id="age-no" class="age-btn age-btn-no">No, Exit</button>
+          </div>
+          <p class="age-legal">
+            By entering you accept our terms &amp; conditions.<br>
+            Do not share with minors.
+          </p>
+        </div>
+
+        <div class="age-brand-mark">
+          <span>Sam Agri Fresh</span>
+          <span class="age-brand-dot"></span>
+          <span>Crafted with Tradition</span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- HEADER IMPORT -->
+  <div id="header-container"></div>
+
+  <script>
+    // Import header.html
+    fetch('header.html')
+      .then(response => response.text())
+      .then(data => {
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(data, 'text/html');
+        const nav = doc.querySelector('nav');
+        const menuOverlay = doc.querySelector('.menu-overlay');
+        const styles = doc.querySelector('style');
+        const scripts = doc.querySelector('script');
+
+        // Add the CSS styles to the head
+        if (styles) {
+          document.head.appendChild(styles);
+          // Ensure clean scroll behavior without conflicting inline scroll containers
+          setTimeout(() => {
+            const modal = document.getElementById('age-verification-modal');
+            const isModalActive = modal && !modal.classList.contains('hidden') && modal.style.display !== 'none';
+            if (!isModalActive) {
+              document.body.style.overflow = '';
+              document.documentElement.style.overflow = '';
+            }
+
+            // Fix family section visibility
+            const familySection = document.querySelector('.family');
+            if (familySection) {
+              familySection.style.opacity = '1';
+              familySection.style.transform = 'translateY(0)';
+            }
+          }, 100);
+        }
+
+        // Remove background from navbar
+        if (nav) {
+          nav.style.background = 'transparent';
+          nav.style.backdropFilter = 'none';
+
+          // Fix menu toggle visibility
+          const menuToggleSpans = nav.querySelectorAll('.menu-toggle span');
+          menuToggleSpans.forEach(span => {
+            span.style.background = 'white';
+            span.style.display = 'block';
+          });
+        }
+
+        document.getElementById('header-container').appendChild(nav);
+        document.getElementById('header-container').appendChild(menuOverlay);
+
+        // Execute the JavaScript from header.html
+        if (scripts) {
+          eval(scripts.textContent);
+        }
+      })
+      .catch(error => console.error('Error loading header:', error));
+  </script>
+
+  <!-- HERO -->
+  <section class="hero">
+    <video class="hero-video" autoplay muted loop playsinline>
+      <source src="videos/SAMS WEBSITE VIDEO.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+
+    <div class="hero-overlay">
+      <h1>Sam's Wine</h1>
+      <p>Crafted with Time & Tradition</p>
+      <a href="shop.html" class="hero-shop-btn">Shop Now</a>
+    </div>
+  </section>
+
+  <!-- FAMILY SECTION -->
+  <section class="family">
+    <div class="family-container">
+      <div class="family-image-card">
+        <img src="images/edited/Sam's company (1).jpg" class="main-image" alt="Sam Agri Facility">
+      </div>
+
+      <div class="family-content-card">
+        <h2>We grew fruit for the world for 25 years. <br>Then we decided to pour it into a glass for you.
+        </h2>
+        <p>
+          Back in 1996, Mr. G.V.K. Naidu started Sam Agri with a simple goal: to grow the best fruit in <b>INDIA</b> and
+          deliver it fresh to the world. For 25 years, we sent residue-free pomegranates to Swiss supermarkets and fresh
+          coconuts to the UAE. The finest fruit stayed right here in Nashik—so in 2022, we transformed it into
+          extraordinary, natural Fruit &amp; Flower Wines.
+        </p>
+        <div class="cta-wrapper">
+          <a href="ourreatailers.html" class="family-cta">Where are we available</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCT SHOWCASE CAROUSEL -->
+  <section class="showcase-carousel-section" id="product-showcase" aria-label="Featured Wines Carousel">
+    <div class="showcase-header">
+      <h2>EXPLORE WINES</h2>
+    </div>
+
+    <div class="showcase-carousel-wrapper">
+      <!-- Left Navigation Chevron (beside active bottle) -->
+      <button class="showcase-arrow showcase-arrow-prev" id="showcase-prev" aria-label="Previous Wine">
+        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.4"
+          stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 19 8 12 15 5"></polyline>
+        </svg>
+      </button>
+
+      <!-- Carousel Viewport & Track -->
+      <div class="showcase-track-container" id="showcase-container">
+        <div class="showcase-track" id="showcase-track">
+          <!-- Set 0 -->
+          <div class="showcase-card" data-index="0" data-wine="0">
+            <div class="showcase-bottle-box">
+              <img src="images/Mockup/Pomogranate OG1.png" alt="Sam's Pomegranate Wine" class="showcase-bottle-img">
+              <div class="showcase-bottle-shadow"></div>
+            </div>
+          </div>
+          <div class="showcase-card" data-index="1" data-wine="1">
+            <div class="showcase-bottle-box">
+              <img src="images/Mockup/JAMUN OG01.png" alt="Sam's Jamun Wine" class="showcase-bottle-img">
+              <div class="showcase-bottle-shadow"></div>
+            </div>
+          </div>
+          <div class="showcase-card" data-index="2" data-wine="2">
+            <div class="showcase-bottle-box">
+              <img src="images/Mockup/MAHUA OG1.png" alt="Sam's Mahua Flower Wine" class="showcase-bottle-img">
+              <div class="showcase-bottle-shadow"></div>
+            </div>
+          </div>
+          <div class="showcase-card" data-index="3" data-wine="3">
+            <div class="showcase-bottle-box">
+              <img src="images/Mockup/Strawberry OG01.png" alt="Sam's Strawberry Wine" class="showcase-bottle-img">
+              <div class="showcase-bottle-shadow"></div>
+            </div>
+          </div>
+
+          <!-- Set 1 (Middle Set - active starts at index 4) -->
+          <div class="showcase-card state-active" data-index="4" data-wine="0">
+            <div class="showcase-bottle-box">
+              <img src="images/Mockup/Pomogranate OG1.png" alt="Sam's Pomegranate Wine" class="showcase-bottle-img">
+              <div class="showcase-bottle-shadow"></div>
+            </div>
+          </div>
+          <div class="showcase-card state-adjacent" data-index="5" data-wine="1">
+            <div class="showcase-bottle-box">
+              <img src="images/Mockup/JAMUN OG01.png" alt="Sam's Jamun Wine" class="showcase-bottle-img">
+              <div class="showcase-bottle-shadow"></div>
+            </div>
+          </div>
+          <div class="showcase-card state-outer" data-index="6" data-wine="2">
+            <div class="showcase-bottle-box">
+              <img src="images/Mockup/MAHUA OG1.png" alt="Sam's Mahua Flower Wine" class="showcase-bottle-img">
+              <div class="showcase-bottle-shadow"></div>
+            </div>
+          </div>
+          <div class="showcase-card state-far" data-index="7" data-wine="3">
+            <div class="showcase-bottle-box">
+              <img src="images/Mockup/Strawberry OG01.png" alt="Sam's Strawberry Wine" class="showcase-bottle-img">
+              <div class="showcase-bottle-shadow"></div>
+            </div>
+          </div>
+
+          <!-- Set 2 -->
+          <div class="showcase-card" data-index="8" data-wine="0">
+            <div class="showcase-bottle-box">
+              <img src="images/Mockup/Pomogranate OG1.png" alt="Sam's Pomegranate Wine" class="showcase-bottle-img">
+              <div class="showcase-bottle-shadow"></div>
+            </div>
+          </div>
+          <div class="showcase-card" data-index="9" data-wine="1">
+            <div class="showcase-bottle-box">
+              <img src="images/Mockup/JAMUN OG01.png" alt="Sam's Jamun Wine" class="showcase-bottle-img">
+              <div class="showcase-bottle-shadow"></div>
+            </div>
+          </div>
+          <div class="showcase-card" data-index="10" data-wine="2">
+            <div class="showcase-bottle-box">
+              <img src="images/Mockup/MAHUA OG1.png" alt="Sam's Mahua Flower Wine" class="showcase-bottle-img">
+              <div class="showcase-bottle-shadow"></div>
+            </div>
+          </div>
+          <div class="showcase-card" data-index="11" data-wine="3">
+            <div class="showcase-bottle-box">
+              <img src="images/Mockup/Strawberry OG01.png" alt="Sam's Strawberry Wine" class="showcase-bottle-img">
+              <div class="showcase-bottle-shadow"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Navigation Chevron (beside active bottle) -->
+      <button class="showcase-arrow showcase-arrow-next" id="showcase-next" aria-label="Next Wine">
+        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.4"
+          stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 19 16 12 9 5"></polyline>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Dynamic Product Meta Info Below Active Bottle -->
+    <div class="showcase-info-panel">
+      <h3 class="showcase-title" id="showcase-title">Pomegranate Wine</h3>
+      <p class="showcase-subtitle" id="showcase-subtitle">Ruby Rich Reserve · 100% Residue-Free Pomegranates</p>
+      <div class="showcase-cta-wrap">
+        <a href="pome.html" class="showcase-btn" id="showcase-btn">WINE DETAILS</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PREMIUM EXPLORE WINES -->
+  <!-- <section class="premium-explore">
+    <div class="explore-container">
+      <div class="wine-slider-card">
+        <h2>Explore our wines</h2>
+
+        <div class="wine-display">
+          <img src="images/jamun1.jpeg" alt="Wine Bottle" class="wine-bottle">
+          <div class="wine-info">
+            <h3 class="wine-name">Jamun Wine </h3>
+            <p class="wine-type">Reserve Collection</p>
+
+          </div>
+        </div>
+
+        <div class="slider-controls">
+          <button class="arrow-btn prev-btn">‹</button>
+          <div class="nav-dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+
+          </div>
+          <button class="arrow-btn next-btn">›</button>
+        </div>
+
+        <a href="wineclub.html" class="all-wines-cta">ALL WINES →</a>
+      </div>
+
+      <div class="lifestyle-image">
+        <img src="images/jamun5.png" alt="Orchards Lifestyle">
+      </div>
+    </div>
+  </section> -->
+
+  <!-- INSTAGRAM -->
+  <section class="instagram">
+
+    <div class="instagram-header">
+
+      <!-- Instagram Logo -->
+      <svg class="instagram-icon1" viewBox="0 0 24 24" fill="currentColor">
+        <path
+          d="M7.75 2C4.57 2 2 4.57 2 7.75v8.5C2 19.43 4.57 22 7.75 22h8.5C19.43 22 22 19.43 22 16.25v-8.5C22 4.57 19.43 2 16.25 2h-8.5zm0 2h8.5c2.07 0 3.75 1.68 3.75 3.75v8.5c0 2.07-1.68 3.75-3.75 3.75h-8.5c-2.07 0-3.75-1.68-3.75-3.75v-8.5C4 5.68 5.68 4 7.75 4zm8.25 1.5a1 1 0 100 2 1 1 0 000-2zM12 7a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6z" />
+      </svg>
+
+      <h2>Instagram</h2>
+    </div>
+
+    <div class="instagram-gallery">
+
+      <!-- Reel -->
+      <div class="instagram-item" onclick="window.open('https://www.instagram.com/reel/DTxgCVzDY7L/', '_blank')">
+        <video autoplay muted loop playsinline>
+          <source src="videos/reels1.MOV" type="video/mp4">
+        </video>
+        <div class="play-btn">▶</div>
+      </div>
+
+      <div class="instagram-item" onclick="window.open('https://www.instagram.com/reel/DTxgCVzDY7L/', '_blank')">
+        <video autoplay muted loop playsinline>
+          <source src="videos/reels2.mp4" type="video/mp4">
+        </video>
+        <div class="play-btn">▶</div>
+      </div>
+
+      <div class="instagram-item" onclick="window.open('https://www.instagram.com/reel/DTxgCVzDY7L/', '_blank')">
+        <video autoplay muted loop playsinline>
+          <source src="videos/reels3.mp4" type="video/mp4">
+        </video>
+        <div class="play-btn">▶</div>
+      </div>
+
+      <div class="instagram-item" onclick="window.open('https://www.instagram.com/reel/DTxgCVzDY7L/', '_blank')">
+        <video autoplay muted loop playsinline>
+          <source src="videos/reels4.mp4" type="video/mp4">
+        </video>
+        <div class="play-btn">▶</div>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- PLAN VISIT -->
+  <section class="visit">
+    <div class="visit-container">
+      <div class="visit-menu-panel">
+        <h2>Experience Our Wines</h2>
+        <ul class="visit-menu">
+          <li class="visit-menu-item active" data-visit="private">
+            <span>Private Tastings</span>
+          </li>
+          <li class="visit-menu-item" data-visit="food">
+            <span>Food Pairings</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="visit-content">
+        <img src="images/edited/allbottels.jpg" alt="Sam's Wine Collection" class="visit-image">
+        <div class="visit-text-content">
+          <p class="visit-description">
+            Experience the essence of our terroir through intimate tastings
+            where each glass tells the story of our orchards' heritage.
+          </p>
+          <a href="visit.html" class="visit-cta">BOOK A TASTING →</a>
+          <a href="ourretailers.html" class="visit-cta">AVAILABLE NEAR YOU</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STORIES -->
+  <section class="stories">
+    <div class="stories-container">
+      <div class="stories-header">
+        <span class="subtitle">Newsletter & Blogs</span>
+        <h2 class="stories-heading">Orchard stories</h2>
+      </div>
+
+      <div class="stories-grid">
+        <div class="story-card story-left">
+          <div class="story-image-wrapper">
+            <img src="images/sam's winery/Crafted to Be Discovered_ Sunset Wines.png"
+              alt="Elevate Your Wine Tasting Experience" class="story-image">
+            <div class="story-date">Oct 2025</div>
+          </div>
+          <div class="story-content">
+            <h3 class="story-title">Elevate Your Wine Tasting Experience</h3>
+            <h4 class="story-excerpt">Most wine brands start with a vineyard dream and a borrowed winery. We started
+              with certified farms, two and a half decades of food safety expertise, and a deep obsession with fruit
+              that most winemakers have never even thought to ferment.
+
+            </h4>
+            <a href="stories.html" class="read-more">Read Story —</a>
+          </div>
+        </div>
+
+        <div class="story-card story-right">
+          <div class="story-image-wrapper">
+            <img src="images/sam's winery/4 edited.png" alt="Sam Wine Orchard: Roots That Run Deep" class="story-image">
+            <div class="story-date">Sept 2025</div>
+          </div>
+          <div class="story-content">
+            <h3 class="story-title">Sam Wine Orchard: Roots That Run Deep</h3>
+            <h4 class="story-excerpt">Pomegranate grown on residue-free farms across <b>INDIA</b>. Jamun from prized
+              <b>INDIAN</b> orchards we know by name. Mahua flowers hand-gathered from native forests. Every bottle
+              connects to real land and a real relationship we have with what grows on it.
+            </h4>
+            <a href="stories.html" class="read-more">Read Story —</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WINE PROFILE / STATS SECTION -->
+  <section class="wine-profile">
+    <div class="stats-container">
+      <div class="stats-header">
+        <span class="subtitle">Crafted in Numbers</span>
+        <h2>Our Journey in Figures</h2>
+        <p class="stats-intro">From sustainable farming to the final pour, every bottle reflects our commitment to
+          purity and scale.</p>
+      </div>
+      <div class="stats-grid">
+
+        <!-- ✅ Card 1: 24+ -->
+        <div class="stat-card">
+          <div class="stat-number"><span class="counter" data-target="24">0</span>+</div>
+          <div class="stat-label">Premium Retail Outlets.</div>
+          <p class="stat-desc">Bringing the unique taste of Nashik’s fruit and flower wines to leading locations across
+            <b>INDIA</b>.
+          </p>
+        </div>
+
+        <!-- ✅ Card 2: 100k+ -->
+        <div class="stat-card">
+          <div class="stat-number"><span class="counter" data-target="100">0</span>k+</div>
+          <div class="stat-label">Bottles Crafted</div>
+          <p class="stat-desc">Individually fermented and carefully hand-bottled in small, controlled batches for
+            unmatched quality.</p>
+        </div>
+
+        <!-- ✅ Card 3: 4+ -->
+        <div class="stat-card">
+          <div class="stat-number"><span class="counter" data-target="4">0</span>+</div>
+          <div class="stat-label">Unique Labels</div>
+          <p class="stat-desc">Distinct expressions crafted from residue-free pomegranate, strawberry, wild mahua
+            blossoms, and jamun.</p>
+        </div>
+
+        <!-- ✅ Card 4: 150+ -->
+        <div class="stat-card">
+          <div class="stat-number"><span class="counter" data-target="150">0</span>+</div>
+          <div class="stat-label">Acres of Orchards</div>
+          <p class="stat-desc">Nurturing high-quality, residue-free fruit under optimal soil and climate conditions in
+            Nashik.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ✅ COUNTER ANIMATION SCRIPT -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const counters = document.querySelectorAll(".counter");
+
+      const animateCounter = (counter) => {
+        const target = +counter.getAttribute("data-target");
+        const duration = 1500; // ✅ Total animation time (1.5 sec)
+        const startTime = performance.now();
+
+        const updateCount = (currentTime) => {
+          const elapsed = currentTime - startTime;
+          const progress = Math.min(elapsed / duration, 1); // 0 → 1
+          // Ease-out effect (slow at end)
+          const easedProgress = 1 - Math.pow(1 - progress, 3);
+          const currentValue = Math.floor(easedProgress * target);
+
+          counter.innerText = currentValue;
+
+          if (progress < 1) {
+            requestAnimationFrame(updateCount);
+          } else {
+            counter.innerText = target; // ✅ Final value exactly
+          }
+        };
+
+        requestAnimationFrame(updateCount);
+      };
+
+      // ✅ Intersection Observer — jab card screen pe visible ho tab animation start
+      const observer = new IntersectionObserver(
+        (entries, obs) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              animateCounter(entry.target);
+              obs.unobserve(entry.target); // Ek baar hi chalega
+            }
+          });
+        },
+        { threshold: 0.4 } // 40% card visible hone pe trigger
+      );
+
+      counters.forEach((counter) => observer.observe(counter));
+    });
+  </script>
+
+  <!-- FOOTER IMPORT -->
+  <div id="footer-container"></div>
+
+  <script>
+    // Import footer.html
+    fetch('footer.html')
+      .then(response => response.text())
+      .then(data => {
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(data, 'text/html');
+        const footer = doc.querySelector('footer');
+        const styles = doc.querySelector('style');
+
+        // Add the CSS styles to the head
+        if (styles) {
+          document.head.appendChild(styles);
+        }
+
+        // Add the footer to the container
+        document.getElementById('footer-container').appendChild(footer);
+      })
+      .catch(error => console.error('Error loading footer:', error));
+  </script>
+
+  <script src="./age-verification.js"></script>
+  <script src="./index.js"></script>
+</body>
+
+</html>

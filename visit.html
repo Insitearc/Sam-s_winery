@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Visit Our Winery & Tasting Room | Sam's Wine</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Plan your visit to Sam's Wine Winery in Nashik. Experience guided tastings, private Orchards tours, and gourmet pairings in our tasting room.">
+  <link rel="canonical" href="https://samsfruitwines.com/visit.html">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./visit.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+  <!-- HEADER IMPORT -->
+  <div id="header-container"></div>
+
+  <script>
+    // Import header.html
+    fetch('header.html')
+      .then(response => response.text())
+      .then(data => {
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(data, 'text/html');
+        const nav = doc.querySelector('nav');
+        const menuOverlay = doc.querySelector('.menu-overlay');
+        const styles = doc.querySelector('style');
+        const scripts = doc.querySelector('script');
+
+        if (styles) {
+          document.head.appendChild(styles);
+          setTimeout(() => {
+            document.body.style.overflow = 'auto';
+            document.documentElement.style.overflow = 'auto';
+          }, 100);
+        }
+
+
+
+        document.getElementById('header-container').appendChild(nav);
+        document.getElementById('header-container').appendChild(menuOverlay);
+
+        if (scripts) {
+          eval(scripts.textContent);
+        }
+      })
+      .catch(error => console.error('Error loading header:', error));
+  </script>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-overlay">
+      <h1>Visit Our Winery</h1>
+      <span class="scroll-dot"></span>
+    </div>
+  </section>
+
+
+
+
+  <!-- LUXURY TASTING EXPERIENCE -->
+  <section class="luxury-tasting" id="tasting-section" style="background: #080808; padding: 100px 0;">
+    <div class="tasting-container"
+      style="max-width: 1250px; margin: 0 auto; padding: 0 25px; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;">
+
+      <!-- LEFT COLUMN: IMAGE CARD WITH BADGES -->
+      <div
+        style="position: relative; border-radius: 12px; overflow: hidden; border: 1px solid rgba(212,175,55,0.3); background: #111;">
+        <!-- TOP-LEFT BADGE -->
+        <span
+          style="position: absolute; top: 16px; left: 16px; z-index: 5; background: #c6a75e; color: #000; padding: 6px 16px; font-weight: 600; font-size: 11px; letter-spacing: 2px; text-transform: uppercase;">TASTING
+          ROOM</span>
+
+        <img src="images/rectanglesize6.png" alt="Tasting Room Experience"
+          style="width: 100%; height: 520px; object-fit: cover; display: block; filter: brightness(0.9);">
+
+        <!-- BOTTOM-RIGHT OVERLAY CARD -->
+        <div
+          style="position: absolute; bottom: 20px; right: 20px; z-index: 5; background: rgba(12, 12, 12, 0.92); border: 1px solid rgba(212,175,55,0.4); padding: 18px 22px; max-width: 260px; border-radius: 6px; backdrop-filter: blur(8px);">
+          <strong style="color: #fff; font-size: 0.95rem; font-weight: 500; display: block; margin-bottom: 6px;">By
+            Appointment</strong>
+          <p style="color: rgba(255,255,255,0.75); font-size: 0.8rem; margin: 0; line-height: 1.4;">Guided tastings with
+            curated pairings & sustainable craft insights</p>
+        </div>
+      </div>
+
+      <!-- RIGHT COLUMN: CONTENT & FEATURES -->
+      <div style="color: #fff;">
+        <span
+          style="color: #c6a75e; letter-spacing: 3px; font-size: 12px; font-weight: 600; text-transform: uppercase; display: block; margin-bottom: 12px;">TASTE.
+          LEARN. DISCOVER</span>
+        <h2 style="font-size: 2.8rem; font-weight: 400; line-height: 1.15; margin-bottom: 20px; color: #fff;">The Sam's
+          Wine <br><span style="color: #c6a75e;">Tasting Experience</span></h2>
+        <p
+          style="color: rgba(255,255,255,0.75); font-size: 0.95rem; line-height: 1.7; margin-bottom: 30px; font-weight: 300;">
+          Step into our tasting room and explore the world of fruit and flower wines. Sample seasonal releases, limited
+          editions, and signature bottles, guided by our wine specialists who reveal the aromas, textures, and stories
+          behind every pour.</p>
+
+        <div style="display: flex; flex-direction: column; gap: 20px; margin-bottom: 35px;">
+          <div style="display: flex; gap: 15px; align-items: flex-start;">
+            <span
+              style="color: #c6a75e; font-weight: 600; font-size: 1.1rem; border-bottom: 2px solid #c6a75e; padding-bottom: 2px;">01</span>
+            <div>
+              <strong
+                style="color: #fff; font-size: 1rem; font-weight: 500; display: block; margin-bottom: 3px;">Signature
+                Tastings</strong>
+              <p style="color: rgba(255,255,255,0.65); font-size: 0.85rem; margin: 0;">Seasonal, limited-edition &
+                reserve wines.</p>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 15px; align-items: flex-start;">
+            <span
+              style="color: #c6a75e; font-weight: 600; font-size: 1.1rem; border-bottom: 2px solid #c6a75e; padding-bottom: 2px;">02</span>
+            <div>
+              <strong
+                style="color: #fff; font-size: 1rem; font-weight: 500; display: block; margin-bottom: 3px;">Thoughtful
+                Pairings</strong>
+              <p style="color: rgba(255,255,255,0.65); font-size: 0.85rem; margin: 0;">Carefully paired gourmet
+                accompaniments.</p>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 15px; align-items: flex-start;">
+            <span
+              style="color: #c6a75e; font-weight: 600; font-size: 1.1rem; border-bottom: 2px solid #c6a75e; padding-bottom: 2px;">03</span>
+            <div>
+              <strong style="color: #fff; font-size: 1rem; font-weight: 500; display: block; margin-bottom: 3px;">Craft
+                & Origin</strong>
+              <p style="color: rgba(255,255,255,0.65); font-size: 0.85rem; margin: 0;">Insights into sustainable farming
+                and winemaking.</p>
+            </div>
+          </div>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 25px; flex-wrap: wrap;">
+          <a href="#visitBookingSection"
+            onclick="document.getElementById('visitBookingSection').scrollIntoView({behavior: 'smooth'}); return false;"
+            style="background: #c6a75e; color: #000; text-decoration: none; padding: 14px 28px; font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; border-radius: 4px; transition: all 0.3s ease; display: inline-block;">VISIT
+            US →</a>
+          <span
+            style="color: #fff; font-size: 0.95rem; font-weight: 500; letter-spacing: 1px; display: inline-flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+            <span style="color: #c6a75e;">OR CALL:</span>
+            <a href="tel:+919767177577"
+              style="color: #fff; text-decoration: none; font-weight: 700; font-size: 1.05rem;">+91 97671 77577</a>
+            <a href="https://wa.me/919767177577" target="_blank" rel="noopener noreferrer"
+              style="color: #25D366; text-decoration: none; font-weight: 600; font-size: 0.85rem; background: rgba(37,211,102,0.12); padding: 2px 8px; border-radius: 12px; border: 1px solid rgba(37,211,102,0.35);"
+              title="WhatsApp">WhatsApp</a>
+            <span style="color: rgba(255,255,255,0.65); font-size: 0.88rem;">/ <a href="tel:+919503283577"
+                style="color: rgba(255,255,255,0.85); text-decoration: none;">+91 95032 83577</a></span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VISIT BOOKING FORM SECTION -->
+  <section id="visitBookingSection" class="visit-booking-section"
+    style="background: #0d0d0d; padding: 100px 20px; color: #fff; border-top: 1px solid rgba(212,175,55,0.2);">
+    <div
+      style="max-width: 800px; margin: 0 auto; background: #151515; border: 1px solid #d4af37; border-radius: 12px; padding: 45px 35px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+      <div style="text-align: center; margin-bottom: 35px;">
+        <span
+          style="color: #d4af37; letter-spacing: 3px; font-size: 0.85rem; font-weight: 500; text-transform: uppercase;">WINERY
+          EXPERIENCE</span>
+        <h2 style="font-size: 2.2rem; font-weight: 400; color: #fff; margin-top: 8px;">Book Your Visit</h2>
+        <p style="color: rgba(255,255,255,0.7); font-size: 0.95rem; margin-top: 8px;">Reserve your private tasting
+          session & Orchards tour at our Nashik Winery.</p>
+      </div>
+
+      <form id="visitBookingForm" novalidate style="display: flex; flex-direction: column; gap: 20px;">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+          <div>
+            <label
+              style="display: block; font-size: 11px; letter-spacing: 1.5px; color: #d4af37; margin-bottom: 8px; font-weight: 600;">FULL
+              NAME *</label>
+            <input type="text" id="visitName" placeholder="Your full name" required
+              style="width: 100%; padding: 14px; background: #080808; border: 1px solid #333; border-radius: 6px; color: #fff; font-family: 'Outfit', sans-serif;">
+          </div>
+          <div>
+            <label
+              style="display: block; font-size: 11px; letter-spacing: 1.5px; color: #d4af37; margin-bottom: 8px; font-weight: 600;">EMAIL
+              ADDRESS *</label>
+            <input type="email" id="visitEmail" placeholder="name@example.com" required
+              style="width: 100%; padding: 14px; background: #080808; border: 1px solid #333; border-radius: 6px; color: #fff; font-family: 'Outfit', sans-serif;">
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+          <div>
+            <label
+              style="display: block; font-size: 11px; letter-spacing: 1.5px; color: #d4af37; margin-bottom: 8px; font-weight: 600;">MOBILE
+              NUMBER *</label>
+            <input type="tel" id="visitMobile" placeholder="e.g. 9876543210" maxlength="10" required
+              style="width: 100%; padding: 14px; background: #080808; border: 1px solid #333; border-radius: 6px; color: #fff; font-family: 'Outfit', sans-serif;">
+          </div>
+          <div>
+            <label
+              style="display: block; font-size: 11px; letter-spacing: 1.5px; color: #d4af37; margin-bottom: 8px; font-weight: 600;">PREFERRED
+              VISIT DATE *</label>
+            <input type="date" id="visitDate" required
+              style="width: 100%; padding: 14px; background: #080808; border: 1px solid #333; border-radius: 6px; color: #fff; font-family: 'Outfit', sans-serif;">
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+          <div>
+            <label
+              style="display: block; font-size: 11px; letter-spacing: 1.5px; color: #d4af37; margin-bottom: 8px; font-weight: 600;">NO.
+              OF GUESTS</label>
+            <select id="visitGuests"
+              style="width: 100%; padding: 14px; background: #080808; border: 1px solid #333; border-radius: 6px; color: #fff; font-family: 'Outfit', sans-serif;">
+              <option value="1-2 Guests">1 - 2 Guests</option>
+              <option value="3-5 Guests">3 - 5 Guests</option>
+              <option value="6-10 Guests">6 - 10 Guests</option>
+              <option value="10+ Large Group">10+ Large Group</option>
+            </select>
+          </div>
+          <div>
+            <label
+              style="display: block; font-size: 11px; letter-spacing: 1.5px; color: #d4af37; margin-bottom: 8px; font-weight: 600;">EXPERIENCE
+              TYPE</label>
+            <select id="visitExperience"
+              style="width: 100%; padding: 14px; background: #080808; border: 1px solid #333; border-radius: 6px; color: #fff; font-family: 'Outfit', sans-serif;">
+              <option value="Wine Tasting">Wine Tasting Session</option>
+              <option value="Legacy Tasting">Legacy Tasting Experience</option>
+              <option value="Orchards Tour">Orchards Tour & Tasting</option>
+              <option value="Orchards Tour">Education Industrial Visit</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label
+            style="display: block; font-size: 11px; letter-spacing: 1.5px; color: #d4af37; margin-bottom: 8px; font-weight: 600;">ADDITIONAL
+            REQUESTS / NOTES</label>
+          <textarea id="visitNotes" rows="3" placeholder="Tell us if you have special requests or timing preferences"
+            style="width: 100%; padding: 14px; background: #080808; border: 1px solid #333; border-radius: 6px; color: #fff; font-family: 'Outfit', sans-serif; resize: vertical;"></textarea>
+        </div>
+
+        <button type="submit"
+          style="background: #d4af37; color: #000; font-weight: 600; font-family: 'Outfit', sans-serif; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; padding: 16px; border: none; border-radius: 6px; cursor: pointer; transition: all 0.3s ease; margin-top: 10px;">SUBMIT
+          VISIT RESERVATION →</button>
+      </form>
+
+      <div id="visitSuccess" style="display: none; text-align: center; padding: 30px 10px;">
+        <div style="font-size: 36px; color: var(--gold, #d4af37); margin-bottom: 12px;"><i class="fa-solid fa-champagne-glasses"></i></div>
+        <h3 style="color: #d4af37; font-size: 1.8rem; font-weight: 400; margin-bottom: 10px;">Visit Reservation Request
+          Received!</h3>
+        <p
+          style="color: rgba(255,255,255,0.8); font-size: 0.95rem; line-height: 1.6; max-width: 500px; margin: 0 auto 20px;">
+          Thank you for booking with Sam's Wine. Our winery team at Dindori will review your request and contact you via
+          email & phone to confirm your slot.
+        </p>
+        <button
+          onclick="document.getElementById('visitSuccess').style.display='none'; document.getElementById('visitBookingForm').style.display='flex';"
+          style="background: transparent; border: 1px solid #d4af37; color: #d4af37; padding: 10px 24px; border-radius: 6px; cursor: pointer;">BOOK
+          ANOTHER VISIT</button>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+  <!-- NEW WINE REGION SECTION -->
+  <section class="new-wine-region">
+    <div class="region-container">
+      <h2 class="region-title">The Sam's Wine Craft</h2>
+      <div class="region-divider"></div>
+      <div class="region-destinations">
+        <div class="destination-item">
+          <span class="location">Innovation</span>
+          <span class="travel-time">Flower Wines</span>
+        </div>
+        <div class="destination-item">
+          <span class="location">Purity</span>
+          <span class="travel-time">Residue Free</span>
+        </div>
+        <div class="destination-item">
+          <span class="location">Wellness</span>
+          <span class="travel-time">Antioxidant Rich</span>
+        </div>
+        <div class="destination-item">
+          <span class="location">Nature</span>
+          <span class="travel-time">Natural Farming</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHOTO SLIDER -->
+  <section class="showcase-wrap">
+    <div class="showcase-container">
+
+      <div class="showcase-panel" style="background-image: url('images/WINES3.png');">
+        <div class="panel-content">
+          <span class="panel-tag">THE TERROIR</span>
+          <h3>Ancient Roots</h3>
+          <p>Grown in the volcanic soils of the Sahyadri ranges, our vines breathe the spirit of the land.</p>
+          <a href="about.html" class="panel-link">Explore the Orchards</a>
+        </div>
+      </div>
+
+      <div class="showcase-panel" style="background-image: url('images/WINES.png');">
+        <div class="panel-content">
+          <span class="panel-tag">OUR METHOD</span>
+          <h3>Bespoke Craft</h3>
+          <p>Combining heritage fermentation techniques with modern precision to bottle liquid poetry.</p>
+          <a href="stories.html" class="panel-link">Our Story</a>
+        </div>
+      </div>
+
+      <div class="showcase-panel" style="background-image: url('images/RUBY\ RICH.png');">
+        <div class="panel-content">
+          <span class="panel-tag">THE CELLAR</span>
+          <h3>Rare Reserves</h3>
+          <p>A curated selection of our most exclusive vintages, crafted to perfection for the true connoisseur.</p>
+          <a href="shop.html" class="panel-link">Shop Collection</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER IMPORT -->
+  <div id="footer-container"></div>
+
+  <script>
+    // Import footer.html
+    fetch('footer.html')
+      .then(response => response.text())
+      .then(data => {
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(data, 'text/html');
+        const footer = doc.querySelector('footer');
+        const styles = doc.querySelector('style');
+
+        // Add the CSS styles to the head
+        if (styles) {
+          document.head.appendChild(styles);
+        }
+
+        // Add the footer to the container
+        document.getElementById('footer-container').appendChild(footer);
+      })
+      .catch(error => console.error('Error loading footer:', error));
+  </script>
+
+  <script src="./visit.js"></script>
+  <script>
+    // Tasting tabs functionality
+    document.addEventListener('DOMContentLoaded', function () {
+      const tastingData = {
+        wine: {
+          heading: 'Wine Tasting',
+          description: 'Experience our signature wines in our elegant tasting room. Sample current releases, limited reserves, and seasonal selections guided by our knowledgeable wine specialists.',
+          price: '$25 per person',
+          image: 'images/jamun5.png'
+        },
+        legacy: {
+          heading: 'Legacy Tasting',
+          description: 'Private guided tasting experience with cheese and charcuterie pairings. Discover our heritage wines in an intimate setting.',
+          price: '$35 per person',
+          image: 'images/rectanglesize5.png'
+        },
+        Orchards: {
+          heading: 'Orchards Tour',
+          description: 'Explore our residue-free Orchards and flower gardens on a guided tour, followed by a private tasting of our signature wines. Learn firsthand about our winemaking process—from hand-selected fruits and blossoms to the final bottle—and gain a deeper appreciation for the craftsmanship behind every sip.',
+          price: '$45 per person',
+          image: 'images/sams wine6.png'
+        }
+      };
+
+      document.querySelectorAll('.tasting-tab').forEach(tab => {
+        tab.addEventListener('click', () => {
+          const tabType = tab.dataset.tab;
+
+          // Update active tab
+          document.querySelectorAll('.tasting-tab').forEach(t => t.classList.remove('active'));
+          tab.classList.add('active');
+
+          // Update content
+          const data = tastingData[tabType];
+          document.querySelector('.tasting-heading').textContent = data.heading;
+          document.querySelector('.tasting-description').textContent = data.description;
+          document.querySelector('.tasting-price').textContent = data.price;
+          document.querySelector('.tasting-image img').src = data.image;
+        });
+      });
+    });
+  </script>
+  <script src="mail_handler.js"></script>
+  <script>
+    document.getElementById('visitBookingForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const name = document.getElementById('visitName').value.trim();
+      const email = document.getElementById('visitEmail').value.trim();
+      const mobile = document.getElementById('visitMobile').value.trim();
+      const visitDate = document.getElementById('visitDate').value;
+      const guests = document.getElementById('visitGuests').value;
+      const experience = document.getElementById('visitExperience').value;
+      const notes = document.getElementById('visitNotes').value.trim();
+
+      if (!name || !email || !mobile || !visitDate) {
+        alert("Please fill in all required fields.");
+        return;
+      }
+
+      sendFormToMail({
+
+        form_type: "Winery Visit Reservation",
+
+        name: name,
+
+        email: email,
+
+        mobile: mobile,
+
+        visit_date: visitDate,
+
+        guests: guests,
+
+        event_type: experience,
+
+        message: notes
+
+      })
+        .then(result => {
+
+          console.log("Visit booking email response:", result);
+
+          // Email successfully sent
+          document.getElementById('visitBookingForm').style.display = 'none';
+
+          document.getElementById('visitSuccess').style.display = 'block';
+
+        })
+        .catch(error => {
+
+          console.error("Visit booking email error:", error);
+
+          alert(
+            "Booking could not be submitted. Please try again."
+          );
+
+        });
+    });
+  </script>
+</body>
+
+</html>

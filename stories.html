@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Stories</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="stories.css">
+</head>
+<body>
+
+<!-- HEADER IMPORT -->
+<div id="header-container"></div>
+
+<script>
+// Import header.html
+fetch('header.html')
+  .then(response => response.text())
+  .then(data => {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(data, 'text/html');
+    const nav = doc.querySelector('nav');
+    const menuOverlay = doc.querySelector('.menu-overlay');
+    const styles = doc.querySelector('style');
+    const scripts = doc.querySelector('script');
+    
+    if (styles) {
+      document.head.appendChild(styles);
+      // Fix body overflow issue AFTER styles are added
+      setTimeout(() => {
+        document.body.style.overflow = 'auto';
+        document.documentElement.style.overflow = 'auto';
+      }, 100);
+    }
+    
+    // Remove background from navbar
+    if (nav) {
+      nav.style.background = 'transparent';
+      nav.style.backdropFilter = 'none';
+      
+      // Fix menu toggle visibility
+      const menuToggleSpans = nav.querySelectorAll('.menu-toggle span');
+      menuToggleSpans.forEach(span => {
+        span.style.background = 'white';
+        span.style.display = 'block';
+      });
+    }
+    
+    document.getElementById('header-container').appendChild(nav);
+    document.getElementById('header-container').appendChild(menuOverlay);
+    
+    if (scripts) {
+      eval(scripts.textContent);
+    }
+  })
+  .catch(error => console.error('Error loading header:', error));
+</script>
+
+<!-- HERO -->
+<section class="hero">
+  <h1>Stories</h1>
+  <!-- <span class="scroll-dot"></span> -->
+</section>
+
+<!-- TABS -->
+<section class="stories-section">
+
+  <div class="tabs">
+    <button class="tab active" onclick="openTab('all', this)">All stories</button>
+    <button class="tab" onclick="openTab('wines', this)">Wines</button>
+    <button class="tab" onclick="openTab('events', this)">Events</button>
+  </div>
+
+  <!-- TAB CONTENT -->
+  <div class="tab-content active" id="all">
+    <div class="grid">
+      <a href="pome.html">
+      <article class="card">
+        <img src="images/sam's winery/Pomegranate Orchard Wine Showcase.png" alt="Ruby Rich Wine">
+        <h3>Rich, fruity, antioxidant-infused elegance</h3>
+      </article>
+      </a>
+<a href="mahua.html">
+     <article class="card">
+        <img src="images/mahua2.png" alt="Mahua Wine">
+        <h3>Bold, tangy, deep berry essence</h3>
+      </article>
+    </a>
+      <a href="jamun.html">
+      <article class="card">
+        <img src="images/jamun square (2).png" alt="Jamun Wine">
+        <h3>Earthy, floral, heritage-crafted spirit</h3>
+      </article>
+      </a>
+  <a href="Strawberry.html">
+      <article class="card">
+        <img src="images/sam's winery/CRIMSON.png" alt="Scarlet Wine">
+        <h3>Sweet, vibrant, freshly crushed berries</h3>
+      </article>
+</a>
+<a href="gallery.html#nature">
+           <article class="card">
+        <img src="images/IMGS1.JPG" alt="Nature's Basket">
+        <h3>Nature's Basket: The Major Collection</h3>
+      </article>
+</a>
+<a href="gallery.html#college">
+     <article class="card">
+        <img src="images/garti3.JPG" alt="Garti College Visit">
+        <h3>Garti College: Future Sommeliers Visit</h3>
+      </article>
+     
+  </a>
+    </div>
+
+  </div>
+
+<div class="tab-content" id="wines">
+  <div class="wine-selection-grid">
+    
+    <article class="product-item">
+      <a href="pome.html" class="product-link">
+        <div class="product-visual">
+          <img src="images/RUBY RICH.png" alt="Ruby Rich Reserve">
+        </div>
+        <div class="product-details">
+          <span class="wine-label">Pomegranate Wine</span>
+          <!-- <h3>Ruby Rich Reserve</h3> -->
+          <p>A global masterpiece with an <b>INDIAN</b> soul. This reserve captures the bold essence of sun-ripened pomegranates, offering a velvety finish that lingers on the palate.</p>
+        </div>
+      </a>
+    </article>
+
+    <article class="product-item">
+      <a href="jamun.html" class="product-link">
+        <div class="product-visual">
+          <img src="images/JAMUN.png" alt="Jamun Wine">
+        </div>
+        <div class="product-details">
+          <span class="wine-label">Jamun Wine</span>
+          <!-- <h3>Jamun Wine</h3> -->
+          <p>Midnight in a glass. Crafted from hand-picked black plums, this vintage boasts a deep, mysterious hue and a complex tartness rich in natural antioxidants.</p>
+        </div>
+      </a>
+    </article>
+ 
+    <article class="product-item">
+      <a href="mahua.html" class="product-link">
+        <div class="product-visual">
+          <img src="images/MAHUA.png" alt="Mahua Ancient Spirit">
+        </div>
+        <div class="product-details">
+          <span class="wine-label">Mahua Wine</span>
+          <!-- <h3>Mahua Ancient Spirit</h3> -->
+          <p>An amber spirit of ancient roots. Distilled from sacred Mahua blossoms, it delivers an exotic honey-like sweetness balanced by a whisper of earthy heat.</p>
+        </div>
+      </a>
+    </article>
+   
+    <article class="product-item">
+      <a href="Strawberry.html" class="product-link">
+        <div class="product-visual">
+          <img src="images/CRIMSON.png" alt="Scarlet Silk">
+        </div>
+        <div class="product-details">
+          <span class="wine-label">Strawberry Wine</span>
+          <!-- <h3>Scarlet Silk</h3> -->
+          <p>The crown jewel of our cellar. A vibrant, refreshing expression representing the pinnacle of our winemaking tradition and heritage.</p>
+        </div>
+      </a>
+    </article>
+
+  </div>
+</div>
+ <div class="tab-content" id="events">
+  <div class="grid">
+    <article class="card1">
+      <a href="gallery.html#college">
+          <div class="card-image-wrapper">
+            <img src="images/garti12.JPG" alt="Garti College Visit">
+            <span class="event-tag">Educational Tour</span>
+          </div>
+          <div class="card-body">
+            
+            <span class="event-date">January 20, 2026</span>
+            <h3>Garti College: Future Sommeliers Visit</h3>
+            <p>Welcoming students from Garti College to explore the intersection of tradition and modern viticulture. A hands-on journey through our fermentation process and terroir analysis.</p>
+            <a href="gallery.html#college" class="read-more">View Gallery →</a>
+
+          </div>
+        </a>
+    </article>
+  
+    <article class="card1">
+      <a href="gallery.html#nature">
+        <div class="card-image-wrapper">
+          <img src="images/IMGS6.JPG" alt="Nature Basket Wine Tasting">
+          <span class="event-tag">Tasting Event</span>
+        </div>
+        <div class="card-body">
+          <span class="event-date">February 02, 2026</span>
+          <h3>Nature's Basket: The Major Collection</h3>
+          <p>Samwine took center stage at the Nature’s Basket wine showcase. We represented our signature reserve collection, offering exclusive tastings to the city's top wine enthusiasts.</p>
+          <a href="gallery.html#nature" class="read-more">Experience the Event →</a>
+        </div>
+      </a>
+    </article>
+  </div>
+</div>
+
+</section>
+
+<!-- FOOTER IMPORT -->
+<div id="footer-container"></div>
+
+<script>
+// Import footer.html
+fetch('footer.html')
+  .then(response => response.text())
+  .then(data => {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(data, 'text/html');
+    const footer = doc.querySelector('footer');
+    const styles = doc.querySelector('style');
+    
+    // Add the CSS styles to the head
+    if (styles) {
+      document.head.appendChild(styles);
+    }
+    
+    // Add the footer to the container
+    document.getElementById('footer-container').appendChild(footer);
+  })
+  .catch(error => console.error('Error loading footer:', error));
+</script>
+
+<!-- INLINE JS -->
+<script>
+  function openTab(id, btn) {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+
+    if (!btn) {
+      btn = document.querySelector(`[onclick*="openTab('${id}'"]`) || document.getElementById(`tab-${id}-btn`);
+    }
+
+    if (btn) btn.classList.add('active');
+    const content = document.getElementById(id);
+    if (content) content.classList.add('active');
+  }
+
+  // Handle direct links to tabs via URL param ?tab=wines or hash #events
+  window.addEventListener('DOMContentLoaded', () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const tabParam = urlParams.get('tab');
+    if (tabParam) {
+      openTab(tabParam);
+    } else {
+      const hash = window.location.hash.replace('#', '');
+      if (hash && ['all', 'wines', 'events'].includes(hash)) {
+        openTab(hash);
+      }
+    }
+  });
+</script>
+
+</body>
+</html>

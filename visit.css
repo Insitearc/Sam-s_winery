@@ -1,0 +1,1319 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Outfit", sans-serif;
+}
+
+body {
+  background: #000;
+  color: #fff;
+}
+
+/* FIXED HEADER */
+.fixed-header {
+  position: fixed;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+}
+
+.brand-name {
+  font-family: "Outfit", sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  letter-spacing: 2px;
+  color: #fff;
+}
+
+
+
+/* HERO */
+.hero {
+  height: 100vh;
+  background: url("images/4.jpeg") center/cover;
+  position: relative;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.hero-overlay h1 {
+    color: white;
+    font-weight: 400;
+}
+
+.hero h1 {
+  font-size: 4rem;
+}
+
+/* INTRO GRID */
+.intro-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  padding: 100px 8%;
+}
+
+.img-box img {
+  width: 100%;
+}
+
+.img-box.wide {
+  grid-column: span 2;
+}
+
+.text-box h2 {
+  font-size: 2rem;
+  line-height: 1.4;
+}
+
+/* TABS */
+.tabs-section {
+  background: #fff;
+  color: #000;
+  padding: 80px 8%;
+}
+
+.tabs {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.tab {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.tab.active {
+  border-bottom: 2px solid #000;
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+}
+
+.two-col img {
+  width: 100%;
+}
+
+.small {
+  font-size: 0.8rem;
+  opacity: 0.6;
+  letter-spacing: 1px;
+}
+
+/* TASTING ROOM */
+.tasting-room {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.dark-box {
+  padding: 100px;
+  background: #111;
+}
+
+/* ADVENTURE */
+.adventure {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 100px 8%;
+}
+
+.adventure img {
+  width: 100%;
+}
+
+/* REGION */
+.region {
+  text-align: center;
+  padding: 100px 8%;
+}
+
+.region-grid {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  margin-top: 40px;
+}
+
+/* FOOTER */
+.footer {
+  background: #111;
+  padding: 60px 8%;
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.footer input {
+  width: 100%;
+  padding: 10px;
+  background: none;
+  border: 1px solid #444;
+  color: #fff;
+}
+
+copyright {
+  text-align: center;
+}
+
+/* SLIDER */
+.slider {
+  padding: 0;
+}
+
+.slider-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+.slide {
+  display: none;
+}
+
+.slide.active {
+  display: block;
+}
+
+.slide img {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+}
+
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+  border: none;
+  padding: 15px 20px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+
+/* PREMIUM SPLIT SECTION */
+.premium-split {
+  background: linear-gradient(135deg, #000 0%, #111 100%);
+  padding: 120px 0;
+}
+
+.split-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  padding: 0 40px;
+}
+
+.image-card {
+  position: relative;
+}
+
+.adventure-slide {
+  display: none;
+}
+
+.adventure-slide.active {
+  display: block;
+}
+
+.image-card img {
+  width: 100%;
+  height: 600px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+.image-overlay {
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+  color: #fff;
+}
+
+.image-overlay h3 {
+  font-family: "Outfit", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+}
+
+.image-overlay p {
+  font-family: "Outfit", sans-serif;
+  font-size: 14px;
+  opacity: 0.8;
+  margin-bottom: 15px;
+}
+
+.learn-more {
+  color: #ad0000;
+  text-decoration: none;
+  font-size: 12px;
+  letter-spacing: 1px;
+  opacity: 0.7;
+  transition: opacity 0.3s;
+  font-weight: bold;
+}
+
+.learn-more:hover {
+  opacity: 1;
+  color: #d4af37;
+}
+
+.nav-button {
+  position: absolute;
+  right: 30px;
+  top: 87%;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #d4af37;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+}
+
+.nav-button:hover {
+  background: #d4af37;
+  transform: scale(1.3);
+}
+
+.content-area {
+  padding-left: 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.content-slide {
+  display: none;
+  transform: translateX(100%);
+  transition: transform 0.5s ease;
+}
+
+.content-slide.active {
+  display: block;
+  transform: translateX(0);
+}
+
+.subtitle {
+  font-family: "Outfit", sans-serif;
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: #888;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.content-area h2 {
+  font-family: "Outfit", sans-serif;
+  font-size: 48px;
+  color: #fff;
+  margin-bottom: 30px;
+  line-height: 1.2;
+  font-weight: 400;
+}
+
+.content-area p {
+  font-family: "Outfit", sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #ccc;
+  text-align: justify;
+  font-weight: 300;
+}
+
+/* LUXURY EDITORIAL SECTION */
+.luxury-editorial {
+  background: #000;
+  padding: 120px 0;
+}
+
+.editorial-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  align-items: flex-start;
+}
+
+.main-image-area {
+  position: relative;
+  height: 700px;
+  border-radius: 12px;
+  border: 1px solid rgba(212,175,55,0.25);
+  padding: 5px;
+}
+
+.main-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.overlay-image {
+  position: absolute;
+  bottom: -60px;
+  right: -400px;
+  width: 700px;
+  height: 250px;
+  object-fit: cover;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+  z-index: 2;
+  border-radius: 12px;
+  border: 1px solid rgba(212,175,55,0.25);
+}
+
+.editorial-content {
+  padding: 80px 80px 0 80px;
+  color: #fff;
+}
+
+.brand-label {
+  font-family: "Outfit", sans-serif;
+  font-size: 12px;
+  letter-spacing: 3px;
+  color: #888;
+  margin-bottom: 40px;
+  display: block;
+}
+
+.editorial-heading {
+  font-family: "Outfit", sans-serif;
+  font-size: 56px;
+  line-height: 1.1;
+  font-weight: normal;
+  margin: 0;
+}
+
+/* LUXURY TASTING EXPERIENCE */
+.luxury-tasting {
+  background: #000;
+  padding: 120px 0;
+}
+
+.tasting-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  margin-bottom: 80px;
+}
+
+.tasting-tab {
+  background: none;
+  border: none;
+  color: #888;
+  font-family: "Outfit", sans-serif;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 15px 30px;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+}
+
+.tasting-tab.active {
+  color: #000;
+  background: #d4af37;
+  box-shadow: 0 4px 20px rgba(255,255,255,0.3);
+}
+
+.tasting-card {
+  max-width: 1000px;
+  margin: 0 auto;
+  border-radius: 16px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+  box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+  border: 1px solid rgba(212,175,55,0.25);
+  transition: all 0.4s ease;
+}
+
+.tasting-content {
+  padding: 60px 40px;
+  color: #fff;
+  transform: translateX(80px);
+  opacity: 0;
+  animation: slideFromImage 1s ease forwards;
+  animation-delay: 0.3s;
+}
+
+@keyframes slideFromImage {
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.tasting-label {
+  font-family: "Outfit", sans-serif;
+  font-size: 12px;
+  letter-spacing: 3px;
+  color: #d4af37;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.tasting-heading {
+  font-family: "Outfit", sans-serif;
+  font-size: 42px;
+  margin-bottom: 30px;
+  font-weight: 400;
+}
+
+.tasting-description {
+  font-family: "Outfit", sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  margin-bottom: 30px;
+  color: #cfcfcf;
+  font-weight: 300;
+}
+
+.tasting-price {
+  font-family: "Outfit", sans-serif;
+  font-size: 24px;
+  margin-bottom: 30px;
+  font-weight: 500;
+  color: #d4af37;
+}
+
+.tasting-cta {
+  font-family: "Outfit", sans-serif;
+  font-size: 14px;
+  letter-spacing: 1px;
+  margin-bottom: 40px;
+  color: #aaa;
+  font-weight: 300;
+}
+
+.tasting-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-family: "Outfit", sans-serif;
+  font-size: 14px;
+  color: #bbb;
+}
+
+.tasting-image {
+  position: relative;
+  overflow: hidden;
+}
+
+.tasting-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s ease, filter 0.8s ease;
+}
+
+.tasting-card:hover .tasting-image img {
+  transform: scale(1.08);
+  filter: brightness(0.9);
+}
+
+/* BOTTOM PREMIUM HERO */
+.bottom-premium-hero {
+  background: #000;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.bottom-hero-top {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 70vh;
+}
+
+.bottom-hero-image {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  border: 1px solid rgba(212,175,55,0.25);
+}
+
+.bottom-lifestyle-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+  border-radius: 12px;
+}
+
+.bottom-lifestyle-image:hover {
+  transform: scale(1.05);
+}
+
+.bottom-hero-content {
+  background: #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px 60px;
+  color: #fff;
+}
+
+.bottom-hero-subtitle {
+  font-family: "Outfit", sans-serif;
+  font-size: 12px;
+  letter-spacing: 3px;
+  color: #888;
+  margin-bottom: 30px;
+}
+
+.bottom-hero-title {
+  font-family: "Outfit", sans-serif;
+  font-size: 64px;
+  font-weight: normal;
+  margin-bottom: 40px;
+  line-height: 1.1;
+}
+
+.bottom-hero-divider {
+  width: 60px;
+  height: 1px;
+  background: #444;
+  margin-bottom: 40px;
+}
+
+.bottom-hero-info {
+  font-family: "Outfit", sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #ccc;
+}
+
+.bottom-hero-info p {
+  margin-bottom: 20px;
+}
+
+.bottom-hero-address {
+  color: #888;
+  font-size: 13px;
+}
+
+.bottom-hero-bottom {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  height: 30vh;
+  gap: 2px;
+}
+
+.bottom-hero-landscape,
+.bottom-hero-interior {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.bottom-landscape-image,
+.bottom-interior-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+  border-radius: 12px;
+}
+
+.bottom-landscape-image:hover,
+.bottom-interior-image:hover {
+  transform: scale(1.05);
+}
+
+/* NEW WINE REGION SECTION */
+.new-wine-region {
+  background: #000;
+  padding: 120px 0;
+  text-align: center;
+}
+
+.region-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.region-title {
+  font-family: "Outfit", sans-serif;
+  font-size: 48px;
+  color: #fff;
+  margin-bottom: 40px;
+  font-weight: normal;
+}
+
+.region-divider {
+  width: 60px;
+  height: 1px;
+  background: #d4af37;
+  margin: 0 auto 60px;
+}
+
+.region-destinations {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 60px;
+}
+
+.destination-item {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.destination-item:hover {
+  transform: translateY(-5px);
+}
+
+.destination-item:hover .location {
+  color: #d4af37;
+}
+
+.destination-item:hover .travel-time::after {
+  width: 100%;
+}
+
+.location {
+  font-family: "Outfit", sans-serif;
+  font-size: 16px;
+  color: #ccc;
+  transition: color 0.3s ease;
+}
+
+.travel-time {
+  font-family: "Outfit", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: 1px;
+  position: relative;
+}
+
+.travel-time::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 1px;
+  background: #d4af37;
+  transition: width 0.3s ease;
+}
+
+/* INTERACTIVE SPLIT SHOWCASE */
+.showcase-wrap {
+  width: 100%;
+  height: 90vh;
+  background: #000;
+  overflow: hidden;
+}
+
+.showcase-container {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+.showcase-panel {
+  position: relative;
+  flex: 1;
+  background-size: cover;
+  background-position: center;
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  cursor: pointer;
+  display: flex;
+  align-items: flex-end;
+  padding: 4rem;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.showcase-panel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(0,0,0,0.9) 10%, transparent 100%);
+  z-index: 1;
+  transition: 0.5s;
+}
+
+.showcase-panel:hover {
+  flex: 2.5;
+}
+
+.showcase-panel:hover::before {
+  background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 100%);
+}
+
+.panel-content {
+  position: relative;
+  z-index: 2;
+  transform: translateY(30px);
+  opacity: 0.6;
+  transition: 0.6s all ease;
+}
+
+.showcase-panel:hover .panel-content {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.panel-tag {
+  color: #c6a75e;
+  letter-spacing: 4px;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.panel-content h3 {
+  font-family: "Outfit", sans-serif;
+  font-size: 2.8rem;
+  color: #fff;
+  margin: 1rem 0;
+  font-weight: 400;
+}
+
+.panel-content p {
+  color: #ccc;
+  max-width: 400px;
+  margin-bottom: 2rem;
+  display: none;
+}
+
+.showcase-panel:hover p {
+  display: block;
+}
+
+.panel-link {
+  color: #fff;
+  text-decoration: none;
+  border-bottom: 1px solid #c6a75e;
+  padding-bottom: 5px;
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+}
+
+/* ============================================
+   MOBILE RESPONSIVE — FULLY FIXED
+   ============================================ */
+
+/* TABLET (max 1024px) */
+@media (max-width: 1024px) {
+  .luxury-tasting {
+    padding: 60px 0 !important;
+  }
+
+  .tasting-container {
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
+  }
+
+  .tasting-content {
+    padding: 20px 0;
+  }
+
+  .tasting-heading {
+    font-size: 36px;
+  }
+}
+
+/* MAIN MOBILE BREAKPOINT (max 768px) */
+@media (max-width: 768px) {
+
+  /* --- HERO --- */
+  .hero {
+    background-position: 18% center !important;
+  }
+  .hero h1 {
+    font-size: 2.5rem;
+    text-align: center;
+    padding: 0 20px;
+  }
+
+  /* --- INTRO GRID --- */
+  .intro-grid {
+    grid-template-columns: 1fr;
+    padding: 60px 5%;
+    gap: 30px;
+  }
+
+  .img-box.wide {
+    grid-column: span 1;
+  }
+
+  .text-box h2 {
+    font-size: 1.5rem;
+  }
+
+  /* --- TABS SECTION --- */
+  .tabs-section {
+    padding: 60px 5%;
+  }
+
+  .tabs {
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .two-col {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  /* --- TASTING ROOM --- */
+  .tasting-room {
+    grid-template-columns: 1fr;
+  }
+
+  .dark-box {
+    padding: 60px 40px;
+  }
+
+  /* --- ADVENTURE --- */
+  .adventure {
+    grid-template-columns: 1fr;
+    padding: 60px 5%;
+    gap: 40px;
+  }
+
+  /* --- REGION --- */
+  .region {
+    padding: 60px 5%;
+  }
+
+  .region-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    text-align: left;
+  }
+
+  /* --- FOOTER --- */
+  .footer {
+    padding: 40px 5%;
+  }
+
+  .footer-top {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  /* --- SLIDER --- */
+  .slider-container {
+    height: 60vh;
+  }
+
+  .slide img {
+    height: 60vh;
+  }
+
+  /* --- LUXURY EDITORIAL --- */
+  .luxury-editorial {
+    padding: 60px 0 80px;
+  }
+
+  .editorial-container {
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding: 0 20px;
+  }
+
+  .main-image-area {
+    height: 320px;
+    margin: 0;
+    border-radius: 10px;
+  }
+
+  /* Hide the overlapping image on mobile — it breaks layout */
+  .overlay-image {
+    display: none;
+  }
+
+  .editorial-content {
+    padding: 40px 0 0 0;
+  }
+
+  .editorial-heading {
+    font-size: 30px;
+    line-height: 1.3;
+  }
+
+  .brand-label {
+    margin-bottom: 20px;
+    font-size: 11px;
+  }
+
+  /* --- LUXURY TASTING --- */
+  .luxury-tasting {
+    padding: 60px 0;
+    margin: 0;
+  }
+
+  .tasting-tabs {
+    gap: 10px;
+    margin-bottom: 40px;
+    padding: 0 15px;
+    flex-wrap: wrap;
+  }
+
+  .tasting-tab {
+    font-size: 13px;
+    padding: 10px 16px;
+  }
+
+  .tasting-card {
+    grid-template-columns: 1fr;
+    margin: 0 15px;
+    border-radius: 12px;
+  }
+
+  /* Image on top */
+  .tasting-image {
+    height: 280px;
+    order: -1;
+  }
+
+  .tasting-content {
+    padding: 35px 25px;
+    transform: translateX(0);
+    animation: none;
+    opacity: 1;
+  }
+
+  .tasting-heading {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+
+  .tasting-description {
+    font-size: 15px;
+  }
+
+  .tasting-price {
+    font-size: 20px;
+  }
+
+  .tasting-label {
+    font-size: 11px;
+    letter-spacing: 2px;
+  }
+
+  .tasting-cta {
+    font-size: 13px;
+    margin-bottom: 25px;
+  }
+
+  /* --- BOTTOM PREMIUM HERO --- */
+  .bottom-premium-hero {
+    min-height: auto;
+  }
+
+  .bottom-hero-top {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+
+  .bottom-hero-content {
+    padding: 50px 20px 40px;
+    order: -1;
+  }
+
+  .bottom-hero-title {
+    font-size: 32px;
+    margin-bottom: 25px;
+  }
+
+  .bottom-hero-subtitle {
+    font-size: 11px;
+    margin-bottom: 18px;
+  }
+
+  .bottom-hero-info {
+    font-size: 14px;
+  }
+
+  .bottom-hero-info p {
+    font-size: 0.95rem !important;
+    margin-bottom: 15px;
+  }
+
+  .bottom-hero-image {
+    height: 50vh;
+    border-radius: 10px;
+    margin: 0 15px;
+  }
+
+  .bottom-hero-bottom {
+    grid-template-columns: 1fr;
+    height: auto;
+    gap: 8px;
+    padding: 8px 15px;
+  }
+
+  .bottom-hero-landscape,
+  .bottom-hero-interior {
+    height: 32vh;
+    border-radius: 10px;
+  }
+
+  /* --- PREMIUM SPLIT SECTION --- */
+  .premium-split {
+    padding: 60px 0;
+  }
+
+  .split-container {
+    grid-template-columns: 1fr;
+    gap: 50px;
+    padding: 0 15px;
+  }
+
+  .image-card img {
+    height: 380px;
+  }
+
+  .nav-button {
+    right: 15px;
+    top: auto;
+    bottom: 20px;
+  }
+
+  .content-area {
+    padding-left: 0;
+  }
+
+  .content-area h2 {
+    font-size: 30px;
+    margin-bottom: 20px;
+  }
+
+  .content-area p {
+    text-align: left;
+    font-size: 15px !important;
+  }
+
+  .subtitle {
+    font-size: 11px;
+  }
+
+  /* --- NEW WINE REGION --- */
+  .new-wine-region {
+    padding: 80px 0;
+  }
+
+  .region-container {
+    padding: 0 20px;
+  }
+
+  .region-title {
+    font-size: 32px;
+  }
+
+  .region-destinations {
+    grid-template-columns: 1fr 1fr;
+    gap: 35px 20px;
+  }
+
+  .travel-time {
+    font-size: 15px;
+  }
+
+  .location {
+    font-size: 13px;
+  }
+
+  /* --- SHOWCASE PANELS --- */
+  .showcase-wrap {
+    height: auto !important;
+  }
+
+  .showcase-container {
+    display: block !important;
+    height: auto !important;
+  }
+
+  .showcase-panel {
+    height: 340px !important;
+    padding: 2rem 1.5rem !important;
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex !important;
+    align-items: flex-end !important;
+  }
+
+  .showcase-panel:hover {
+    flex: none !important;
+  }
+
+  .showcase-panel .panel-content {
+    transform: translateY(0) !important;
+    opacity: 1 !important;
+  }
+
+  .showcase-panel p {
+    display: block !important;
+    font-size: 14px;
+    margin-bottom: 1.2rem;
+  }
+
+  .panel-content h3 {
+    font-size: 1.8rem;
+    margin: 0.5rem 0;
+  }
+
+  .panel-tag {
+    font-size: 0.7rem;
+  }
+}
+
+/* SMALL PHONES (max 480px) */
+@media (max-width: 480px) {
+
+  /* --- HERO --- */
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  /* --- EDITORIAL --- */
+  .main-image-area {
+    height: 260px;
+  }
+
+  .editorial-heading {
+    font-size: 26px;
+  }
+
+  /* --- TASTING --- */
+  .tasting-card {
+    margin: 0 10px;
+  }
+
+  .tasting-content {
+    padding: 30px 20px;
+  }
+
+  .tasting-heading {
+    font-size: 24px;
+  }
+
+  .tasting-image {
+    height: 240px;
+  }
+
+  /* --- BOTTOM HERO --- */
+  .bottom-hero-title {
+    font-size: 26px;
+  }
+
+  .bottom-hero-image {
+    height: 42vh;
+    margin: 0 10px;
+  }
+
+  .bottom-hero-bottom {
+    padding: 8px 10px;
+    gap: 6px;
+  }
+
+  .bottom-hero-landscape,
+  .bottom-hero-interior {
+    height: 28vh;
+  }
+
+  /* --- SPLIT --- */
+  .split-container {
+    padding: 0 10px;
+  }
+
+  .image-card img {
+    height: 300px;
+  }
+
+  .content-area h2 {
+    font-size: 26px;
+  }
+
+  /* --- REGION --- */
+  .region-destinations {
+    grid-template-columns: 1fr 1fr;
+    gap: 28px 15px;
+  }
+
+  /* --- SHOWCASE --- */
+  .showcase-panel {
+    height: 310px !important;
+    padding: 1.5rem 1rem !important;
+  }
+
+  .panel-content h3 {
+    font-size: 1.5rem;
+  }
+}
+
+/* VISIT BOOKING FORM MOBILE RESPONSIVE FIX */
+@media (max-width: 768px) {
+  .visit-booking-section div[style*="grid-template-columns"] {
+    grid-template-columns: 1fr !important;
+    gap: 15px !important;
+  }
+
+  .visit-booking-section {
+    padding: 60px 15px !important;
+  }
+
+  .visit-booking-section > div {
+    padding: 30px 20px !important;
+  }
+
+  .visit-booking-section h2 {
+    font-size: 1.8rem !important;
+  }
+}

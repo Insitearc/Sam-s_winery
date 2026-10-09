@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scarlet Silk | Sams Wine Nashik</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        /* CSS STYLING */
+        :root {
+            --strawberry-red: #b22222;
+            --soft-pink: #ffe4e1;
+            --deep-charcoal: #1a1a1a;
+            --gold-accent: #c5a059;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Outfit", sans-serif;
+            background-color: #0c0c0c;
+            color: var(--white);
+            overflow-x: hidden;
+        }
+
+        /* Section 1: Hero Product Showcase */
+        .hero {
+            display: flex;
+            min-height: 100vh;
+            align-items: center;
+            padding: 80px 10%;
+            gap: 50px;
+            background: linear-gradient(135deg, #0c0c0c 0%, #2a0a0a 100%);
+        }
+
+        .product-img-box {
+            flex: 1;
+            position: relative;
+            text-align: center;
+        }
+
+        .product-img-box img {
+            width: 100%;
+            max-width: 500px;
+            filter: drop-shadow(0 20px 50px rgba(178, 34, 34, 0.4));
+            transition: transform 0.6s ease;
+        }
+
+        .product-img-box:hover img {
+            transform: scale(1.05) rotate(1deg);
+        }
+
+        .product-info {
+            flex: 1;
+            z-index: 2;
+        }
+
+        .tag {
+            color: var(--gold-accent);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin: 10px 0;
+            color: var(--white);
+            line-height: 1.1;
+            font-weight: 400;
+        }
+
+        .description {
+            font-size: 1.4rem;
+            color: var(--gold-accent);
+            font-style: italic;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .main-para {
+            line-height: 1.8;
+            font-family: "Outfit", sans-serif;
+            font-size: 1.1rem;
+            color: #ccc;
+            font-weight: 300;
+        }
+
+        /* Section 2: The Crafting Process */
+        .process-section {
+            background-color: var(--white);
+            color: var(--deep-charcoal);
+            padding: 100px 10%;
+        }
+
+        .process-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+        }
+
+        .step {
+            padding: 40px;
+            background: #fff;
+            border-top: 5px solid var(--strawberry-red);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+            transition: 0.4s;
+        }
+
+        .step:hover {
+            transform: translateY(-10px);
+        }
+
+        .step h3 {
+            color: var(--ruby);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            font-weight: 400
+        }
+
+        .step p {
+            font-weight: 300;
+        }
+
+        /* Section 3: Media Gallery */
+        .media-gallery {
+            padding: 100px 10%;
+            background: #080808;
+        }
+
+        .gallery-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .video-container {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto 50px;
+            aspect-ratio: 16/9;
+            background: #111;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        .image-strip {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .image-strip img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+            filter: saturate(0.8);
+            transition: 0.5s;
+        }
+
+        .image-strip img:hover {
+            filter: saturate(1.2);
+            transform: scale(1.03);
+        }
+
+        /* Section: Signature Recipe */
+        .recipe-section {
+            padding: 100px 10%;
+            background: linear-gradient(180deg, #0c0c0c 0%, #2a0a0a 100%);
+            border-top: 1px solid rgba(197, 160, 89, 0.15);
+            border-bottom: 1px solid rgba(197, 160, 89, 0.15);
+        }
+
+        .recipe-container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .recipe-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .recipe-header h2 {
+            font-size: 3rem;
+            font-weight: 400;
+            color: #fff;
+            margin-top: 10px;
+            font-family: "Outfit", sans-serif;
+        }
+
+        .recipe-header p {
+            color: var(--gold-accent);
+            font-weight: 300;
+            margin-top: 10px;
+            font-size: 1.1rem;
+            font-style: italic;
+        }
+
+        .recipe-card-single {
+            display: flex;
+            background: rgba(30, 10, 15, 0.7);
+            border: 1px solid rgba(197, 160, 89, 0.25);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(10px);
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .recipe-card-single:hover {
+            border-color: var(--gold-accent);
+            box-shadow: 0 25px 60px rgba(178, 34, 34, 0.3);
+        }
+
+        .recipe-media {
+            flex: 0 0 42%;
+            position: relative;
+            min-height: 380px;
+            overflow: hidden;
+        }
+
+        .recipe-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .recipe-card-single:hover .recipe-media img {
+            transform: scale(1.05);
+        }
+
+        .recipe-badges {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            z-index: 2;
+        }
+
+        .recipe-badge {
+            background: rgba(20, 5, 8, 0.9);
+            border: 1px solid rgba(197, 160, 89, 0.5);
+            color: var(--gold-accent);
+            padding: 6px 14px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            backdrop-filter: blur(5px);
+            letter-spacing: 0.5px;
+        }
+
+        .recipe-details {
+            flex: 1;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .recipe-title {
+            font-size: 2.2rem;
+            color: #ffffff;
+            font-weight: 400;
+            margin-bottom: 12px;
+            line-height: 1.2;
+        }
+
+        .recipe-description {
+            color: #ccc;
+            font-size: 1rem;
+            line-height: 1.7;
+            font-weight: 300;
+            margin-bottom: 25px;
+        }
+
+        .recipe-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 25px;
+        }
+
+        .recipe-col h4 {
+            color: var(--gold-accent);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border-bottom: 1px solid rgba(197, 160, 89, 0.3);
+            padding-bottom: 8px;
+        }
+
+        .recipe-col ul {
+            list-style: none;
+            padding: 0;
+            color: #ddd;
+            font-weight: 300;
+            font-size: 0.92rem;
+        }
+
+        .recipe-col ul li {
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 18px;
+            line-height: 1.5;
+        }
+
+        .recipe-col ul li::before {
+            content: "•";
+            color: var(--gold-accent);
+            position: absolute;
+            left: 0;
+            font-size: 1.2rem;
+            line-height: 1;
+            top: -1px;
+        }
+
+        .recipe-col ol {
+            padding-left: 18px;
+            color: #ddd;
+            font-weight: 300;
+            font-size: 0.92rem;
+        }
+
+        .recipe-col ol li {
+            margin-bottom: 10px;
+            line-height: 1.5;
+            padding-left: 4px;
+        }
+
+        .recipe-col ol li::marker {
+            color: var(--gold-accent);
+            font-weight: 600;
+        }
+
+        .recipe-tip {
+            background: rgba(178, 34, 34, 0.2);
+            border-left: 4px solid var(--gold-accent);
+            padding: 14px 18px;
+            border-radius: 0 8px 8px 0;
+            color: #ccc;
+            font-size: 0.9rem;
+            font-weight: 300;
+            line-height: 1.5;
+        }
+
+        .recipe-tip strong {
+            color: var(--gold-accent);
+            font-weight: 500;
+        }
+
+        @media (max-width: 992px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding: 60px 5%;
+            }
+
+            h1 {
+                font-size: 2.0rem;
+            }
+
+            .image-strip {
+                grid-template-columns: 1fr;
+            }
+
+            .recipe-card-single {
+                flex-direction: column;
+            }
+
+            .recipe-media {
+                min-height: 280px;
+            }
+
+            .recipe-columns {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .recipe-details {
+                padding: 30px 20px;
+            }
+
+            .recipe-section {
+                padding: 60px 5%;
+            }
+
+            .recipe-title {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="header-container"></div>
+
+    <script>
+        // Import header.html
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(data, 'text/html');
+                const nav = doc.querySelector('nav');
+                const menuOverlay = doc.querySelector('.menu-overlay');
+                const styles = doc.querySelector('style');
+                const scripts = doc.querySelector('script');
+
+                // Add the CSS styles to the head
+                if (styles) {
+                    document.head.appendChild(styles);
+                    // Fix body overflow issue AFTER styles are added
+                    setTimeout(() => {
+                        document.body.style.overflow = '';
+                        document.documentElement.style.overflow = '';
+
+                        // Fix family section visibility
+                        const familySection = document.querySelector('.family');
+                        if (familySection) {
+                            familySection.style.opacity = '1';
+                            familySection.style.transform = 'translateY(0)';
+                        }
+                    }, 100);
+                }
+
+                // Remove background from navbar
+                if (nav) {
+                    nav.style.background = 'transparent';
+                    nav.style.backdropFilter = 'none';
+
+                    // Fix menu toggle visibility
+                    const menuToggleSpans = nav.querySelectorAll('.menu-toggle span');
+                    menuToggleSpans.forEach(span => {
+                        span.style.background = 'white';
+                        span.style.display = 'block';
+                    });
+                }
+
+                document.getElementById('header-container').appendChild(nav);
+                document.getElementById('header-container').appendChild(menuOverlay);
+
+                // Execute the JavaScript from header.html
+                if (scripts) {
+                    eval(scripts.textContent);
+                }
+            })
+            .catch(error => console.error('Error loading header:', error));
+    </script>
+    <section class="hero">
+        <div class="product-img-box">
+            <img src="images/edited/strawberrywine (1).jpg" alt="Scarlet Silk Strawberry Wine">
+        </div>
+        <div class="product-info">
+            <span class="tag">The Heritage Collection</span>
+            <h1>Scarlet Silk, Strawberry Wine
+            </h1>
+            <p class="description">Luscious berry essence, smooth seductive finish.</p>
+            <p class="main-para">
+                Peak season strawberries. Limited batches. The kind of bright, joyful flavour where sweet meets tart and
+                makes you want to share a bottle the moment you open it.
+                Scarlet Silk is the wine you bring to a birthday. The one you open on a random Tuesday because the
+                weather is nice. The one guests reach for first and ask about second.
+                Not every bottle needs to carry the weight of history. Sometimes it just needs to make the evening
+                better. This one does that very well.
+        </div>
+    </section>
+
+    <section class="process-section">
+        <div class="process-header">
+            <span class="tag" style="color: var(--strawberry-red);">Artisan Craft</span>
+            <h2 style='font-size: 3rem; font-weight : 400 ; font-family: "Outfit", sans-serif;'>The Seduction of
+                Strawberry Wine</h2>
+        </div>
+        <div class="process-grid">
+            <div class="step">
+                <h3>01. Hand-Selection</h3>
+                <p>Only the plumpest, heritage-grade strawberries are selected from organic farm partners across
+                    <b>INDIA</b> at the peak of ripeness.
+                </p>
+            </div>
+            <div class="step">
+                <h3>02. Gentle Infusion</h3>
+                <p>A slow maceration process ensures the delicate floral notes and bright red pigments are naturally
+                    preserved.</p>
+            </div>
+            <div class="step">
+                <h3>03. Refined Finishing</h3>
+                <p>The vintage is clarified through traditional gravity-fed methods to maintain its signature silky
+                    texture and clarity.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="recipe-section" id="recipe">
+        <div class="recipe-container">
+            <div class="recipe-header">
+                <span class="tag">Mixology & Craft</span>
+                <h2>Signature Cocktail Recipe</h2>
+                <p>Curated specifically to highlight the vibrant, sweet-tart fruit notes of Scarlet Silk</p>
+            </div>
+
+            <div class="recipe-card-single">
+                <div class="recipe-media">
+                    <img src="images/sam's winery/Golden Hour Strawberry Wine Picnic (1).png"
+                        alt="Strawberry Basil Breeze">
+                    <div class="recipe-badges">
+                        <span class="recipe-badge">Prep: 6 mins</span>
+                        <span class="recipe-badge">Easy</span>
+                        <span class="recipe-badge">Serves: 1 Glass</span>
+                    </div>
+                </div>
+                <div class="recipe-details">
+                    <h3 class="recipe-title">Strawberry Basil Breeze</h3>
+                    <p class="recipe-description">
+                        A bright, aromatic mix that highlights the sweet, freshly-crushed berry character of Strawberry
+                        Wine, elevated with fresh green basil leaves and a sparkling finish.
+                    </p>
+
+                    <div class="recipe-columns">
+                        <div class="recipe-col">
+                            <h4>Ingredients</h4>
+                            <ul>
+                                <li>120ml Sam's Strawberry Wine</li>
+                                <li>3-4 Fresh Basil leaves</li>
+                                <li>15ml Fresh Lemon juice</li>
+                                <li>3 Sliced fresh Strawberries</li>
+                                <li>Sparkling water or Prosecco to top</li>
+                            </ul>
+                        </div>
+                        <div class="recipe-col">
+                            <h4>Instructions</h4>
+                            <ol>
+                                <li>Place basil leaves and sliced strawberries at the bottom of a large glass.</li>
+                                <li>Gently muddle with a spoon to release essential oils and juice.</li>
+                                <li>Fill glass halfway with cubed ice, pour in lemon juice and Sam's Strawberry Wine.
+                                </li>
+                                <li>Top with sparkling water or Prosecco and garnish with fresh basil.</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <div class="recipe-tip">
+                        <strong>Sommelier Tip:</strong> Muddle sweet Thai basil or holy basil for a delicious herbal
+                        aroma that pairs magnificently with ripe strawberry sweetness.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- <section class="media-gallery">
+        <div class="gallery-header">
+            <span class="tag">Behind the Label</span>
+            <h2 style="font-size: 2.5rem; font-weight :400 ;color: white;">The
+                Strawberry Journey</h2>
+        </div>
+
+        <div class="video-container">
+            <p style="color: var(--gold-accent); font-weight: bold;">[ Strawberry Sorting & Fermentation Video ]</p>
+        </div>
+
+        <div class="image-strip">
+            <img src="image_4b3326.jpg" alt="Strawberry Fields">
+            <img src="image_4d6dc2.jpg" alt="Botanical Research">
+            <img src="image_4de9e2.jpg" alt="Final Bottling">
+        </div>
+    </section> -->
+
+    <script>
+        // Scroll Animation Observer
+        const revealOnScroll = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.step, .image-strip img, .recipe-card-single').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(40px)';
+            el.style.transition = 'all 0.8s ease-out';
+            revealOnScroll.observe(el);
+        });
+    </script>
+    <div id="footer-container"></div>
+
+    <script>
+        // Import footer.html
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(data, 'text/html');
+                const footer = doc.querySelector('footer');
+                const styles = doc.querySelector('style');
+
+                // Add the CSS styles to the head
+                if (styles) {
+                    document.head.appendChild(styles);
+                }
+
+                // Add the footer to the container
+                document.getElementById('footer-container').appendChild(footer);
+            })
+            .catch(error => console.error('Error loading footer:', error));
+    </script>
+</body>
+
+</html>

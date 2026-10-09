@@ -1,0 +1,1080 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Wine Club | Sam's Wine Winery</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Join Sam's Wine Club to explore our exclusive fruit and flower wine collection including Pomegranate, Jamun, Mahua, and Strawberry wines." />
+    <link rel="canonical" href="https://samsfruitwines.com/wineclub.html" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    
+
+    <style>
+      :root {
+        --gold: #c6a75e;
+        --dark: #080808;
+        --glass: rgba(255, 255, 255, 0.12);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Outfit", sans-serif;
+        background: var(--dark);
+        color: #fff;
+        overflow-x: hidden;
+        width: 100%;
+      }
+
+      /* ================= HERO ================= */
+      .hero {
+        height: 80vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+
+        background-image:
+          linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.85)),
+          url("images/wine5.JPG");
+
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+
+      .hero h1 {
+        font-size: 4.5rem;
+        letter-spacing: 2px;
+        color: #fff;
+        font-weight : 400;
+      }
+
+      .hero span {
+        display: block;
+        margin-top: 1rem;
+        color: var(--gold);
+        letter-spacing: 4px;
+        font-weight : 300;
+      }
+
+      .hero-signup-btn {
+        display: inline-block;
+        margin-top: 28px;
+        padding: 13px 38px;
+        font-family: "Outfit", sans-serif;
+        font-size: clamp(0.75rem, 1.5vw, 0.85rem);
+        font-weight: 400;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        text-decoration: none;
+        color: #ffffff;
+        background: transparent;
+        border: 1px solid rgba(255, 255, 255, 0.65);
+        border-radius: 2px;
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+        transition: all 0.35s ease;
+        cursor: pointer;
+      }
+
+      .hero-signup-btn:hover {
+        background: #ffffff;
+        color: #000000;
+        border-color: #ffffff;
+        box-shadow: 0 8px 25px rgba(255, 255, 255, 0.25);
+        transform: translateY(-2px);
+      }
+
+      /* ================= INTRO ================= */
+      .intro {
+        max-width: 1100px;
+        margin: auto;
+        padding: 8rem 2rem;
+        text-align: center;
+      }
+
+      .intro h2 {
+        font-size: 3.2rem;
+      }
+
+      .intro p {
+        margin-top: 1.5rem;
+        opacity: 0.85;
+        font-size: 1.05rem;
+      }
+
+      /* ================= TIERS ================= */
+      .tiers {
+        max-width: 1300px;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 3rem;
+        padding: 0 2rem 8rem;
+      }
+
+      .tier {
+        background: var(--glass);
+        backdrop-filter: blur(25px);
+        padding: 4rem 3rem;
+        border-radius: 30px;
+        box-shadow: 0 60px 160px rgba(0, 0, 0, 0.7);
+        text-align: center;
+        position: relative;
+        transition: 0.5s;
+      }
+
+      .tier:hover {
+        transform: translateY(-10px);
+      }
+
+      .tier.popular {
+        outline: 2px solid var(--gold);
+      }
+
+      .tier span {
+        color: var(--gold);
+        letter-spacing: 2px;
+        font-size: 0.75rem;
+      }
+
+      .tier h3 {
+        font-size: 2.3rem;
+        margin: 1rem 0;
+      }
+
+      .tier ul {
+        list-style: none;
+        margin: 2rem 0;
+      }
+
+      .tier li {
+        margin: 0.8rem 0;
+        opacity: 0.85;
+      }
+
+      .price {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+      }
+
+      .join-btn {
+        display: inline-block;
+        padding: 1rem 3rem;
+        border: 1px solid var(--gold);
+        color: var(--gold);
+        text-decoration: none;
+        letter-spacing: 2px;
+        transition: 0.4s;
+      }
+
+      .join-btn:hover {
+        background: var(--gold);
+        color: #000;
+      }
+
+      /* ================= BENEFITS ================= */
+      :root {
+        --deep-wine: #4a0404;
+        --gold-accent: #c5a059;
+        --soft-cream: #f9f6f2;
+      }
+
+      .premium-showcase {
+        background-color: var(--soft-cream);
+        padding: 100px 5%;
+       font-family: "Outfit", sans-serif;;
+      }
+
+      .showcase-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: center;
+      }
+
+      .image-stack {
+        position: relative;
+        display: flex;
+        justify-content: center;
+      }
+
+      .main-frame {
+        position: relative;
+        width: 90%;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        padding: 15px;
+        background: white;
+      }
+
+      .hero-img {
+        width: 100%;
+        height: 500px;
+        object-fit: cover;
+        display: block;
+      }
+
+      .badge {
+        position: absolute;
+        top: -10px;
+        left: -10px;
+        background: var(--gold-accent);
+        color: white;
+        padding: 10px 20px;
+        font-size: 0.8rem;
+        letter-spacing: 2px;
+      }
+
+      .info-float {
+        position: absolute;
+        bottom: -30px;
+        right: -20px;
+        background: var(--deep-wine);
+        color: white;
+        padding: 30px;
+        max-width: 220px;
+        box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.2);
+      }
+
+      .brand-subtitle {
+        color: var(--gold-accent);
+        text-transform: uppercase;
+        letter-spacing: 4px;
+        margin-bottom: 15px;
+        font-weight :400;
+      }
+
+      .brand-title {
+        font-size: 3.5rem;
+        line-height: 1.2;
+        color: #1a1a1a;
+        margin-bottom: 25px;
+        font-weight :400;
+      }
+
+      .brand-title em {
+        color: var(--deep-wine);
+        font-family: "Outfit", sans-serif;;
+      }
+
+      .features-list {
+        margin: 40px 0;
+      }
+
+      .f-item {
+        display: flex;
+        gap: 20px;
+        margin-bottom: 25px;
+      }
+
+      .f-num {
+        font-size: 1.2rem;
+        color: var(--gold-accent);
+        font-weight: bold;
+        border-bottom: 2px solid var(--gold-accent);
+        height: fit-content;
+      }
+
+      /* ================= GOLD BUTTON — SLIDING FILL EFFECT ================= */
+      .gold-button {
+        display: inline-block;
+        padding: 15px 40px;
+        background: transparent;
+        border: 2px solid #d4af37;
+        color: #d4af37;
+        text-decoration: none;
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        position: relative;
+        overflow: hidden;
+        transition: color 0.4s ease;
+        isolation: isolate;
+        z-index: 0;
+      }
+
+      .gold-button::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: #d4af37;
+        transition: left 0.4s ease;
+        z-index: -1;
+      }
+
+      .gold-button:hover {
+        color: #000;
+        border-color: #d4af37;
+      }
+
+      .gold-button:hover::before {
+        left: 0;
+      }
+
+      /* ================= CTA ================= */
+      .cta {
+        background:
+          linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.9)),
+          url("images/wineclub-cta.jpg") center/cover;
+        text-align: center;
+        padding: 8rem 2rem;
+      }
+
+      .cta h2 {
+        font-size: 3rem;
+      }
+
+      .cta p {
+        margin: 1.5rem auto 3rem;
+        max-width: 600px;
+        opacity: 0.85;
+      }
+
+      .cta a {
+        padding: 1.2rem 4rem;
+        border: 1px solid var(--gold);
+        color: var(--gold);
+        text-decoration: none;
+        letter-spacing: 3px;
+        transition: 0.4s;
+      }
+
+      .cta a:hover {
+        background: var(--gold);
+        color: #000;
+      }
+
+      /* ================= MOBILE ================= */
+      @media (max-width: 900px) {
+        .tiers,
+        .benefit-grid {
+          grid-template-columns: 1fr;
+        }
+        .hero h1 {
+          font-size: 3rem;
+        }
+      }
+      /* ================= WINE COLLECTION ================= */
+      .wine-collection {
+        padding: 8rem 2rem;
+        background: #0c0c0c;
+      }
+
+      .wine-header {
+        text-align: center;
+        max-width: 700px;
+        margin: 0 auto 5rem;
+        color: #ffffff;
+      }
+
+      .wine-header h2 {
+        font-size: 3rem;
+      }
+
+      .wine-header p {
+        margin-top: 1rem;
+        opacity: 0.8;
+      }
+
+      .wine-grid {
+        max-width: 1300px;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2.5rem;
+      }
+
+      .wine-card {
+        position: relative;
+        overflow: hidden;
+        border-radius: 25px;
+        box-shadow: 0 40px 120px rgba(0, 0, 0, 0.7);
+      }
+
+      .wine-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: fill;
+        transition: 1s ease;
+        filter: brightness(0.85);
+      }
+
+      .wine-card:hover img {
+        transform: scale(1.1);
+        filter: brightness(1);
+      }
+
+      .wine-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 2.5rem;
+      }
+
+      .wine-overlay h3 {
+        font-size: 1.6rem;
+      }
+
+      .wine-overlay span {
+        color: var(--gold);
+        letter-spacing: 2px;
+        font-size: 0.75rem;
+        margin-top: 0.4rem;
+      }
+
+      /* ================= MOBILE ================= */
+      @media (max-width: 900px) {
+        .wine-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      /* ================= JOURNEY ================= */
+      .journey {
+        color: #ffffff;
+        padding: 2rem 2rem;
+        text-align: center;
+        background: linear-gradient(to bottom, #080808, #151515);
+        font-family :"Outfit", sans-serif;
+        font-size : 2.5rem;
+      }
+      .journey h2{
+        font-size :1rem;
+        font-weight :300;
+      }
+
+      .step-container {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        max-width: 1100px;
+        margin: 4rem auto 0;
+        
+      }
+
+      .step {
+        color: #ffffff;
+        flex: 1;
+        padding: 2rem;
+        border-top: 1px solid var(--gold);
+      }
+
+      .benefit-icon {
+        font-size: 2.5rem;
+        color: #c4a006;
+        margin-bottom: 20px;
+        display: block;
+      }
+
+      .benefit h4 {
+        margin-top: 10px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .step-number {
+        display: block;
+        font-family: "Outfit", sans-serif;;
+      
+        color: var(--gold);
+        margin-bottom: 1rem;
+        opacity: 0.5;
+      }
+
+      .step h4 {
+        letter-spacing: 2px;
+        margin-bottom: 1rem;
+        font-weight :400;
+      }
+
+      .step p{
+        font-size :1.5rem;
+        font-weight :300;
+      }
+
+      @media (max-width: 768px) {
+        .step-container {
+          flex-direction: column;
+        }
+      }
+      /* ================= LUXE WINE COLLECTION ================= */
+
+      .wine-collection {
+        padding: 6rem 2rem 4rem;
+        background: #080808;
+        color: #fff;
+      }
+
+      .wine-header {
+        text-align: center;
+        margin-bottom: 8rem;
+      }
+
+      .wine-header h2 {
+        font-family: "Outfit", sans-serif;;
+        font-size: 3.5rem;
+        font-weight: 400;
+        letter-spacing: 2px;
+      }
+
+      .wine-header p {
+        color: var(--gold);
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+        margin-top: 1rem;
+      }
+
+      .wine-showcase-item {
+        display: flex;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto 12rem;
+        gap: 8rem;
+      }
+
+      .wine-showcase-item:nth-child(even) {
+        flex-direction: row-reverse;
+      }
+
+      .wine-image-area {
+        flex: 1;
+      }
+
+      .wine-image-area img {
+        max-width: 100%;
+        height: 550px;
+        object-fit: contain;
+        filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.9));
+        transition: transform 0.5s ease;
+      }
+
+      .wine-image-area:hover img {
+        transform: scale(1.05);
+      }
+
+      .wine-content-area {
+        flex: 1;
+      }
+
+      .wine-content-area span {
+        color: var(--gold);
+        letter-spacing: 3px;
+        font-size: 0.8rem;
+        font-weight: 400;
+      }
+
+      .wine-content-area h3 {
+        font-family: "Outfit", sans-serif;
+        font-size: 3.2rem;
+        margin: 1.5rem 0;
+        line-height: 1.1;
+        text-transform: uppercase;
+        font-weight : 400;
+      }
+
+      .wine-content-area p {
+        font-family: "Outfit", sans-serif;
+        font-size: 1.1rem;
+        line-height: 1.8;
+        opacity: 0.8;
+        margin-bottom: 2.0rem;
+        font-weight :300;
+      }
+
+      .know-more {
+        text-decoration: none;
+        color: var(--gold);
+        letter-spacing: 3px;
+        font-size: 0.85rem;
+        border-bottom: 1px solid var(--gold);
+        padding-bottom: 8px;
+        transition: 0.4s ease;
+      }
+
+      .know-more:hover {
+        letter-spacing: 5px;
+      }
+
+      @media (max-width: 900px) {
+        .wine-showcase-item,
+        .wine-showcase-item:nth-child(even) {
+          flex-direction: column;
+          text-align: center;
+          gap: 3rem;
+          margin-bottom: 8rem;
+        }
+      }
+      /* ================= DARK WINE VERSION ================= */
+      .premium-showcase {
+        background: linear-gradient(to bottom, #0b0b0b, #141414);
+        padding: 100px 5%;
+      }
+
+      .premium-showcase .brand-title,
+      .premium-showcase .brand-text,
+      .premium-showcase .f-desc p {
+        color: #ffffff;
+        font-weight :300;
+      }
+
+      .premium-showcase .brand-text {
+        opacity: 0.85;
+      }
+
+      .premium-showcase .brand-subtitle {
+        color: var(--gold);
+      }
+
+      .premium-showcase .brand-title strong {
+        color: var(--gold);
+      }
+
+      .premium-showcase .main-frame {
+        background: #0f0f0f;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .premium-showcase .badge {
+        background: var(--gold);
+        color: #000;
+      }
+
+      .premium-showcase .info-float {
+        background: #0c0c0c;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8);
+      }
+
+      .premium-showcase .f-num {
+        color: var(--gold);
+        border-bottom: 2px solid var(--gold);
+      }
+
+      .premium-showcase .f-desc strong {
+        color: #ffffff;
+        font-weight: 500;
+        display: block;
+        margin-bottom: 4px;
+      }
+
+      .premium-showcase .f-desc p {
+        color: rgba(255, 255, 255, 0.75);
+      }
+
+      /* Gold button inside premium-showcase inherits the same sliding effect */
+      .premium-showcase .gold-button {
+        border-color: #d4af37;
+        color: #d4af37;
+      }
+
+      .premium-showcase .gold-button:hover {
+        color: #000;
+      }
+
+      .wine-showcase-item:last-child {
+        margin-bottom: 4rem;
+      }
+      /* ================= WINE CLUB ESSENCE ================= */
+
+      .wine-club-essence {
+        background: linear-gradient(to bottom, #080808, #151515);
+        padding: 4rem 2rem;
+        color: #1c1c1c;
+      }
+
+      .essence-inner {
+        max-width: 900px;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      .essence-label {
+        display: inline-block;
+        font-size: 0.8rem;
+        letter-spacing: 4px;
+        color: var(--gold);
+        margin-bottom: 1.5rem;
+      }
+
+      .essence-title {
+        font-family: "Outfit", sans-serif;
+        font-size: 3.6rem;
+        line-height: 1.15;
+        margin-bottom: 2.5rem;
+        font-weight :400;
+        color :white;
+      }
+
+      .essence-text {
+        font-family: "Outfit", sans-serif;
+        font-size: 1.1rem;
+        line-height: 1.9;
+        color: #444;
+        max-width: 760px;
+        margin: 0 auto 4rem;
+        font-weight :300;
+        color :white
+      }
+
+      .essence-divider {
+        width: 80px;
+        height: 1px;
+        background: var(--gold);
+        margin: 0 auto 4rem;
+        opacity: 0.8;
+      }
+
+      .essence-highlights {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 3rem;
+      }
+
+      .highlight {
+        padding : 1rem;
+        border : 1px solid;
+        border-color : var(--gold);
+        border-radius : 10px;
+      }
+
+      .highlight h3,
+      .highlight h4 {
+        font-weight: 600;
+        font-size: 1.25rem;
+        letter-spacing: 1px;
+        margin-bottom: 0.8rem;
+        color: #ffd700;
+      }
+
+      .highlight p {
+        font-weight: 300;
+        font-size: 0.95rem;
+        color: #f0f0f0;
+        line-height: 1.6;
+      }
+
+      @media (max-width: 900px) {
+        .highlight {
+          padding : 1rem;
+          border : 1px solid;
+          border-color : var(--gold);
+          border-radius : 10px;
+        }
+
+        .essence-title {
+          font-size: 2.6rem;
+        }
+
+        .essence-highlights {
+          grid-template-columns: 1fr;
+          gap: 2.5rem;
+        }
+      }
+
+      /* ================= RESPONSIVE PREMIUM SHOWCASE ================= */
+      @media screen and (max-width: 1200px) {
+        .premium-showcase .showcase-inner { gap: 40px; padding: 0 20px; }
+        .premium-showcase .brand-title { font-size: 3rem; }
+      }
+
+      @media screen and (max-width: 992px) {
+        .premium-showcase .showcase-inner { grid-template-columns: 1fr; gap: 60px; }
+        .premium-showcase .visual-side { order: 1; }
+        .premium-showcase .content-side { order: 2; text-align: center; max-width: 700px; margin: 0 auto; }
+        .premium-showcase .brand-title { font-size: 3.2rem; }
+        .premium-showcase .features-list { max-width: 600px; margin: 40px auto; }
+        .premium-showcase .f-item { flex-direction: column; align-items: center; text-align: center; gap: 10px; }
+        .premium-showcase .f-num { margin-bottom: 10px; }
+        .premium-showcase .f-desc { text-align: center; }
+        .premium-showcase .gold-button { margin-top: 20px; }
+        .premium-showcase .image-stack { max-width: 600px; margin: 0 auto; }
+        .premium-showcase .main-frame { width: 100%; }
+        .premium-showcase .hero-img { height: 400px; }
+        .premium-showcase .info-float { bottom: -20px; right: -10px; padding: 20px; max-width: 200px; }
+      }
+
+      @media screen and (max-width: 768px) {
+        .premium-showcase { padding: 60px 20px; }
+        .premium-showcase .brand-subtitle { font-size: 0.75rem; letter-spacing: 3px; }
+        .premium-showcase .brand-title { font-size: 2.5rem; }
+        .premium-showcase .brand-text { font-size: 1rem; line-height: 1.6; padding: 0 10px; }
+        .premium-showcase .features-list { gap: 25px; }
+        .premium-showcase .f-item { padding: 0; }
+        .premium-showcase .f-desc strong { font-size: 1.1rem; }
+        .premium-showcase .f-desc p { font-size: 0.95rem; }
+        .premium-showcase .gold-button { padding: 15px 40px; font-size: 0.9rem; }
+      }
+
+      @media screen and (max-width: 480px) {
+        .premium-showcase { padding: 40px 15px; }
+        .premium-showcase .brand-title { font-size: 2rem; }
+        .premium-showcase .brand-text { font-size: 0.95rem; padding: 0 5px; }
+        .premium-showcase .f-item { padding: 0 10px; }
+        .premium-showcase .f-desc strong { font-size: 1rem; }
+        .premium-showcase .f-desc p { font-size: 0.9rem; }
+        .premium-showcase .gold-button { padding: 12px 30px; font-size: 0.85rem; width: 100%; max-width: 280px; text-align: center; margin: 0 auto; display: block; }
+        .premium-showcase .hero-img { height: 250px; }
+        .premium-showcase .info-float { position: relative; bottom: 0; right: 0; margin-top: 20px; max-width: 100%; text-align: center; padding: 20px; }
+        .premium-showcase .badge { font-size: 0.7rem; padding: 8px 15px; }
+        .premium-showcase .main-frame { padding: 10px; }
+      }
+
+      @media screen and (max-width: 360px) {
+        .premium-showcase .brand-title { font-size: 1.8rem; }
+        .premium-showcase .brand-text { font-size: 0.9rem; }
+        .premium-showcase .gold-button { padding: 12px 20px; font-size: 0.8rem; max-width: 240px; }
+      }
+
+      img, video, iframe { max-width: 100%; height: auto; }
+      section { overflow-x: hidden; width: 100%; }
+    </style>
+  </head>
+  <body>
+    <div id="header-container"></div>
+
+    <script>
+      fetch("header.html")
+        .then((response) => response.text())
+        .then((data) => {
+          const parser = new DOMParser();
+          const doc = parser.parseFromString(data, "text/html");
+          const nav = doc.querySelector("nav");
+          const menuOverlay = doc.querySelector(".menu-overlay");
+          const styles = doc.querySelector("style");
+          const scripts = doc.querySelector("script");
+
+          if (styles) {
+            document.head.appendChild(styles);
+            setTimeout(() => {
+              document.body.style.overflow = "auto";
+              document.documentElement.style.overflow = "auto";
+            }, 100);
+          }
+
+          if (nav) {
+            nav.style.background = "transparent";
+            nav.style.backdropFilter = "none";
+            const menuToggleSpans = nav.querySelectorAll(".menu-toggle span");
+            menuToggleSpans.forEach((span) => {
+              span.style.background = "white";
+              span.style.display = "block";
+            });
+          }
+
+          document.getElementById("header-container").appendChild(nav);
+          document.getElementById("header-container").appendChild(menuOverlay);
+
+          if (scripts) { eval(scripts.textContent); }
+        })
+        .catch((error) => console.error("Error loading header:", error));
+    </script>
+
+    <section class="hero" style="cursor: pointer;" onclick="if (!event.target.closest('.hero-signup-btn')) { window.location.href = 'signup.html'; }">
+      <div>
+        <a href="signup.html" style="text-decoration: none; color: inherit; display: inline-block; cursor: pointer;">
+          <h1>Wine Club</h1>
+          <span>EXCLUSIVE MEMBER ACCESS</span>
+        </a>
+        <p class="hero-desc" style="font-family: 'Outfit', sans-serif; font-size: 1.1rem; color: #ccc; margin-top: 15px; max-width: 600px; margin-left: auto; margin-right: auto; font-weight: 300; line-height: 1.6;">Sign up to become an exclusive member to get discounts & a free bottle on your Birthday.</p>
+        <a href="signup.html" class="hero-signup-btn">Sign Up</a>
+      </div>
+    </section>
+
+    <section class="journey">
+      <span>OUR CRAFT</span>
+      <h2>From Orchard to Glass</h2>
+      <div class="step-container">
+        <div class="step">
+          <span class="step-number">01</span>
+          <h3>Sustainable Harvest</h3>
+          <p>We source residue-free fruits and fresh blossoms from our natural farming Orchards.</p>
+        </div>
+        <div class="step">
+          <span class="step-number">02</span>
+          <h3>Artisanal Fermentation</h3>
+          <p>Our unique process preserves antioxidants & nutrients to create the world's first premium wines.</p>
+        </div>
+        <div class="step">
+          <span class="step-number">03</span>
+          <h3>Cellar Experience</h3>
+          <p>Visit our tasting room for a guided tour of nature's art, where sweet meets tart in every sip.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="wine-club-essence">
+      <div class="essence-inner">
+        <a href="signup.html" style="text-decoration: none; color: inherit; display: inline-block;">
+          <span class="essence-label" style="cursor: pointer;">WINE CLUB</span>
+        </a>
+        <h2 class="essence-title">A Space for Those<br />Who Understand Wine</h2>
+        <p class="essence-text">
+          The Sam's Wine is not a program — it is a destination. A place where rare flower wines, native fruit expressions, and sustainable craft are explored at their purest.
+          <br /><br />
+          Here, wine is not rushed. It is tasted, discussed, and discovered through seasonal releases, guided experiences, and an uncompromising respect for origin.
+        </p>
+        <div class="essence-divider"></div>
+        <div class="essence-highlights">
+          <div class="highlight">
+            <h3>World-First Creations</h3>
+            <p><b>INDIA'S</b> only fruit & flower wines, crafted from native blossoms and fruit wine.</p>
+          </div>
+          <div class="highlight">
+            <h3>Seasonal Exploration</h3>
+            <p>Rotating releases shaped by harvest, climate, and terroir.</p>
+          </div>
+          <div class="highlight">
+            <h3>Rooted in Origin</h3>
+            <p>Residue-free farming, sustainable Orchards, and slow fermentation.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="wine-collection">
+      <div class="wine-header">
+        <h2>Signature Releases</h2>
+        <p>World-Best Flower & Fruit Innovations</p>
+      </div>
+
+      <div class="wine-grid-showcase">
+        <div class="wine-showcase-item">
+          <div class="wine-image-area">
+            <img src="images/sam's winery/Pomegranate Wine in Golden Orchard.png" alt="Ruby Rich Fruit Wine" />
+          </div>
+          <div class="wine-content-area">
+            <span>01 / RESIDUE FREE</span>
+            <h3>Pomegranate <br />WINE</h3>
+            <p>RUBY RICH RESERVE is a deep, velvety fruit wine crafted from residue-free pomegranates grown in the fertile soils of <b>INDIA</b>. Carefully fermented to preserve its natural vitality, this wine embodies richness, balance, and refinement in every glass. The palate reveals layers of dark berry intensity, subtle tartness, and a smooth, structured finish that unfolds gracefully. Naturally high in antioxidants and celebrated for its anti-aging properties, Ruby Rich Reserve is where wellness meets indulgence — a wine made for the modern, health-conscious connoisseur.</p>
+            <a href="pome.html" class="know-more">DISCOVER WINE</a>
+          </div>
+        </div>
+
+        <div class="wine-showcase-item">
+          <div class="wine-image-area">
+            <img src="images/sam's winery/jamun2 edited.png" alt="Jamun Fruit Wine" />
+          </div>
+          <div class="wine-content-area">
+            <span>02 / HEALTH CONSCIOUS</span>
+            <h3>JAMUN WINE<br />(Plum)</h3>
+            <p>VITALITY JAMUN is a robust fruit wine crafted from hand-harvested Jamun sourced from sustainable orchards across <b>INDIA</b>. Known for its deep color and mineral-rich character, this wine captures the raw intensity of dark fruit balanced with refined craftsmanship. On the palate, it delivers bold blackberry-like notes, subtle earthy undertones, with tarty, tannic notes that leave a pleasantly dry finish. Rich in natural minerals and traditionally valued for its anti-diabetic properties, Jamun Wine is both grounding and invigorating.</p>
+            <a href="jamun.html" class="know-more">DISCOVER WINE</a>
+          </div>
+        </div>
+
+        <div class="wine-showcase-item">
+          <div class="wine-image-area">
+            <img src="images/sam's winery/Golden Hour Strawberry Wine Picnic (1).png" alt="Scarlet Silk" />
+          </div>
+          <div class="wine-content-area">
+            <span>03 / REFRESHING</span>
+            <h3>STRAWBERRY<br />Wine</h3>
+            <p>SCARLET SILK is Sam's Wine's special edition strawberry wine, crafted to showcase the boldest fruit expressions of the season. Made from select, peak-ripeness strawberries, this wine embodies the house philosophy of "sweet meets tart" — vibrant, playful, and impeccably balanced. The palate opens with bright red-fruit aromas and fresh berry sweetness, followed by a lively natural acidity that brings structure and elegance. Its smooth, lingering finish makes Scarlet Silk both indulgent and refreshing, a wine designed to surprise and delight the discerning collector. This wine is ideal for celebratory moments, refined dessert pairings, and those who seek something distinct yet sophisticated.</p>
+            <a href="Strawberry.html" class="know-more">DISCOVER WINE</a>
+          </div>
+        </div>
+
+        <div class="wine-showcase-item">
+          <div class="wine-image-area">
+            <img src="images/mahua2.png" alt="Mahua Flower Wine" />
+          </div>
+          <div class="wine-content-area">
+            <span>04 / WORLD'S FIRST</span>
+            <h3>MAHUA <br />FLOWER WINE</h3>
+            <p>MAHUA FLOWER WINE is a world-first expression of <b>INDIA'S</b> native blossoms, crafted with rare botanical precision from hand-picked Mahua flowers gathered from wild forests across <b>INDIA</b>. Fermented slowly to preserve its natural character, this wine captures the soul of the flower — floral, gently sweet, and intensly aromatic. On the palate, it opens with delicate honeyed notes and soft tropical florals, followed by a warm, rounded mouthfeel that lingers elegantly. Naturally rich in antioxidants, Mahua Flower Wine is not just an indulgence, but a celebration of wellness, tradition, and modern craftsmanship.</p>
+            <a href="mahua.html" class="know-more">DISCOVER WINE</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="premium-showcase">
+      <div class="showcase-inner">
+        <div class="visual-side">
+          <div class="image-stack">
+            <div class="main-frame">
+              <div class="badge">TASTING ROOM</div>
+              <img src="https://images.unsplash.com/photo-1547595628-c61a29f496f0?auto=format&fit=crop&w=800&q=80" alt="Sam's Wine Wine Tasting" class="hero-img" />
+            </div>
+            <div class="info-float">
+              <span class="gold-text">By Appointment</span>
+              <p>Guided tastings with curated pairings<br />& sustainable craft insights</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-side">
+          <h4 class="brand-subtitle">Taste. Learn. Discover</h4>
+          <h2 class="brand-title">The Sam's Wine <br /><strong>Tasting Experience</strong></h2>
+          <p class="brand-text">Step into our tasting room and explore the world of fruit and flower wines. Sample seasonal releases, limited editions, and signature bottles, guided by our wine specialists who reveal the aromas, textures, and stories behind every pour.</p>
+
+          <div class="features-list">
+            <div class="f-item">
+              <span class="f-num">01</span>
+              <div class="f-desc">
+                <strong>Signature Tastings</strong>
+                <p>Seasonal, limited-edition & reserve wines.</p>
+              </div>
+            </div>
+            <div class="f-item">
+              <span class="f-num">02</span>
+              <div class="f-desc">
+                <strong>Thoughtful Pairings</strong>
+                <p>Carefully paired gourmet accompaniments.</p>
+              </div>
+            </div>
+            <div class="f-item">
+              <span class="f-num">03</span>
+              <div class="f-desc">
+                <strong>Craft & Origin</strong>
+                <p>Insights into sustainable farming and winemaking.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="tasting-cta-group" style="display: flex; align-items: center; gap: 30px; margin-top: 40px; flex-wrap: wrap;">
+            <a href="visit.html" class="gold-button" style="margin: 0;">VISIT US →</a>
+            <span class="tasting-phone" style="font-family: 'Outfit', sans-serif; font-size: 1.05rem; color: #fff; letter-spacing: 1px; display: inline-flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+              <span style="color: #d4af37;">OR CALL:</span>
+              <a href="tel:+919767177577" style="color: #fff; text-decoration: none; font-weight: 700; font-size: 1.1rem;">+91 97671 77577</a>
+              <a href="https://wa.me/919767177577" target="_blank" rel="noopener noreferrer" style="color: #25D366; text-decoration: none; font-weight: 600; font-size: 0.85rem; background: rgba(37,211,102,0.12); padding: 2px 8px; border-radius: 12px; border: 1px solid rgba(37,211,102,0.35);" title="WhatsApp">WhatsApp</a>
+              <span style="color: rgba(255,255,255,0.65); font-size: 0.88rem;">/ <a href="tel:+919503283577" style="color: rgba(255,255,255,0.85); text-decoration: none;">+91 95032 83577</a></span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div id="footer-container"></div>
+
+    <script>
+      fetch("footer.html")
+        .then((response) => response.text())
+        .then((data) => {
+          const parser = new DOMParser();
+          const doc = parser.parseFromString(data, "text/html");
+          const footer = doc.querySelector("footer");
+          const styles = doc.querySelector("style");
+          if (styles) { document.head.appendChild(styles); }
+          document.getElementById("footer-container").appendChild(footer);
+        })
+        .catch((error) => console.error("Error loading footer:", error));
+    </script>
+  </body>
+</html>

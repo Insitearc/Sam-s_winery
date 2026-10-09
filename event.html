@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Events | Sam's Wine Winery</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Host private weddings, corporate retreats, and luxury dinners among the Orchards at Sam's Wine Winery in Nashik.">
+<link rel="canonical" href="https://samsfruitwines.com/event.html">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --gold:#c6a75e;
+  --dark:#0b0b0b;
+  --glass:rgba(255,255,255,0.12);
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+  font-family: "Outfit", sans-serif;;
+  background:#080808;
+  color:#fff;
+  overflow-x:hidden;
+}
+
+h1,h2,h3{
+  font-family: "Outfit", sans-serif;;
+}
+
+section{padding:8rem 0}
+
+/* ================= HERO ================= */
+.hero{
+  height:100vh;
+  background:
+    linear-gradient(to bottom,rgba(0,0,0,.3),rgba(0,0,0,.9)),
+    url("images/hero-events.jpg") center/cover fixed;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+}
+
+.hero h1{
+  font-size:5rem;
+  letter-spacing:2px;
+  animation:fadeUp 1.2s ease;
+}
+
+.hero span{
+  display:block;
+  margin-top:1rem;
+  color:var(--gold);
+  letter-spacing:4px;
+}
+
+/* ================= EDITORIAL ================= */
+.editorial{
+  max-width:1300px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:6rem;
+  align-items:center;
+}
+
+.editorial img{
+  width:100%;
+  border-radius:20px;
+  box-shadow:0 40px 120px rgba(0,0,0,.6);
+}
+
+.editorial h2{
+  font-size:3.4rem;
+  line-height:1.2;
+}
+
+.editorial p{
+  opacity:.8;
+  margin-top:1.5rem;
+  font-size:1.05rem;
+}
+
+/* ================= TABS ================= */
+.tabs{
+  display:flex;
+  justify-content:center;
+  gap:4rem;
+}
+
+.tab{
+  background:none;
+  border:none;
+  color:#aaa;
+  font-size:1rem;
+  cursor:pointer;
+  position:relative;
+  transition:.3s;
+}
+
+.tab.active,
+.tab:hover{color:#fff}
+
+.tab::after{
+  content:'';
+  position:absolute;
+  bottom:-10px;
+  left:50%;
+  width:0;
+  height:2px;
+  background:var(--gold);
+  transform:translateX(-50%);
+  transition:.3s;
+}
+
+.tab.active::after{width:120%}
+
+/* ================= EVENT CARD ================= */
+.card{
+  max-width:1200px;
+  margin:5rem auto 0;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  background:var(--glass);
+  backdrop-filter:blur(25px);
+  border-radius:30px;
+  overflow:hidden;
+  box-shadow:0 60px 160px rgba(0,0,0,.7);
+}
+
+.card-content{
+  padding:5rem;
+}
+
+.card-label{
+  color:var(--gold);
+  letter-spacing:3px;
+  font-size:.75rem;
+}
+
+.card h2{
+  font-size:3rem;
+  margin:1rem 0;
+}
+
+.card p{
+  opacity:.85;
+}
+
+.card-price{
+  margin-top:2rem;
+  font-weight:500;
+}
+
+.card-btn{
+  display:inline-block;
+  margin-top:2rem;
+  padding:1rem 2.5rem;
+  border:1px solid var(--gold);
+  color:var(--gold);
+  text-decoration:none;
+  transition:.4s;
+}
+
+.card-btn:hover{
+  background:var(--gold);
+  color:#000;
+}
+
+.card img{
+  width:100%;
+  height:100%;
+  object-fit:fill;
+  filter:contrast(1.05) brightness(.9);
+}
+
+/* ================= FEATURE STRIP ================= */
+.features{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:3rem;
+  max-width:1300px;
+  margin:auto;
+}
+
+.feature{
+  position:relative;
+  overflow:hidden;
+  border-radius:25px;
+}
+
+.feature img{
+  width:100%;
+  height:100%;
+  object-fit:fill;
+  transition:1s;
+}
+
+.feature:hover img{
+  transform:scale(1.08);
+}
+
+.feature div{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to top,rgba(0,0,0,.8),transparent);
+  padding:3rem;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+}
+
+.feature h3{
+  letter-spacing:2px;
+}
+
+/* ================= GALLERY ================= */
+.gallery{
+  max-width:1400px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:2rem;
+}
+
+.gallery img{
+  width:100%;
+  border-radius:20px;
+  transition:.6s;
+}
+
+.gallery img:hover{
+  transform:scale(1.04);
+}
+
+/* ================= ANIM ================= */
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(40px)}
+  to{opacity:1;transform:none}
+}
+
+/* ================= MOBILE ================= */
+@media(max-width:900px){
+  .editorial,.card,.features,.gallery{
+    grid-template-columns:1fr;
+  }
+  .hero h1{font-size:3rem}
+}
+</style>
+</head>
+
+<body>
+<div id="header-container"></div>
+<script>
+  fetch('header.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('header-container').innerHTML = data;
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(data, 'text/html');
+      const evalScripts = (container) => {
+        const scripts = container.querySelectorAll('script');
+        scripts.forEach(script => {
+          const newScript = document.createElement('script');
+          if (script.src) {
+            newScript.src = script.src;
+          } else {
+            newScript.textContent = script.textContent;
+          }
+          document.body.appendChild(newScript);
+        });
+      };
+      evalScripts(document.getElementById('header-container'));
+    });
+</script>
+<section class="hero">
+  <div>
+    <h1>Private Events</h1>
+    <span>Sam's Wine ESTATE</span>
+  </div>
+</section>
+
+<!-- EDITORIAL -->
+<section>
+  <div class="editorial">
+    <img src="images/wedding.jpg" alt="Winery Wedding Celebration among the Vines">
+    <div>
+      <h2>Moments Worth Celebrating<br>Among the Vines</h2>
+      <p>From intimate dinners to grand celebrations, Sam's Wine Winery offers an unforgettable setting shaped by nature, wine, and refined hospitality.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TABS -->
+<section>
+  <div class="tabs">
+    <button class="tab active" data-tab="weddings">Weddings</button>
+    <button class="tab" data-tab="corporate">Corporate</button>
+    <button class="tab" data-tab="private">Private Dinners</button>
+  </div>
+
+  <div class="card" id="card">
+    <div class="card-content">
+      <span class="card-label">CELEBRATE</span>
+      <h2 id="title">Winery Weddings</h2>
+      <p id="desc">Exchange vows surrounded by rolling Orchards and golden sunsets.</p>
+      <div class="card-price" id="price">Packages from $5,000</div>
+      <a class="card-btn">Inquire</a>
+    </div>
+    <img id="img" src="images/wedding-hero.jpeg" alt="Luxury Winery Wedding Experience">
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section>
+  <div class="features">
+    <div class="feature">
+      <img src="images/image.jpg" alt="Gourmet Catering Session at Sam's Wine">
+      <div><h3>GOURMET CATERING</h3></div>
+    </div>
+    <div class="feature">
+      <img src="images/event decor.jpg" alt="Luxury Event Decor and Styling">
+      <div><h3>EVENT DESIGN</h3></div>
+    </div>
+    <div class="feature">
+      <img src="images/tours.jpeg" alt="Private Winery and Orchards Tour">
+      <div><h3>PRIVATE TOURS</h3></div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section>
+  <div class="gallery">
+    <img src="images/gallery1.jpg" alt="Private Event Gallery Photo 1">
+    <img src="images/gallery-2.jpg" alt="Private Event Gallery Photo 2">
+    <img src="images/gallery-3.jpeg" alt="Private Event Gallery Photo 3">
+  </div>
+</section>
+
+<script>
+const data={
+  weddings:{
+    t:"Winery Weddings",
+    d:"Exchange vows surrounded by rolling Orchards and golden sunsets.",
+    p:"Packages from $5,000",
+    i:"images/wedding-hero.jpeg"
+  },
+  corporate:{
+    t:"Corporate Retreats",
+    d:"Inspire teams with private meetings, tastings, and Orchards experiences.",
+    p:"Custom Corporate Rates",
+    i:"images/corporate-event.jpeg"
+  },
+  private:{
+    t:"Private Dinners",
+    d:"Chef-led dining experiences in our barrel room or under the stars.",
+    p:"$150 per guest",
+    i:"images/private-dinner.jpeg"
+  }
+};
+
+document.querySelectorAll(".tab").forEach(tab=>{
+  tab.onclick=()=>{
+    document.querySelectorAll(".tab").forEach(t=>t.classList.remove("active"));
+    tab.classList.add("active");
+    const d=data[tab.dataset.tab];
+    title.textContent=d.t;
+    desc.textContent=d.d;
+    price.textContent=d.p;
+    img.src=d.i;
+  }
+});
+</script>
+
+<div id="footer-container"></div>
+<script>
+  fetch("footer.html")
+    .then((response) => response.text())
+    .then((data) => {
+      document.getElementById("footer-container").innerHTML = data;
+    });
+</script>
+</body>
+</html>

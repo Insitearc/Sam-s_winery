@@ -1,0 +1,2 @@
+# Prevent direct public HTTP access to private uploaded documents (Aadhaar cards)
+Deny from all
